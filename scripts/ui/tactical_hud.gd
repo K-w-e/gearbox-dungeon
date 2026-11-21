@@ -4,6 +4,7 @@ extends CanvasLayer
 signal fullscreen_toggle_requested
 signal pause_toggle_requested
 signal guide_toggle_requested
+signal quit_requested
 signal tour_next_requested
 signal tour_prev_requested
 signal tour_skip_requested
@@ -19,10 +20,12 @@ var tooltip_panel: PanelContainer
 var tooltip_title_lbl: Label
 var tooltip_desc_lbl: Label
 
+var web_bar_layer: CanvasLayer
 var web_bar: HBoxContainer
 var web_guide_btn: Button
 var web_fs_btn: Button
 var web_pause_btn: Button
+var web_quit_btn: Button
 
 var tour_panel: PanelContainer
 var tour_header_lbl: Label
@@ -247,13 +250,17 @@ func hide_item_tooltip() -> void:
 		tooltip_panel.visible = false
 
 func _build_web_quick_bar(panel_bg: Color, brd_sel: Color) -> void:
+	web_bar_layer = CanvasLayer.new()
+	web_bar_layer.layer = 15
+	add_child(web_bar_layer)
+
 	web_bar = HBoxContainer.new()
 	web_bar.set_anchors_preset(Control.PRESET_TOP_RIGHT)
 	web_bar.grow_horizontal = Control.GROW_DIRECTION_BEGIN
 	web_bar.offset_top = 10.0
 	web_bar.offset_right = -12.0
 	web_bar.add_theme_constant_override("separation", 6)
-	add_child(web_bar)
+	web_bar_layer.add_child(web_bar)
 
 	web_guide_btn = _make_hud_button("[H] GUIDE", panel_bg.darkened(0.15), brd_sel * 0.80)
 	web_guide_btn.add_theme_font_size_override("font_size", 13)
@@ -269,19 +276,29 @@ func _build_web_quick_bar(panel_bg: Color, brd_sel: Color) -> void:
 	web_pause_btn.pressed.connect(func() -> void: pause_toggle_requested.emit())
 	web_bar.add_child(web_pause_btn)
 
-	web_fs_btn = _make_hud_button("[F] FULLSCREEN", panel_bg.darkened(0.15), brd_sel * 0.80)
+	web_fs_btn = _make_hud_button(repo.get_ui_text("terminal", "hud_btn_fullscreen"), panel_bg.darkened(0.15), brd_sel * 0.80)
 	web_fs_btn.add_theme_font_size_override("font_size", 13)
 	web_fs_btn.focus_mode = Control.FOCUS_NONE
 	web_fs_btn.pressed.connect(func() -> void: fullscreen_toggle_requested.emit())
 	web_bar.add_child(web_fs_btn)
 
+	var col_red: Color = repo.get_palette_color("redline_glow")
+	web_quit_btn = _make_hud_button(repo.get_ui_text("terminal", "hud_btn_quit"), Color(col_red.r * 0.22, col_red.g * 0.08, col_red.b * 0.08, 0.96), col_red * 0.92)
+	web_quit_btn.add_theme_font_size_override("font_size", 13)
+	web_quit_btn.focus_mode = Control.FOCUS_NONE
+	web_quit_btn.visible = not OS.has_feature("web")
+	web_quit_btn.pressed.connect(func() -> void: quit_requested.emit())
+	web_bar.add_child(web_quit_btn)
+
 func sync_web_bar_state(is_fullscreen: bool, can_pause: bool, in_combat: bool = false) -> void:
 	if web_fs_btn != null:
-		web_fs_btn.text = "[F] WINDOWED" if is_fullscreen else "[F] FULLSCREEN"
+		web_fs_btn.text = repo.get_ui_text("terminal", "hud_btn_exit_fullscreen" if is_fullscreen else "hud_btn_fullscreen")
 	if web_pause_btn != null:
 		web_pause_btn.visible = can_pause
 	if web_guide_btn != null:
 		web_guide_btn.visible = in_combat
+	if web_quit_btn != null:
+		web_quit_btn.visible = not OS.has_feature("web")
 
 func _make_hud_button(text: String, bg: Color, brd: Color) -> Button:
 	var btn: Button = Button.new()

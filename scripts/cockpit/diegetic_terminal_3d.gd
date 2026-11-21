@@ -648,13 +648,15 @@ class _TerminalCanvas extends Control:
 				_build_site_card_pick_hotspots(sz, rep, eng)
 
 			"pause_menu":
-				var col_w: float = 560.0
+				var is_desktop: bool = not OS.has_feature("web")
+				var col_w: float = 580.0
 				var btn_x: float = (sz.x - col_w) * 0.5
-				var btn_h: float = 98.0
-				var gap_y: float = 20.0
-				var start_y: float = 148.0
+				var btn_h: float = 72.0 if is_desktop else 82.0
+				var gap_y: float = 12.0 if is_desktop else 16.0
+				var start_y: float = 116.0 if is_desktop else 128.0
+				var row_i: int = 0
 				terminal.hotspots.append({
-					"rect": Rect2(btn_x, start_y, col_w, btn_h),
+					"rect": Rect2(btn_x, start_y + float(row_i) * (btn_h + gap_y), col_w, btn_h),
 					"kind": "medallion_action",
 					"icon": "launch",
 					"title": rep.get_ui_text("terminal", "pause_resume_title"),
@@ -666,8 +668,9 @@ class _TerminalCanvas extends Control:
 					"action": func() -> void:
 						terminal.close_pause_menu()
 				})
+				row_i += 1
 				terminal.hotspots.append({
-					"rect": Rect2(btn_x, start_y + (btn_h + gap_y), col_w, btn_h),
+					"rect": Rect2(btn_x, start_y + float(row_i) * (btn_h + gap_y), col_w, btn_h),
 					"kind": "medallion_action",
 					"icon": "reroll",
 					"title": rep.get_ui_text("terminal", "pause_restart_title"),
@@ -681,9 +684,10 @@ class _TerminalCanvas extends Control:
 						terminal.is_deployed = false
 						terminal.pause_action_pressed.emit("restart_run")
 				})
+				row_i += 1
 				var aud_title: String = rep.get_ui_text("terminal", "pause_audio_title_fmt") % terminal.pause_audio_label
 				terminal.hotspots.append({
-					"rect": Rect2(btn_x, start_y + 2.0 * (btn_h + gap_y), col_w, btn_h),
+					"rect": Rect2(btn_x, start_y + float(row_i) * (btn_h + gap_y), col_w, btn_h),
 					"kind": "medallion_action",
 					"icon": "scrap",
 					"title": aud_title,
@@ -695,14 +699,31 @@ class _TerminalCanvas extends Control:
 					"action": func() -> void:
 						terminal.pause_action_pressed.emit("cycle_audio")
 				})
+				row_i += 1
+				var disp_mode_txt: String = rep.get_ui_text("terminal", "pause_mode_fullscreen" if terminal.pause_fullscreen_active else "pause_mode_windowed")
+				var disp_title: String = rep.get_ui_text("terminal", "pause_display_title_fmt") % disp_mode_txt
 				terminal.hotspots.append({
-					"rect": Rect2(btn_x, start_y + 3.0 * (btn_h + gap_y), col_w, btn_h),
+					"rect": Rect2(btn_x, start_y + float(row_i) * (btn_h + gap_y), col_w, btn_h),
+					"kind": "medallion_action",
+					"icon": "shield",
+					"title": disp_title,
+					"subtitle": rep.get_ui_text("terminal", "pause_display_sub"),
+					"shortcut": "4",
+					"color": rep.get_palette_color("kw_shield"),
+					"enabled": true,
+					"hint": rep.get_ui_text("terminal", "pause_display_sub"),
+					"action": func() -> void:
+						terminal.pause_action_pressed.emit("toggle_fullscreen")
+				})
+				row_i += 1
+				terminal.hotspots.append({
+					"rect": Rect2(btn_x, start_y + float(row_i) * (btn_h + gap_y), col_w, btn_h),
 					"kind": "medallion_action",
 					"icon": "cancel",
 					"title": rep.get_ui_text("terminal", "pause_hangar_title"),
 					"subtitle": rep.get_ui_text("terminal", "pause_hangar_sub"),
-					"shortcut": "4",
-					"color": rep.get_palette_color("redline_glow"),
+					"shortcut": "5",
+					"color": rep.get_palette_color("kw_ram"),
 					"enabled": true,
 					"hint": rep.get_ui_text("terminal", "pause_hangar_sub"),
 					"action": func() -> void:
@@ -710,6 +731,21 @@ class _TerminalCanvas extends Control:
 						terminal.is_deployed = false
 						terminal.pause_action_pressed.emit("hangar")
 				})
+				if is_desktop:
+					row_i += 1
+					terminal.hotspots.append({
+						"rect": Rect2(btn_x, start_y + float(row_i) * (btn_h + gap_y), col_w, btn_h),
+						"kind": "medallion_action",
+						"icon": "cancel",
+						"title": rep.get_ui_text("terminal", "pause_quit_title"),
+						"subtitle": rep.get_ui_text("terminal", "pause_quit_sub"),
+						"shortcut": "6",
+						"color": rep.get_palette_color("redline_glow"),
+						"enabled": true,
+						"hint": rep.get_ui_text("terminal", "pause_quit_sub"),
+						"action": func() -> void:
+							terminal.pause_action_pressed.emit("quit_game")
+					})
 
 	func _build_workshop_main_hotspots(sz: Vector2, rep: GameRepository, eng: CombatEngine) -> void:
 		var card_w: float = 232.0

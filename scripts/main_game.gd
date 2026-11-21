@@ -249,6 +249,7 @@ func _connect_signals() -> void:
 	)
 
 	hud.fullscreen_toggle_requested.connect(_toggle_fullscreen_mode)
+	hud.quit_requested.connect(_on_quit_requested)
 	hud.guide_toggle_requested.connect(_toggle_cockpit_guide)
 	hud.tour_next_requested.connect(func() -> void: tutorial_ctrl.next_step())
 	hud.tour_prev_requested.connect(func() -> void: tutorial_ctrl.prev_step())
@@ -321,10 +322,7 @@ func _connect_signals() -> void:
 	main_menu.quality_cycle_requested.connect(func() -> void:
 		_on_pause_action("cycle_quality")
 	)
-	main_menu.quit_requested.connect(func() -> void:
-		if get_tree() != null:
-			get_tree().quit()
-	)
+	main_menu.quit_requested.connect(_on_quit_requested)
 	main_menu.menu_hover_activity.connect(func(boost: float, _gear_slot: int) -> void:
 		if title_backdrop != null:
 			title_backdrop.set_activity_boost(boost)
@@ -691,6 +689,20 @@ func _on_pause_action(action_id: String) -> void:
 			_cancel_card_interaction()
 			overhead_ctrl.set_tutorial_objective("")
 			engine.enter_title_screen()
+		"quit_game":
+			_on_quit_requested()
+
+func _on_quit_requested() -> void:
+	if OS.has_feature("web"):
+		if _is_fullscreen_active():
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			_sync_pause_menu_state()
+		return
+	if engine != null and engine.mode != CombatEngine.MODE_TITLE and not engine.tutorial_active:
+		engine.save_active_run()
+	_save_pilot_profile()
+	if get_tree() != null:
+		get_tree().quit()
 
 func _on_title_action(action_id: String) -> void:
 	if action_id.begins_with("run:"):

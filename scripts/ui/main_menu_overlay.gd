@@ -234,12 +234,13 @@ func set_menu_visible(show_menu: bool) -> void:
 		chassis_preview_changed.emit(selected_chassis_id)
 
 func sync_settings_labels(eng_lbl: String, sfx_lbl: String, is_muted: bool, is_fs: bool, qual_lbl: String) -> void:
+	var fs_changed: bool = (fullscreen_active != is_fs)
 	engine_audio_label = eng_lbl
 	sfx_audio_label = sfx_lbl
 	audio_muted = is_muted
 	fullscreen_active = is_fs
 	quality_label = qual_lbl
-	if is_menu_visible and current_view == VIEW_SYSTEMS:
+	if is_menu_visible and (current_view == VIEW_SYSTEMS or (current_view == VIEW_MAIN and fs_changed and OS.has_feature("web"))):
 		rebuild_view()
 
 func sync_pilot_data(stats: Dictionary, _overdrive_lvl: int, recommend_tutorial: bool) -> void:
@@ -434,6 +435,17 @@ func _build_main_view() -> void:
 			0.20,
 			func() -> void:
 				quit_requested.emit()
+		)
+	elif fullscreen_active:
+		_add_action_plate(
+			str(slot_num),
+			repo.get_ui_text("main_menu", "btn_exit_web_fs"),
+			repo.get_ui_text("main_menu", "btn_exit_web_fs_sub"),
+			col_red,
+			-1,
+			0.20,
+			func() -> void:
+				fullscreen_toggle_requested.emit()
 		)
 
 func _build_chassis_view() -> void:
