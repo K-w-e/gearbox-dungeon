@@ -1,0 +1,1406 @@
+{
+  "models": {
+    "cockpit_interior": "res://assets/models/cockpit_interior.glb",
+    "cockpit_bulldozer": "res://assets/models/cockpit_bulldozer.glb",
+    "cockpit_turbo_proto": "res://assets/models/cockpit_turbo_proto.glb",
+    "steering_wheel": "res://assets/models/steering_wheel.glb",
+    "steering_bulldozer": "res://assets/models/steering_bulldozer.glb",
+    "steering_turbo_proto": "res://assets/models/steering_turbo_proto.glb",
+    "tachometer_unit": "res://assets/models/tachometer_unit.glb",
+    "gauge_needle": "res://assets/models/gauge_needle.glb",
+    "gearbox_gate": "res://assets/models/gearbox_gate.glb",
+    "shift_lever": "res://assets/models/shift_lever.glb",
+    "slam_button_base": "res://assets/models/slam_button_base.glb",
+    "slam_button_cap": "res://assets/models/slam_button_cap.glb",
+    "toggle_base": "res://assets/models/toggle_base.glb",
+    "toggle_lever": "res://assets/models/toggle_lever.glb",
+    "warning_lamp": "res://assets/models/warning_lamp.glb",
+    "card_frame_3d": "res://assets/models/card_frame_3d.glb",
+    "dungeon_segment": "res://assets/models/dungeon_segment.glb",
+    "dungeon_fork": "res://assets/models/dungeon_fork.glb",
+    "overhead_telemetry_pod": "res://assets/models/overhead_telemetry_pod.glb",
+    "drop_down_terminal": "res://assets/models/drop_down_terminal.glb",
+    "cockpit_navigator": "res://assets/models/cockpit_navigator.glb",
+    "prop_wall_machinery": "res://assets/models/prop_wall_machinery.glb",
+    "prop_ceiling_fan_duct": "res://assets/models/prop_ceiling_fan_duct.glb",
+    "prop_roadside_hazard": "res://assets/models/prop_roadside_hazard.glb",
+    "prop_workshop_bay": "res://assets/models/prop_workshop_bay.glb",
+    "node_rest_shelter": "res://assets/models/node_rest_shelter.glb",
+    "node_upgrade_forge": "res://assets/models/node_upgrade_forge.glb",
+    "node_elite_arena": "res://assets/models/node_elite_arena.glb",
+    "node_event_ruined_road": "res://assets/models/node_event_ruined_road.glb",
+    "node_event_convoy": "res://assets/models/node_event_convoy.glb",
+    "node_event_monolith": "res://assets/models/node_event_monolith.glb",
+    "node_event_toxic_spill": "res://assets/models/node_event_toxic_spill.glb"
+  },
+  "typography": {
+    "display": "res://assets/fonts/ChakraPetch-Bold.ttf",
+    "body_bold": "res://assets/fonts/Rajdhani-Bold.ttf",
+    "body": "res://assets/fonts/Rajdhani-SemiBold.ttf",
+    "mono": "res://assets/fonts/ShareTechMono-Regular.ttf",
+    "outline_color": [
+      0.03,
+      0.022,
+      0.015,
+      0.96
+    ]
+  },
+  "screen_style": {
+    "msaa_2d": 2,
+    "scanline_spacing_px": 4.0,
+    "scanline_alpha": 0.14,
+    "vignette_band_px": 14.0,
+    "vignette_alpha": 0.3,
+    "hazard_stripe_width_px": 14.0,
+    "hazard_stripe_gap_px": 10.0,
+    "hazard_stripe_alpha": 0.22,
+    "rivet_radius_px": 3.6,
+    "bracket_len_px": 18.0,
+    "bracket_width_px": 2.6
+  },
+  "shell_overrides": {
+    "hide_nodes": [
+      "OverheadTacticalPod",
+      "MFDBezelOuter",
+      "MFDScreenFace"
+    ],
+    "reposition_nodes": {
+      "ShifterPedestal": [
+        0.555,
+        0.485,
+        -0.355
+      ],
+      "TransmissionTunnel": [
+        0.555,
+        0.3,
+        -0.42
+      ],
+      "ControlDeckRight": [
+        0.71,
+        0.78,
+        -0.62
+      ]
+    },
+    "rotate_nodes": {
+      "ControlDeckRight": [
+        26.0,
+        -22.0,
+        0.0
+      ]
+    }
+  },
+  "camera": {
+    "eye_position": [
+      0.0,
+      1.155,
+      0.24
+    ],
+    "base_pitch_deg": -16.2,
+    "base_yaw_deg": 0.0,
+    "fov_deg": 78.0,
+    "near_clip": 0.04,
+    "far_clip": 90.0,
+    "cursor_parallax_yaw_deg": 4.2,
+    "cursor_parallax_pitch_deg": 2.6,
+    "manual_pan_sensitivity": 0.14,
+    "keyboard_pan_speed_deg": 48.0,
+    "max_yaw_left_deg": 32.0,
+    "max_yaw_right_deg": 34.0,
+    "max_pitch_up_deg": 16.0,
+    "max_pitch_down_deg": 24.0,
+    "look_smoothing": 10.5,
+    "rpm_vibration_threshold_units": 6,
+    "rpm_vibration_amplitude": 0.0032,
+    "trauma_decay": 2.4,
+    "max_shake_offset": 0.028,
+    "max_shake_roll_deg": 2.4,
+    "ray_length": 30.0
+  },
+  "navigator_3d": {
+    "collision_layer": 2,
+    "pos": [
+      -0.575,
+      0.935,
+      -0.625
+    ],
+    "rot_deg": [
+      -7.0,
+      20.0,
+      0.0
+    ],
+    "scale": [
+      0.94,
+      0.94,
+      0.94
+    ],
+    "zoom_pos": [
+      -0.12,
+      0.91,
+      -0.29
+    ],
+    "zoom_rot_deg": [
+      -13.5,
+      2.5,
+      0.0
+    ],
+    "zoom_scale": [
+      1.68,
+      1.68,
+      1.68
+    ],
+    "zoom_smoothing": 11.5,
+    "screen_size_m": [
+      0.22,
+      0.252
+    ],
+    "screen_offset": [
+      0.0,
+      0.0,
+      0.0205
+    ],
+    "collider_depth": 0.024,
+    "viewport_size": [
+      640,
+      736
+    ],
+    "compass_smoothing": 6.5,
+    "knob_step_deg": 45.0,
+    "knob_smoothing": 12.0,
+    "signal_pulse_speed": 3.8,
+    "radar_sweep_speed": 0.42,
+    "graph_margin_x": 64.0,
+    "graph_top_y": 68.0,
+    "graph_bottom_y": 512.0,
+    "node_radius": 16.0,
+    "node_hit_radius": 26.0
+  },
+  "encounter_site_3d": {
+    "collision_layer": 64,
+    "road_y": -0.08,
+    "approach_start_z": -19.5,
+    "stop_z": -6.15,
+    "elite_arena_z": -6.10,
+    "approach_duration_s": 0.72,
+    "header_pos": [
+      0.0,
+      1.68,
+      -3.45
+    ],
+    "header_rot_deg": [
+      8.0,
+      0.0,
+      0.0
+    ],
+    "header_size_m": [
+      2.68,
+      0.52
+    ],
+    "header_viewport": [
+      760,
+      160
+    ],
+    "choice_size_m": [
+      1.04,
+      0.45
+    ],
+    "choice_viewport": [
+      400,
+      182
+    ],
+    "choice_collider_depth": 0.16,
+    "stanchion_radius_m": 0.032,
+    "bezel_pad_m": 0.028,
+    "bezel_depth_m": 0.048,
+    "choice_slots": [
+      {
+        "pos": [
+          -1.14,
+          1.15,
+          -3.05
+        ],
+        "rot_deg": [
+          -10.0,
+          13.0,
+          0.0
+        ]
+      },
+      {
+        "pos": [
+          0.0,
+          1.14,
+          -2.98
+        ],
+        "rot_deg": [
+          -10.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "pos": [
+          1.14,
+          1.15,
+          -3.05
+        ],
+        "rot_deg": [
+          -10.0,
+          -13.0,
+          0.0
+        ]
+      }
+    ],
+    "shelter_arm_sway_deg": 12.0,
+    "shelter_arm_speed": 2.1,
+    "forge_roller_deg_per_sec": 220.0,
+    "forge_hammer_stroke_m": 0.44,
+    "forge_hammer_speed": 3.4,
+    "elite_strobe_deg_per_sec": 260.0,
+    "elite_flame_pulse_speed": 7.5,
+    "convoy_beacon_deg_per_sec": 240.0,
+    "monolith_ring_deg_per_sec": 68.0,
+    "monolith_claw_sway_deg": 10.5,
+    "decon_fan_deg_per_sec": 320.0,
+    "fx_interval_s": 0.36
+  },
+  "road_fork": {
+    "collision_layer": 32,
+    "road_y": -0.08,
+    "approach_start_z": -22.0,
+    "stop_z": 0.0,
+    "approach_duration_s": 0.88,
+    "drive_duration_s": 1.68,
+    "branch_angle_deg": 27.0,
+    "bezier_p1_z": -5.2,
+    "bezier_p2": [
+      1.65,
+      0.0,
+      -8.5
+    ],
+    "bezier_p3": [
+      6.2,
+      0.0,
+      -17.43
+    ],
+    "extension_segment_count": 2,
+    "extension_start_dist": 31.8,
+    "steer_wheel_turn_deg": 82.0,
+    "steer_hover_preview_deg": 18.0,
+    "chassis_bank_roll_deg": 3.4,
+    "chassis_turn_squat_y": -0.035,
+    "camera_apex_yaw_deg": 11.5,
+    "trajectory_enabled": true,
+    "trajectory_dash_count": 16,
+    "trajectory_dash_width_m": 0.34,
+    "trajectory_dash_length_m": 0.62,
+    "trajectory_y_offset": 0.035,
+    "trajectory_stream_speed": 1.6,
+    "trajectory_stream_freq": 3.0,
+    "trajectory_base_alpha": 0.88,
+    "left_sign_pos": [
+      -1.32,
+      1.72,
+      -4.35
+    ],
+    "left_sign_rot_deg": [
+      4.0,
+      11.0,
+      0.0
+    ],
+    "right_sign_pos": [
+      1.32,
+      1.72,
+      -4.35
+    ],
+    "right_sign_rot_deg": [
+      4.0,
+      -11.0,
+      0.0
+    ],
+    "sign_size_m": [
+      2.14,
+      0.96
+    ],
+    "sign_viewport": [
+      600,
+      270
+    ],
+    "sign_bezel_pad_m": 0.045,
+    "sign_bezel_depth_m": 0.075,
+    "gantry_beam_y": 2.28,
+    "gantry_pillar_x": 2.66,
+    "gantry_z": -4.44,
+    "sign_collider_depth": 0.22,
+    "left_lane_collider_pos": [
+      -2.25,
+      1.35,
+      -10.8
+    ],
+    "left_lane_collider_rot_deg": [
+      0.0,
+      27.0,
+      0.0
+    ],
+    "right_lane_collider_pos": [
+      2.25,
+      1.35,
+      -10.8
+    ],
+    "right_lane_collider_rot_deg": [
+      0.0,
+      -27.0,
+      0.0
+    ],
+    "lane_collider_size": [
+      3.2,
+      2.7,
+      7.5
+    ],
+    "tunnel_hide_progress_threshold": 0.02
+  },
+  "world_props": {
+    "loop_span_z": 36.0,
+    "start_z": 3.0,
+    "wall_x": 3.04,
+    "wall_machinery_count": 4,
+    "wall_machinery_spacing_z": 9.0,
+    "ceiling_fan_count": 3,
+    "ceiling_fan_y": 3.8,
+    "ceiling_fan_spacing_z": 12.0,
+    "roadside_hazard_count": 4,
+    "roadside_hazard_x": 2.38,
+    "roadside_hazard_spacing_z": 9.0,
+    "gear_large_deg_per_sec": 76.0,
+    "gear_small_deg_per_sec": -132.0,
+    "piston_stroke_m": 0.24,
+    "piston_speed": 4.2,
+    "fan_deg_per_sec": 240.0,
+    "cable_sway_deg": 7.5,
+    "cable_sway_speed": 2.3,
+    "gyro_deg_per_sec": 300.0,
+    "steam_interval_s": 2.35,
+    "workshop_bay_z": -5.6,
+    "welder_sway_deg": 14.0,
+    "welder_speed": 2.6,
+    "welder_spark_interval_s": 0.42
+  },
+  "overhead_pod": {
+    "pos": [
+      0.0,
+      1.418,
+      -0.52
+    ],
+    "rot_deg": [
+      19.0,
+      0.0,
+      0.0
+    ],
+    "screen_size_m": [
+      0.92,
+      0.106
+    ],
+    "screen_offset": [
+      0.0,
+      0.0,
+      0.022
+    ],
+    "viewport_size": [
+      1180,
+      142
+    ],
+    "pod_model_scale": [
+      1.18,
+      1.04,
+      1.0
+    ],
+    "track_start_x": 34.0,
+    "track_y": 58.0,
+    "track_max_width": 410.0,
+    "track_max_step": 46.0,
+    "node_symbols": {
+      "workshop": "$",
+      "rest": "+",
+      "upgrade": "U",
+      "event": "?",
+      "elite": "E",
+      "boss": "B"
+    }
+  },
+  "terminal_3d": {
+    "hinge_pos": [
+      0.0,
+      1.46,
+      -0.35
+    ],
+    "hinge_yaw_deg": 0.0,
+    "folded_pitch_deg": 95.0,
+    "deployed_pitch_deg": -10.5,
+    "deploy_speed": 9.5,
+    "screen_size_m": [
+      0.786,
+      0.418
+    ],
+    "screen_offset": [
+      0.0,
+      -0.271,
+      0.026
+    ],
+    "viewport_size": [
+      1280,
+      680
+    ]
+  },
+  "dashboard": {
+    "steering_wheel_pos": [
+      -0.2,
+      0.575,
+      -0.54
+    ],
+    "steering_wheel_rot_deg": [
+      -24.0,
+      0.0,
+      0.0
+    ],
+    "tachometer_pos": [
+      -0.18,
+      0.895,
+      -0.76
+    ],
+    "tachometer_rot_deg": [
+      6.0,
+      0.0,
+      0.0
+    ],
+    "rpm_dial_center_local": [
+      -0.075,
+      0.0,
+      0.019
+    ],
+    "rpm_tick_label_radius": 0.056,
+    "heat_dial_center_local": [
+      0.105,
+      -0.012,
+      0.019
+    ],
+    "heat_tick_label_radius": 0.036,
+    "rpm_needle_pos": [
+      -0.255,
+      0.895,
+      -0.736
+    ],
+    "rpm_needle_scale": 1.0,
+    "rpm_angle_zero_deg": 215.0,
+    "rpm_angle_span_deg": 250.0,
+    "rpm_shake_threshold_units": 6,
+    "rpm_shake_jitter_deg": 3.6,
+    "heat_needle_pos": [
+      -0.075,
+      0.883,
+      -0.736
+    ],
+    "heat_needle_scale": 0.64,
+    "heat_angle_zero_deg": 210.0,
+    "heat_angle_span_deg": 240.0,
+    "needle_smoothing": 11.0,
+    "mfd_pos": [
+      0.315,
+      0.902,
+      -0.635
+    ],
+    "mfd_rot_deg": [
+      -8.0,
+      -14.0,
+      0.0
+    ],
+    "mfd_size_m": [
+      0.44,
+      0.236
+    ],
+    "mfd_viewport": [
+      520,
+      280
+    ],
+    "mfd_bezel_depth": 0.02,
+    "slam_button_pos": [
+      0.676,
+      0.834,
+      -0.576
+    ],
+    "slam_button_rot_deg": [
+      26.0,
+      -22.0,
+      0.0
+    ],
+    "slam_button_scale": 1.18,
+    "slam_press_depth": 0.018,
+    "slam_label_offset": [
+      0.0,
+      0.048,
+      -0.056
+    ],
+    "slam_label_rot_deg": [
+      -38.0,
+      0.0,
+      0.0
+    ],
+    "switches": [
+      {
+        "id": "cabin_lamp",
+        "label": "AUDIO [M]",
+        "hint": "Toggle cabin engine audio [Key M]",
+        "pos": [
+          0.801,
+          0.864,
+          -0.593
+        ],
+        "rot_deg": [
+          26.0,
+          -22.0,
+          0.0
+        ]
+      }
+    ],
+    "warning_lamps": [
+      {
+        "id": "stall",
+        "label": "STALL",
+        "pos": [
+          0.135,
+          1.046,
+          -0.665
+        ],
+        "rot_deg": [
+          78.0,
+          -14.0,
+          0.0
+        ],
+        "color": [
+          1.0,
+          0.45,
+          0.1
+        ]
+      },
+      {
+        "id": "optimal",
+        "label": "OPTIMAL",
+        "pos": [
+          0.225,
+          1.046,
+          -0.643
+        ],
+        "rot_deg": [
+          78.0,
+          -14.0,
+          0.0
+        ],
+        "color": [
+          0.46,
+          0.92,
+          0.32
+        ]
+      },
+      {
+        "id": "redline",
+        "label": "REDLINE",
+        "pos": [
+          0.315,
+          1.046,
+          -0.621
+        ],
+        "rot_deg": [
+          78.0,
+          -14.0,
+          0.0
+        ],
+        "color": [
+          1.0,
+          0.22,
+          0.14
+        ]
+      },
+      {
+        "id": "heat",
+        "label": "HEAT",
+        "pos": [
+          0.405,
+          1.046,
+          -0.599
+        ],
+        "rot_deg": [
+          78.0,
+          -14.0,
+          0.0
+        ],
+        "color": [
+          1.0,
+          0.42,
+          0.12
+        ]
+      },
+      {
+        "id": "debuff",
+        "label": "ALARM",
+        "pos": [
+          0.495,
+          1.046,
+          -0.577
+        ],
+        "rot_deg": [
+          78.0,
+          -14.0,
+          0.0
+        ],
+        "color": [
+          1.0,
+          0.78,
+          0.22
+        ]
+      }
+    ]
+  },
+  "shifter": {
+    "assembly_pos": [
+      0.555,
+      0.722,
+      -0.352
+    ],
+    "assembly_rot_deg": [
+      27.0,
+      -25.0,
+      0.0
+    ],
+    "gate_scale": [
+      1.5,
+      1.25,
+      1.38
+    ],
+    "lever_scale": [
+      0.74,
+      0.34,
+      0.74
+    ],
+    "lever_pitch_deg": 6.0,
+    "lever_roll_deg": 7.0,
+    "knob_collider_radius": 0.068,
+    "neutral_band_half_z": 0.03,
+    "column_split_x": [
+      -0.056,
+      0.0,
+      0.056
+    ],
+    "lever_tween_speed": 16.0,
+    "grind_confirm_timeout_sec": 3.5,
+    "slots": {
+      "-1": {
+        "lever_xz": [
+          -0.085,
+          -0.052
+        ],
+        "pad_xz": [
+          -0.085,
+          -0.076
+        ],
+        "label_xz": [
+          -0.085,
+          -0.162
+        ],
+        "status_xz": [
+          -0.085,
+          -0.126
+        ]
+      },
+      "0": {
+        "lever_xz": [
+          0.0,
+          0.0
+        ],
+        "pad_xz": [
+          -0.085,
+          0.076
+        ],
+        "label_xz": [
+          -0.085,
+          0.158
+        ],
+        "status_xz": [
+          -0.085,
+          0.122
+        ]
+      },
+      "1": {
+        "lever_xz": [
+          -0.027,
+          -0.052
+        ],
+        "pad_xz": [
+          -0.027,
+          -0.076
+        ],
+        "label_xz": [
+          -0.027,
+          -0.162
+        ],
+        "status_xz": [
+          -0.027,
+          -0.126
+        ]
+      },
+      "2": {
+        "lever_xz": [
+          -0.027,
+          0.052
+        ],
+        "pad_xz": [
+          -0.027,
+          0.076
+        ],
+        "label_xz": [
+          -0.027,
+          0.158
+        ],
+        "status_xz": [
+          -0.027,
+          0.122
+        ]
+      },
+      "3": {
+        "lever_xz": [
+          0.027,
+          -0.052
+        ],
+        "pad_xz": [
+          0.027,
+          -0.076
+        ],
+        "label_xz": [
+          0.027,
+          -0.162
+        ],
+        "status_xz": [
+          0.027,
+          -0.126
+        ]
+      },
+      "4": {
+        "lever_xz": [
+          0.027,
+          0.052
+        ],
+        "pad_xz": [
+          0.027,
+          0.076
+        ],
+        "label_xz": [
+          0.027,
+          0.158
+        ],
+        "status_xz": [
+          0.027,
+          0.122
+        ]
+      },
+      "5": {
+        "lever_xz": [
+          0.085,
+          -0.052
+        ],
+        "pad_xz": [
+          0.085,
+          -0.076
+        ],
+        "label_xz": [
+          0.085,
+          -0.162
+        ],
+        "status_xz": [
+          0.085,
+          -0.126
+        ]
+      },
+      "6": {
+        "lever_xz": [
+          0.085,
+          0.052
+        ],
+        "pad_xz": [
+          0.085,
+          0.076
+        ],
+        "label_xz": [
+          0.085,
+          0.158
+        ],
+        "status_xz": [
+          0.085,
+          0.122
+        ]
+      }
+    }
+  },
+  "hand_3d": {
+    "anchor_pos": [
+      -0.215,
+      0.69,
+      -0.292
+    ],
+    "base_tilt_deg": -16.0,
+    "hover_tilt_deg": -14.0,
+    "arc_width": 0.8,
+    "card_spacing_x": 0.166,
+    "arc_depth_curve": 0.012,
+    "fan_angle_deg": 6.0,
+    "compatible_lift_y": 0.018,
+    "incompatible_drop_y": -0.016,
+    "hover_lift_y": 0.068,
+    "hover_forward_z": 0.058,
+    "hover_scale": 1.22,
+    "normal_scale": 1.0,
+    "selected_lift_y": 0.076,
+    "selected_forward_z": 0.066,
+    "selected_scale": 1.22,
+    "drag_lift_y": 0.022,
+    "drag_forward_z": 0.018,
+    "drag_scale": 0.94,
+    "drag_bank_roll_factor": 0.022,
+    "drag_yaw_factor": 0.015,
+    "drag_target_pitch_deg": -24.0,
+    "drag_bezier_lift_y": 0.016,
+    "drag_bezier_forward_z": 0.012,
+    "arc_forward_curve_z": 0.014,
+    "fan_yaw_deg": 4.5,
+    "card_shadow_enabled": true,
+    "card_shadow_size_m": [
+      0.165,
+      0.225
+    ],
+    "card_shadow_plane_y": -0.065,
+    "card_shadow_color": [
+      0.015,
+      0.018,
+      0.024,
+      0.58
+    ],
+    "card_shadow_lift_fade": 3.8,
+    "card_shadow_lift_spread": 0.95,
+    "smoothing_speed": 18.0,
+    "card_screen_size_m": [
+      0.156,
+      0.224
+    ],
+    "card_viewport": [
+      340,
+      488
+    ],
+    "card_frame_scale": [
+      1.27,
+      1.28,
+      1.0
+    ],
+    "drag_deadzone_px": 10.0,
+    "play_activation_screen_y_ratio": 0.66
+  },
+  "vehicle_feedback": {
+    "suspension_stiffness": 190.0,
+    "suspension_damping": 16.5,
+    "ram_lunge_impulse": [
+      0.0,
+      -0.28,
+      -0.58
+    ],
+    "ram_pitch_impulse_deg": -16.5,
+    "ram_trauma": 0.42,
+    "shot_recoil_impulse": [
+      0.0,
+      0.035,
+      0.12
+    ],
+    "shot_pitch_impulse_deg": 3.2,
+    "shot_projectile_speed": 45.0,
+    "boost_squat_impulse": [
+      0.0,
+      0.1,
+      0.24
+    ],
+    "boost_pitch_impulse_deg": 7.5,
+    "shield_duration_s": 0.85,
+    "shield_peak_intensity": 1.75,
+    "shield_color": [
+      0.2,
+      0.76,
+      1.0,
+      0.95
+    ],
+    "hood_gun_left_pos": [
+      -0.46,
+      0.94,
+      -1.35
+    ],
+    "hood_gun_right_pos": [
+      0.46,
+      0.94,
+      -1.35
+    ],
+    "ram_bumper_pos": [
+      0.0,
+      0.65,
+      -2.15
+    ],
+    "supercharger_pos": [
+      0.0,
+      1.15,
+      -1.48
+    ],
+    "hood_vent_left_pos": [
+      -0.35,
+      1.02,
+      -0.92
+    ],
+    "hood_vent_right_pos": [
+      0.35,
+      1.02,
+      -0.92
+    ]
+  },
+  "dungeon": {
+    "segment_count": 6,
+    "segment_length": 6.0,
+    "start_z": 2.0,
+    "road_y": -0.08,
+    "rpm_speed_factor": 0.18,
+    "chassis_lunge_distance": 0.45,
+    "chassis_recoil_distance": -0.22,
+    "enemy_plate_size_m": [
+      2.42,
+      0.86
+    ],
+    "enemy_plate_viewport": [
+      520,
+      186
+    ]
+  },
+  "hud": {
+    "reticle_size_px": 5.0,
+    "reticle_alpha": 0.65,
+    "arc_segments": 24,
+    "arc_width_px": 4.0
+  },
+  "lighting": {
+    "ambient_color": [
+      0.22,
+      0.21,
+      0.19
+    ],
+    "ambient_energy": 0.84,
+    "background_color": [
+      0.035,
+      0.032,
+      0.028
+    ],
+    "fog_color": [
+      0.058,
+      0.052,
+      0.044
+    ],
+    "fog_density": 0.021,
+    "cabin_light_pos": [
+      0.02,
+      1.38,
+      -0.14
+    ],
+    "cabin_light_color": [
+      1.0,
+      0.84,
+      0.58
+    ],
+    "cabin_light_energy_on": 1.48,
+    "cabin_light_energy_dim": 0.42,
+    "dash_glow_pos": [
+      0.05,
+      0.96,
+      -0.42
+    ],
+    "dash_glow_color": [
+      0.96,
+      0.74,
+      0.34
+    ],
+    "dash_glow_energy": 0.68,
+    "headlight_left_pos": [
+      -0.52,
+      0.85,
+      -2.35
+    ],
+    "headlight_right_pos": [
+      0.6,
+      0.85,
+      -2.35
+    ],
+    "headlight_color": [
+      1.0,
+      0.9,
+      0.72
+    ],
+    "headlight_energy": 4.4,
+    "headlight_range": 26.0,
+    "headlight_angle": 46.0,
+    "biome_lerp_speed": 2.4,
+    "biomes": [
+      {
+        "id": "rust_tunnels",
+        "name": "RUST MAINTENANCE TUNNELS",
+        "min_stage": 0,
+        "max_stage": 2,
+        "boss_only": false,
+        "ambient_color": [0.24, 0.20, 0.16],
+        "ambient_energy": 0.84,
+        "background_color": [0.038, 0.030, 0.024],
+        "fog_color": [0.068, 0.052, 0.038],
+        "fog_density": 0.021,
+        "headlight_color": [1.0, 0.88, 0.68]
+      },
+      {
+        "id": "chemical_conduits",
+        "name": "BIO-CHEMICAL CONDUITS",
+        "min_stage": 3,
+        "max_stage": 5,
+        "boss_only": false,
+        "ambient_color": [0.16, 0.24, 0.17],
+        "ambient_energy": 0.86,
+        "background_color": [0.024, 0.040, 0.028],
+        "fog_color": [0.042, 0.072, 0.048],
+        "fog_density": 0.024,
+        "headlight_color": [0.92, 0.98, 0.74]
+      },
+      {
+        "id": "turbine_halls",
+        "name": "HIGH-VOLTAGE TURBINE HALLS",
+        "min_stage": 6,
+        "max_stage": 8,
+        "boss_only": false,
+        "ambient_color": [0.15, 0.22, 0.28],
+        "ambient_energy": 0.88,
+        "background_color": [0.022, 0.034, 0.048],
+        "fog_color": [0.038, 0.062, 0.088],
+        "fog_density": 0.022,
+        "headlight_color": [0.82, 0.94, 1.0]
+      },
+      {
+        "id": "foundry_approach",
+        "name": "FOUNDRY CORE APPROACH",
+        "min_stage": 9,
+        "max_stage": 9,
+        "boss_only": false,
+        "ambient_color": [0.28, 0.17, 0.13],
+        "ambient_energy": 0.88,
+        "background_color": [0.048, 0.026, 0.020],
+        "fog_color": [0.086, 0.044, 0.030],
+        "fog_density": 0.023,
+        "headlight_color": [1.0, 0.82, 0.62]
+      },
+      {
+        "id": "molten_core",
+        "name": "MOLTEN CORE ARENA",
+        "min_stage": 10,
+        "max_stage": 99,
+        "boss_only": true,
+        "ambient_color": [0.34, 0.13, 0.11],
+        "ambient_energy": 0.94,
+        "background_color": [0.062, 0.020, 0.018],
+        "fog_color": [0.115, 0.036, 0.026],
+        "fog_density": 0.025,
+        "headlight_color": [1.0, 0.76, 0.56]
+      }
+    ]
+  },
+  "palette": {
+    "playable_glow": [
+      0.48,
+      0.92,
+      0.32
+    ],
+    "redline_glow": [
+      1.0,
+      0.28,
+      0.16
+    ],
+    "selected_glow": [
+      1.0,
+      0.82,
+      0.24
+    ],
+    "disabled_tint": [
+      0.56,
+      0.52,
+      0.44
+    ],
+    "slot_active": [
+      1.0,
+      0.72,
+      0.18
+    ],
+    "slot_free": [
+      0.48,
+      0.92,
+      0.32
+    ],
+    "slot_grind": [
+      1.0,
+      0.46,
+      0.14
+    ],
+    "slot_locked": [
+      0.82,
+      0.22,
+      0.18
+    ],
+    "mfd_text": [
+      0.97,
+      0.93,
+      0.82
+    ],
+    "mfd_muted": [
+      0.76,
+      0.7,
+      0.58
+    ],
+    "mfd_accent": [
+      1.0,
+      0.78,
+      0.24
+    ],
+    "mfd_bg": [
+      0.042,
+      0.036,
+      0.028,
+      0.98
+    ],
+    "mfd_panel_bg": [
+      0.072,
+      0.062,
+      0.046,
+      0.97
+    ],
+    "mfd_border": [
+      0.86,
+      0.62,
+      0.22,
+      0.96
+    ],
+    "bezel_metal": [
+      0.16,
+      0.15,
+      0.13,
+      1.0
+    ],
+    "bezel_trim": [
+      0.7,
+      0.52,
+      0.2,
+      1.0
+    ],
+    "enemy_intent": [
+      1.0,
+      0.8,
+      0.26
+    ],
+    "enemy_hp": [
+      0.98,
+      0.34,
+      0.24
+    ],
+    "cat_Starter": [
+      0.44,
+      0.54,
+      0.58
+    ],
+    "cat_Attacco": [
+      0.86,
+      0.24,
+      0.16
+    ],
+    "cat_Speronamento": [
+      0.92,
+      0.48,
+      0.12
+    ],
+    "cat_Difesa": [
+      0.28,
+      0.58,
+      0.76
+    ],
+    "cat_Raffreddamento": [
+      0.24,
+      0.68,
+      0.68
+    ],
+    "cat_Potenza": [
+      0.9,
+      0.66,
+      0.14
+    ],
+    "cat_Tecnica": [
+      0.66,
+      0.48,
+      0.24
+    ],
+    "cat_Utility": [
+      0.58,
+      0.52,
+      0.34
+    ],
+    "kw_rpm_up": [
+      0.52,
+      0.94,
+      0.34
+    ],
+    "kw_rpm_down": [
+      1.0,
+      0.68,
+      0.22
+    ],
+    "kw_damage": [
+      1.0,
+      0.4,
+      0.28
+    ],
+    "kw_ram": [
+      1.0,
+      0.56,
+      0.18
+    ],
+    "kw_shield": [
+      0.42,
+      0.82,
+      0.96
+    ],
+    "kw_shift": [
+      1.0,
+      0.82,
+      0.26
+    ],
+    "kw_heat_up": [
+      1.0,
+      0.38,
+      0.14
+    ],
+    "kw_heat_down": [
+      0.44,
+      0.88,
+      0.86
+    ],
+    "kw_draw": [
+      0.92,
+      0.74,
+      0.34
+    ],
+    "kw_debuff": [
+      0.96,
+      0.52,
+      0.36
+    ],
+    "kw_redline": [
+      1.0,
+      0.26,
+      0.18
+    ],
+    "kw_utility": [
+      0.9,
+      0.86,
+      0.74
+    ],
+    "cat_Attack": [
+      0.86,
+      0.24,
+      0.16
+    ],
+    "cat_Defense": [
+      0.28,
+      0.58,
+      0.76
+    ],
+    "cat_Power": [
+      0.9,
+      0.66,
+      0.14
+    ],
+    "cat_Cooling": [
+      0.24,
+      0.68,
+      0.68
+    ],
+    "cat_Ram": [
+      0.92,
+      0.48,
+      0.12
+    ],
+    "cat_Technique": [
+      0.66,
+      0.48,
+      0.24
+    ],
+    "nav_visited": [
+      0.52,
+      0.92,
+      0.34
+    ],
+    "nav_current": [
+      1.0,
+      0.84,
+      0.24
+    ],
+    "nav_reachable": [
+      0.94,
+      0.74,
+      0.32
+    ],
+    "nav_locked": [
+      0.38,
+      0.34,
+      0.28
+    ],
+    "fork_left_glow": [
+      0.98,
+      0.76,
+      0.22
+    ],
+    "fork_right_glow": [
+      0.98,
+      0.48,
+      0.18
+    ],
+    "node_combat": [
+      0.94,
+      0.68,
+      0.26
+    ],
+    "node_elite": [
+      1.0,
+      0.26,
+      0.2
+    ],
+    "node_workshop": [
+      1.0,
+      0.82,
+      0.24
+    ],
+    "node_rest": [
+      0.48,
+      0.92,
+      0.36
+    ],
+    "node_upgrade": [
+      0.98,
+      0.54,
+      0.2
+    ],
+    "node_event": [
+      0.44,
+      0.84,
+      0.94
+    ],
+    "node_boss": [
+      1.0,
+      0.2,
+      0.16
+    ]
+  }
+}

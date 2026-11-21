@@ -1,0 +1,96 @@
+[
+  {
+    "id": "turbina_maggiorata",
+    "name": "Heavy-Duty Turbine",
+    "cost": 50,
+    "bonus_damage_high_rpm": 4,
+    "min_rpm_units_threshold": 4,
+    "description": "With at least 4,000 RPM, all your attacks deal +4 extra damage."
+  },
+  {
+    "id": "radiatore_rame",
+    "name": "Copper Core Radiator",
+    "cost": 45,
+    "turn_start_heat_reduction": 1,
+    "description": "At the start of each of your turns, reduces Heat by -1."
+  },
+  {
+    "id": "frizione_rinforzata",
+    "name": "Reinforced Clutch",
+    "cost": 55,
+    "grind_hull_immune": true,
+    "description": "Forced gear shifts (Gear Grind) no longer deal Hull damage."
+  },
+  {
+    "id": "volano_alleggerito",
+    "name": "Lightweight Flywheel",
+    "cost": 40,
+    "prevent_natural_decay": true,
+    "description": "Negates the natural decay of -1,000 RPM at the start of your turn."
+  },
+  {
+    "id": "alternatore_corsa",
+    "name": "Racing Alternator",
+    "cost": 45,
+    "starting_rpm_bonus_units": 2,
+    "description": "Start every combat with +2,000 extra RPM."
+  },
+  {
+    "id": "scambiatore_calore",
+    "name": "Heat Exchanger",
+    "cost": 50,
+    "max_heat_bonus": 1,
+    "description": "Increases maximum Heat threshold by +1 before Overheat occurs."
+  },
+  {
+    "id": "paraurti_titanio",
+    "name": "Titanium Bumper",
+    "cost": 48,
+    "low_gear_turn_block": 5,
+    "description": "Starting your turn in R, 1st, or 2nd gear immediately grants +5 Shield."
+  },
+  {
+    "id": "iniettore_pirotecnico",
+    "name": "Pyrotechnic Injector",
+    "cost": 52,
+    "overheat_aoe_damage": 18,
+    "description": "When you Overheat or vent all Heat, deal 18 damage to all enemies."
+  },
+  {
+    "id": "sincronizzatore_sequenziale",
+    "name": "Competition Synchro",
+    "cost": 46,
+    "rev_match_extra_block": 3,
+    "rev_match_rpm_bonus": 1,
+    "description": "A Perfect Shift (Rev-Match) grants +3 extra Shield and +1,000 RPM."
+  },
+  {
+    "id": "differenziale_autobloccante",
+    "name": "Limited-Slip Diff",
+    "cost": 48,
+    "shift_bonus_block": 4,
+    "description": "Every gear shift immediately grants +4 Shield."
+  },
+  {
+    "id": "collettore_titanio",
+    "name": "Titanium Manifold",
+    "cost": 52,
+    "redline_damage_bonus": 5,
+    "description": "While in Redline, all your attacks deal +5 extra damage."
+  },
+  {
+    "id": "rigenerazione_frenata",
+    "name": "KERS Brake Recovery",
+    "cost": 46,
+    "downshift_rpm_bonus": 1,
+    "description": "Every time you downshift into a lower gear, gain +1,000 RPM."
+  },
+  {
+    "id": "recupero_rottami",
+    "name": "Magnetic Salvage Claw",
+    "cost": 44,
+    "post_combat_heal": 6,
+    "post_combat_scrap_bonus": 10,
+    "description": "After winning any combat, restore +6 Hull HP and collect +10 extra Scrap."
+  }
+]

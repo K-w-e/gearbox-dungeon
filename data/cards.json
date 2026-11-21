@@ -1,0 +1,690 @@
+[
+  {
+    "id": "colpo_acceleratore",
+    "name": "Throttle Tap",
+    "module_code": "ATK-01",
+    "icon_id": "pedal_boost",
+    "category": "Attack",
+    "starter": true,
+    "allowed_gears": [
+      -1,
+      0,
+      1,
+      2,
+      3
+    ],
+    "rpm_delta_units": 1,
+    "damage": 7,
+    "draw_cards": 1,
+    "target_type": "single_enemy",
+    "description": "RPM +1,000 • DAMAGE 7 • DRAW 1"
+  },
+  {
+    "id": "marcia_ridotta",
+    "name": "Low Gear Shield",
+    "module_code": "DEF-02",
+    "icon_id": "low_range_gear",
+    "category": "Defense",
+    "starter": true,
+    "allowed_gears": [
+      -1,
+      0,
+      1,
+      2,
+      3
+    ],
+    "rpm_delta_units": 0,
+    "block": 8,
+    "target_type": "self",
+    "description": "SHIELD 8"
+  },
+  {
+    "id": "paraurti_chiodato",
+    "name": "Spiked Bumper",
+    "module_code": "RAM-03",
+    "icon_id": "spiked_bumper",
+    "category": "Ram",
+    "starter": true,
+    "allowed_gears": [
+      1,
+      2,
+      3
+    ],
+    "rpm_delta_units": 0,
+    "damage": 9,
+    "is_ram": true,
+    "target_type": "single_enemy",
+    "description": "RAM 9"
+  },
+  {
+    "id": "schianto_frontale",
+    "name": "Head-on Collision",
+    "module_code": "RAM-04",
+    "icon_id": "shield_slam",
+    "category": "Ram",
+    "allowed_gears": [
+      1,
+      2
+    ],
+    "rpm_delta_units": -1,
+    "damage": 6,
+    "damage_from_block": true,
+    "is_ram": true,
+    "target_type": "single_enemy",
+    "description": "RPM -1,000 • RAM 6 + SHIELD"
+  },
+  {
+    "id": "burnout",
+    "name": "Stationary Burnout",
+    "module_code": "ATK-05",
+    "icon_id": "burnout_wheel",
+    "category": "Attack",
+    "allowed_gears": [
+      0,
+      1
+    ],
+    "rpm_delta_units": 2,
+    "heat_delta": 1,
+    "damage": 8,
+    "apply_weakness": 2,
+    "target_type": "all_enemies",
+    "description": "RPM +2,000 • HEAT +1 • AOE DAMAGE 8 • WEAKNESS 2"
+  },
+  {
+    "id": "retro_emergenza",
+    "name": "Emergency Reverse",
+    "module_code": "DEF-06",
+    "icon_id": "reverse_shield",
+    "category": "Defense",
+    "allowed_gears": [
+      1,
+      2
+    ],
+    "rpm_delta_units": 0,
+    "set_gear": -1,
+    "block": 10,
+    "end_turn": true,
+    "target_type": "self",
+    "description": "FIXED GEAR R • SHIELD 10 • ENDS TURN"
+  },
+  {
+    "id": "doppia_frizione",
+    "name": "Double Clutch",
+    "module_code": "TEC-07",
+    "icon_id": "twin_clutch",
+    "category": "Technique",
+    "allowed_gears": [
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "rpm_delta_units": 1,
+    "restore_free_shift": true,
+    "free_shift_range_bonus": 2,
+    "draw_cards": 1,
+    "target_type": "self",
+    "description": "RPM +1,000 • SYNCHRO +/-3 • DRAW 1"
+  },
+  {
+    "id": "tacco_punta",
+    "name": "Heel-and-Toe",
+    "module_code": "TEC-08",
+    "icon_id": "heel_toe",
+    "category": "Technique",
+    "allowed_gears": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "rpm_delta_units": 0,
+    "gear_shift_delta": -1,
+    "block": 7,
+    "draw_cards": 1,
+    "target_type": "self",
+    "description": "SHIFT -1 • SHIELD 7 • DRAW 1"
+  },
+  {
+    "id": "raffiche_finestrino",
+    "name": "Drive-by Volley",
+    "module_code": "ATK-09",
+    "icon_id": "twin_bullets",
+    "category": "Attack",
+    "starter": true,
+    "allowed_gears": [
+      2,
+      3,
+      4
+    ],
+    "rpm_delta_units": -1,
+    "damage": 5,
+    "hits": 2,
+    "is_ranged": true,
+    "target_type": "single_enemy",
+    "description": "REQ. 2ND-4TH • RPM -1,000 • DAMAGE 5x2"
+  },
+  {
+    "id": "iniezione_acqua",
+    "name": "Water Injection",
+    "module_code": "CLD-10",
+    "icon_id": "water_coolant",
+    "category": "Cooling",
+    "allowed_gears": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "rpm_delta_units": -1,
+    "heat_delta": -2,
+    "draw_cards": 2,
+    "target_type": "self",
+    "description": "RPM -1,000 • HEAT -2 • DRAW 2"
+  },
+  {
+    "id": "cambio_sequenziale",
+    "name": "Sequential Upshift",
+    "module_code": "ATK-11",
+    "icon_id": "seq_upshift",
+    "category": "Attack",
+    "allowed_gears": [
+      3,
+      4
+    ],
+    "rpm_delta_units": 1,
+    "damage": 8,
+    "gear_shift_delta": 1,
+    "target_type": "single_enemy",
+    "description": "RPM +1,000 • DAMAGE 8 • SHIFT +1"
+  },
+  {
+    "id": "freno_motore",
+    "name": "Engine Braking",
+    "module_code": "DEF-12",
+    "icon_id": "engine_brake",
+    "category": "Defense",
+    "allowed_gears": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "rpm_delta_units": -2,
+    "gear_shift_delta": -1,
+    "block": 12,
+    "heat_delta": -1,
+    "target_type": "self",
+    "description": "RPM -2,000 • SHIFT -1 • SHIELD 12 • HEAT -1"
+  },
+  {
+    "id": "sorpasso_azzardato",
+    "name": "Reckless Overtake",
+    "module_code": "RAM-13",
+    "icon_id": "overtake_lance",
+    "category": "Ram",
+    "allowed_gears": [
+      4,
+      5,
+      6
+    ],
+    "rpm_delta_units": -2,
+    "damage": 16,
+    "is_ram": true,
+    "target_type": "single_enemy",
+    "description": "RPM -2,000 • RAM 16"
+  },
+  {
+    "id": "scia_aerodinamica",
+    "name": "Drafting Slipstream",
+    "module_code": "TEC-14",
+    "icon_id": "slipstream",
+    "category": "Technique",
+    "allowed_gears": [
+      4,
+      5,
+      6
+    ],
+    "rpm_delta_units": 0,
+    "draw_cards": 3,
+    "discard_low_gear_cards": true,
+    "target_type": "self",
+    "description": "DRAW 3 • DISCARD GEARS 1ST-2ND"
+  },
+  {
+    "id": "scarico_diretto",
+    "name": "Straight Pipe Blast",
+    "module_code": "ATK-15",
+    "icon_id": "triple_exhaust",
+    "category": "Attack",
+    "allowed_gears": [
+      5,
+      6
+    ],
+    "rpm_delta_units": -3,
+    "damage": 7,
+    "hits": 3,
+    "target_type": "all_enemies",
+    "description": "RPM -3,000 • AOE DAMAGE 7x3"
+  },
+  {
+    "id": "nos",
+    "name": "Nitrous Oxide",
+    "module_code": "PWR-16",
+    "icon_id": "nos_bottle",
+    "category": "Power",
+    "allowed_gears": [
+      4,
+      5,
+      6
+    ],
+    "rpm_delta_units": 4,
+    "heat_delta": 2,
+    "gear_shift_delta": 1,
+    "exhaust": true,
+    "target_type": "self",
+    "description": "RPM +4,000 • HEAT +2 • SHIFT +1 • EXHAUST 1"
+  },
+  {
+    "id": "impatto_cinetico",
+    "name": "Kinetic Slam",
+    "module_code": "RAM-17",
+    "icon_id": "kinetic_meteor",
+    "category": "Ram",
+    "allowed_gears": [
+      5,
+      6
+    ],
+    "rpm_delta_units": 0,
+    "consume_all_rpm": true,
+    "damage_per_rpm_unit": 5,
+    "set_gear": 0,
+    "is_ram": true,
+    "target_type": "single_enemy",
+    "description": "DUMP RPM 100% • RAM 5xRPM • FIXED GEAR N"
+  },
+  {
+    "id": "fuorigiri_letale",
+    "name": "Redline Overdrive",
+    "module_code": "ATK-18",
+    "icon_id": "redline_skull",
+    "category": "Attack",
+    "allowed_gears": [
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "rpm_delta_units": 1,
+    "requires_redline": true,
+    "damage": 22,
+    "apply_vulnerable": 2,
+    "target_type": "single_enemy",
+    "description": "REQ. REDLINE • RPM +1,000 • DAMAGE 22 • VULNERABLE 2"
+  },
+  {
+    "id": "freno_a_mano",
+    "name": "Handbrake Drift",
+    "module_code": "RAM-19",
+    "icon_id": "handbrake_drift",
+    "category": "Ram",
+    "allowed_gears": [
+      1,
+      2,
+      3
+    ],
+    "rpm_delta_units": -2,
+    "damage": 7,
+    "block": 8,
+    "apply_vulnerable": 1,
+    "is_ram": true,
+    "target_type": "all_enemies",
+    "description": "RPM -2,000 • AOE RAM 7 • SHIELD 8 • VULNERABLE 1"
+  },
+  {
+    "id": "turbo_compressore",
+    "name": "Turbocharger",
+    "module_code": "ATK-20",
+    "icon_id": "turbo_snail",
+    "category": "Attack",
+    "allowed_gears": [
+      3,
+      4,
+      5
+    ],
+    "rpm_delta_units": 2,
+    "damage": 10,
+    "redline_bonus_damage": 8,
+    "target_type": "single_enemy",
+    "description": "RPM +2,000 • DAMAGE 10 • REDLINE BONUS +8"
+  },
+  {
+    "id": "radiatore_maggiorato",
+    "name": "Oversized Radiator",
+    "module_code": "CLD-21",
+    "icon_id": "radiator_grid",
+    "category": "Cooling",
+    "allowed_gears": [
+      -1,
+      0,
+      1,
+      2
+    ],
+    "rpm_delta_units": 0,
+    "heat_delta": -3,
+    "block": 5,
+    "target_type": "self",
+    "description": "HEAT -3 • SHIELD 5"
+  },
+  {
+    "id": "olio_asfalto",
+    "name": "Oil Slick",
+    "module_code": "UTL-22",
+    "icon_id": "oil_slick",
+    "category": "Utility",
+    "allowed_gears": [
+      -1,
+      1,
+      2,
+      3
+    ],
+    "rpm_delta_units": -1,
+    "apply_weakness": 2,
+    "apply_vulnerable": 1,
+    "target_type": "single_enemy",
+    "description": "RPM -1,000 • WEAKNESS 2 • VULNERABLE 1"
+  },
+  {
+    "id": "sfiammata",
+    "name": "Backfire Blast",
+    "module_code": "ATK-23",
+    "icon_id": "backfire_blast",
+    "category": "Attack",
+    "allowed_gears": [
+      4,
+      5,
+      6
+    ],
+    "rpm_delta_units": 1,
+    "heat_delta": 1,
+    "damage": 12,
+    "target_type": "all_enemies",
+    "description": "RPM +1,000 • HEAT +1 • AOE DAMAGE 12"
+  },
+  {
+    "id": "taglia_curve",
+    "name": "Apex Cutter",
+    "module_code": "ATK-24",
+    "icon_id": "apex_slash",
+    "category": "Attack",
+    "allowed_gears": [
+      3,
+      4,
+      5
+    ],
+    "rpm_delta_units": -1,
+    "damage": 14,
+    "draw_cards": 1,
+    "target_type": "single_enemy",
+    "description": "RPM -1,000 • DAMAGE 14 • DRAW 1"
+  },
+  {
+    "id": "ariete_idraulico",
+    "name": "Hydraulic Ram",
+    "module_code": "RAM-25",
+    "icon_id": "spiked_bumper",
+    "category": "Ram",
+    "allowed_gears": [
+      -1,
+      1,
+      2
+    ],
+    "rpm_delta_units": 1,
+    "damage": 9,
+    "block": 6,
+    "is_ram": true,
+    "target_type": "single_enemy",
+    "description": "RPM +1,000 • RAM 9 • SHIELD 6"
+  },
+  {
+    "id": "corazza_reattiva",
+    "name": "Mobile Bunker",
+    "module_code": "DEF-26",
+    "icon_id": "shield_slam",
+    "category": "Defense",
+    "allowed_gears": [
+      1,
+      2,
+      3
+    ],
+    "rpm_delta_units": -1,
+    "block": 11,
+    "retain_half_block": true,
+    "target_type": "self",
+    "description": "RPM -1,000 • SHIELD 11 • RETAIN 50% SHIELD"
+  },
+  {
+    "id": "valvola_sfogo",
+    "name": "Thermobaric Vent",
+    "module_code": "CLD-27",
+    "icon_id": "backfire_blast",
+    "category": "Cooling",
+    "allowed_gears": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "rpm_delta_units": 0,
+    "consume_all_heat": true,
+    "damage_per_heat": 9,
+    "target_type": "all_enemies",
+    "description": "VENT HEAT • AOE DAMAGE 9xHEAT"
+  },
+  {
+    "id": "pistone_incandescente",
+    "name": "Red-Hot Piston",
+    "module_code": "ATK-28",
+    "icon_id": "redline_skull",
+    "category": "Attack",
+    "allowed_gears": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "rpm_delta_units": 1,
+    "heat_delta": 1,
+    "damage": 11,
+    "high_heat_threshold": 3,
+    "high_heat_bonus_damage": 9,
+    "target_type": "single_enemy",
+    "description": "RPM +1,000 • HEAT +1 • DAMAGE 11 (+9 IF HEAT >=3)"
+  },
+  {
+    "id": "innesto_rapido",
+    "name": "Quick-Shifter",
+    "module_code": "TEC-29",
+    "icon_id": "seq_upshift",
+    "category": "Technique",
+    "allowed_gears": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "rpm_delta_units": 0,
+    "gear_shift_delta": 1,
+    "restore_free_shift": true,
+    "draw_cards": 1,
+    "target_type": "self",
+    "description": "SHIFT +1 • SYNCHRO READY • DRAW 1"
+  },
+  {
+    "id": "slalom_meccanico",
+    "name": "Mechanical Slalom",
+    "module_code": "ATK-30",
+    "icon_id": "heel_toe",
+    "category": "Attack",
+    "allowed_gears": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "rpm_delta_units": -1,
+    "damage": 9,
+    "damage_per_shift_this_turn": 6,
+    "target_type": "single_enemy",
+    "description": "RPM -1,000 • DAMAGE 9 (+6 PER SHIFT THIS TURN)"
+  },
+  {
+    "id": "stoccata_terza",
+    "name": "Third Gear Thrust",
+    "module_code": "ATK-31",
+    "icon_id": "overtake_lance",
+    "category": "Attack",
+    "allowed_gears": [
+      3,
+      4
+    ],
+    "rpm_delta_units": -1,
+    "damage": 15,
+    "target_type": "single_enemy",
+    "description": "REQ. 3RD-4TH • RPM -1,000 • DAMAGE 15"
+  },
+  {
+    "id": "doppio_scarico",
+    "name": "Twin-Scroll Surge",
+    "module_code": "ATK-32",
+    "icon_id": "twin_scroll",
+    "category": "Attack",
+    "allowed_gears": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "rpm_delta_units": 1,
+    "damage": 6,
+    "hits": 2,
+    "redline_bonus_damage": 4,
+    "is_ranged": true,
+    "target_type": "single_enemy",
+    "description": "RPM +1,000 • DAMAGE 6x2 • REDLINE BONUS +4"
+  },
+  {
+    "id": "cambio_cieco",
+    "name": "Blind Downshift",
+    "module_code": "DEF-33",
+    "icon_id": "blind_shift",
+    "category": "Defense",
+    "allowed_gears": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "rpm_delta_units": 2,
+    "gear_shift_delta": -2,
+    "block": 14,
+    "target_type": "self",
+    "description": "RPM +2,000 • SHIFT -2 • SHIELD 14"
+  },
+  {
+    "id": "frizione_ceramica",
+    "name": "Ceramic Launch",
+    "module_code": "RAM-34",
+    "icon_id": "ceramic_launch",
+    "category": "Ram",
+    "allowed_gears": [
+      0,
+      1,
+      2
+    ],
+    "rpm_delta_units": 2,
+    "gear_shift_delta": 1,
+    "damage": 11,
+    "is_ram": true,
+    "target_type": "single_enemy",
+    "description": "RPM +2,000 • SHIFT +1 • RAM 11"
+  },
+  {
+    "id": "ventola_crio",
+    "name": "Cryo Intercooler",
+    "module_code": "CLD-35",
+    "icon_id": "cryo_fan",
+    "category": "Cooling",
+    "allowed_gears": [
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "rpm_delta_units": 0,
+    "heat_delta": -2,
+    "block": 7,
+    "draw_cards": 1,
+    "target_type": "self",
+    "description": "HEAT -2 • SHIELD 7 • DRAW 1"
+  },
+  {
+    "id": "catena_distribuzione",
+    "name": "Timing Chain",
+    "module_code": "TEC-36",
+    "icon_id": "timing_chain",
+    "category": "Technique",
+    "allowed_gears": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "rpm_delta_units": -1,
+    "choose_shift_options": [
+      -2,
+      -1,
+      1,
+      2
+    ],
+    "block": 6,
+    "draw_cards": 2,
+    "target_type": "self",
+    "description": "RPM -1,000 • SHIFT CHOICE • SHIELD 6 • DRAW 2"
+  },
+  {
+    "id": "sovralimentazione",
+    "name": "Supercharger Overboost",
+    "module_code": "PWR-37",
+    "icon_id": "supercharger_blower",
+    "category": "Power",
+    "allowed_gears": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "rpm_delta_units": 3,
+    "heat_delta": 1,
+    "damage": 10,
+    "apply_vulnerable": 2,
+    "exhaust": true,
+    "target_type": "all_enemies",
+    "description": "RPM +3,000 • HEAT +1 • AOE DAMAGE 10 • VULNERABLE 2 • EXHAUST"
+  }
+]

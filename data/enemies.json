@@ -1,0 +1,655 @@
+[
+  {
+    "id": "drone_istruzione",
+    "name": "Practice Drone",
+    "hp": 22,
+    "model_path": "res://assets/models/enemy_drone_istruzione.glb",
+    "collider_size": [
+      1.15,
+      1.2,
+      1.0
+    ],
+    "collider_center_y": 1.38,
+    "label_height": 2.1,
+    "hover_bob_amp": 0.08,
+    "hover_bob_speed": 2.6,
+    "pattern": [
+      {
+        "type": "attack",
+        "damage": [4, 6],
+        "is_ranged": true
+      },
+      {
+        "type": "attack",
+        "damage": [2, 3],
+        "hits": 2,
+        "is_ranged": true
+      },
+      {
+        "type": "defend",
+        "block": [5, 8],
+        "heal": [2, 4]
+      }
+    ]
+  },
+  {
+    "id": "drone_sparachiodi",
+    "name": "Nailer Drone",
+    "hp": 36,
+    "model_path": "res://assets/models/enemy_drone_sparachiodi.glb",
+    "collider_size": [
+      1.1,
+      1.2,
+      1.0
+    ],
+    "collider_center_y": 1.35,
+    "label_height": 2.05,
+    "hover_bob_amp": 0.09,
+    "hover_bob_speed": 2.8,
+    "pattern": [
+      {
+        "type": "attack_debuff",
+        "damage": [6, 9],
+        "is_ranged": true,
+        "puncture": [1, 1]
+      },
+      {
+        "type": "attack",
+        "damage": [3, 5],
+        "hits": 2,
+        "is_ranged": true
+      },
+      {
+        "type": "defend",
+        "block": [8, 12]
+      }
+    ]
+  },
+  {
+    "id": "torretta_lanciafiamme",
+    "name": "Flamethrower Turret",
+    "hp": 50,
+    "model_path": "res://assets/models/enemy_torretta_lanciafiamme.glb",
+    "collider_size": [
+      1.25,
+      1.3,
+      1.1
+    ],
+    "collider_center_y": 0.65,
+    "label_height": 1.55,
+    "hover_bob_amp": 0.0,
+    "hover_bob_speed": 0.0,
+    "pattern": [
+      {
+        "type": "attack",
+        "damage": [15, 20],
+        "is_melee": true,
+        "has_corto_raggio": true,
+        "safe_gears": [
+          -1,
+          5,
+          6
+        ]
+      },
+      {
+        "type": "attack_debuff",
+        "damage": [7, 11],
+        "is_ranged": true,
+        "heat_add": [1, 1]
+      },
+      {
+        "type": "defend",
+        "block": [12, 16]
+      }
+    ]
+  },
+  {
+    "id": "magnete_industriale",
+    "name": "Industrial Magnet",
+    "hp": 42,
+    "model_path": "res://assets/models/enemy_magnete_industriale.glb",
+    "collider_size": [
+      1.3,
+      1.4,
+      1.2
+    ],
+    "collider_center_y": 0.72,
+    "label_height": 1.65,
+    "hover_bob_amp": 0.0,
+    "hover_bob_speed": 0.0,
+    "pattern": [
+      {
+        "type": "attack_debuff",
+        "damage": [5, 8],
+        "is_ranged": true,
+        "gear_lock_max": 3
+      },
+      {
+        "type": "attack_debuff",
+        "damage": [9, 13],
+        "is_ranged": true,
+        "rpm_drain_units": [1, 2]
+      },
+      {
+        "type": "defend_all",
+        "block": [10, 14]
+      }
+    ]
+  },
+  {
+    "id": "scavenger_buggy",
+    "name": "Scavenger Buggy",
+    "hp": 46,
+    "model_path": "res://assets/models/enemy_scavenger_buggy.glb",
+    "collider_size": [
+      1.5,
+      1.2,
+      1.6
+    ],
+    "collider_center_y": 0.6,
+    "label_height": 1.5,
+    "hover_bob_amp": 0.02,
+    "hover_bob_speed": 9.0,
+    "pattern": [
+      {
+        "type": "attack_debuff",
+        "damage": [8, 12],
+        "is_melee": true,
+        "has_corto_raggio": true,
+        "safe_gears": [
+          -1,
+          4,
+          5,
+          6
+        ],
+        "rpm_drain_units": [1, 1]
+      },
+      {
+        "type": "attack",
+        "damage": [11, 15],
+        "is_ranged": true
+      },
+      {
+        "type": "buff",
+        "block": [6, 10],
+        "strength": [1, 2]
+      }
+    ]
+  },
+  {
+    "id": "crio_iniettore",
+    "name": "Cryo-Nitrogen Cruiser",
+    "hp": 52,
+    "model_path": "res://assets/models/enemy_crio_iniettore.glb",
+    "collider_size": [
+      1.55,
+      1.25,
+      1.55
+    ],
+    "collider_center_y": 0.62,
+    "label_height": 1.6,
+    "hover_bob_amp": 0.015,
+    "hover_bob_speed": 6.5,
+    "pattern": [
+      {
+        "type": "attack_debuff",
+        "damage": [7, 11],
+        "is_ranged": true,
+        "rpm_drain_units": [1, 2]
+      },
+      {
+        "type": "attack_debuff",
+        "damage": [10, 14],
+        "is_melee": true,
+        "puncture": [1, 2]
+      },
+      {
+        "type": "buff",
+        "block": [11, 16],
+        "strength": [1, 2]
+      }
+    ]
+  },
+  {
+    "id": "ragno_saldatore",
+    "name": "Arc-Welder Spider",
+    "hp": 40,
+    "model_path": "res://assets/models/enemy_ragno_saldatore.glb",
+    "collider_size": [
+      1.45,
+      1.1,
+      1.35
+    ],
+    "collider_center_y": 0.55,
+    "label_height": 1.48,
+    "hover_bob_amp": 0.01,
+    "hover_bob_speed": 7.5,
+    "pattern": [
+      {
+        "type": "heal_all",
+        "heal": [6, 11],
+        "block": [6, 9]
+      },
+      {
+        "type": "attack_debuff",
+        "damage": [6, 10],
+        "is_melee": true,
+        "heat_add": [1, 1]
+      },
+      {
+        "type": "heal",
+        "heal": [8, 13],
+        "strength": [1, 2]
+      }
+    ]
+  },
+  {
+    "id": "moto_intercettore",
+    "name": "Nitro Razorbike",
+    "hp": 38,
+    "model_path": "res://assets/models/enemy_moto_intercettore.glb",
+    "collider_size": [
+      1.1,
+      1.2,
+      1.6
+    ],
+    "collider_center_y": 0.62,
+    "label_height": 1.52,
+    "hover_bob_amp": 0.025,
+    "hover_bob_speed": 11.0,
+    "pattern": [
+      {
+        "type": "attack",
+        "damage": [4, 6],
+        "hits": 2,
+        "is_ranged": true
+      },
+      {
+        "type": "attack_debuff",
+        "damage": [8, 12],
+        "is_melee": true,
+        "puncture": [1, 2]
+      },
+      {
+        "type": "buff",
+        "block": [6, 10],
+        "strength": [2, 3]
+      }
+    ]
+  },
+  {
+    "id": "mortaio_acido",
+    "name": "Mortar Crawler",
+    "hp": 54,
+    "model_path": "res://assets/models/enemy_mortaio_acido.glb",
+    "collider_size": [
+      1.45,
+      1.35,
+      1.45
+    ],
+    "collider_center_y": 0.68,
+    "label_height": 1.66,
+    "hover_bob_amp": 0.01,
+    "hover_bob_speed": 5.0,
+    "pattern": [
+      {
+        "type": "attack_debuff",
+        "damage": [10, 14],
+        "is_ranged": true,
+        "has_corto_raggio": true,
+        "safe_gears": [
+          4,
+          5,
+          6
+        ],
+        "rpm_drain_units": [1, 2]
+      },
+      {
+        "type": "defend",
+        "block": [10, 15],
+        "heal": [5, 9]
+      },
+      {
+        "type": "attack_debuff",
+        "damage": [8, 12],
+        "is_ranged": true,
+        "heat_add": [1, 1]
+      }
+    ]
+  },
+  {
+    "id": "sawblade_grinder",
+    "name": "Armored Grinder",
+    "hp": 75,
+    "model_path": "res://assets/models/enemy_sawblade_grinder.glb",
+    "collider_size": [
+      1.7,
+      1.3,
+      1.6
+    ],
+    "collider_center_y": 0.65,
+    "label_height": 1.55,
+    "hover_bob_amp": 0.015,
+    "hover_bob_speed": 12.0,
+    "pattern": [
+      {
+        "type": "attack_debuff",
+        "damage": [14, 18],
+        "is_melee": true,
+        "has_corto_raggio": true,
+        "safe_gears": [
+          -1,
+          5,
+          6
+        ],
+        "puncture": [1, 2]
+      },
+      {
+        "type": "attack_debuff",
+        "damage": [6, 9],
+        "hits": 2,
+        "is_melee": true,
+        "heat_add": [1, 1]
+      },
+      {
+        "type": "buff",
+        "block": [15, 20],
+        "strength": [2, 3]
+      }
+    ]
+  },
+  {
+    "id": "colosso_frizione",
+    "name": "Clutch-Crusher Juggernaut",
+    "hp": 82,
+    "model_path": "res://assets/models/enemy_colosso_frizione.glb",
+    "collider_size": [
+      1.75,
+      1.45,
+      1.75
+    ],
+    "collider_center_y": 0.72,
+    "label_height": 1.72,
+    "hover_bob_amp": 0.012,
+    "hover_bob_speed": 8.0,
+    "pattern": [
+      {
+        "type": "attack_debuff",
+        "damage": [13, 18],
+        "is_melee": true,
+        "gear_lock_max": 3
+      },
+      {
+        "type": "defend",
+        "block": [14, 20],
+        "heal": [8, 13]
+      },
+      {
+        "type": "attack_debuff",
+        "damage": [11, 16],
+        "is_melee": true,
+        "rpm_drain_units": [1, 2]
+      }
+    ]
+  },
+  {
+    "id": "mietitore_voltaico",
+    "name": "Voltaic Harvester",
+    "hp": 70,
+    "model_path": "res://assets/models/enemy_mietitore_voltaico.glb",
+    "collider_size": [
+      1.55,
+      1.55,
+      1.4
+    ],
+    "collider_center_y": 0.78,
+    "label_height": 1.82,
+    "hover_bob_amp": 0.05,
+    "hover_bob_speed": 4.2,
+    "pattern": [
+      {
+        "type": "attack_debuff",
+        "damage": [6, 9],
+        "hits": 2,
+        "is_ranged": true,
+        "gear_lock_min": 3
+      },
+      {
+        "type": "attack_debuff",
+        "damage": [12, 17],
+        "is_melee": true,
+        "heat_add": [1, 2]
+      },
+      {
+        "type": "buff",
+        "block": [12, 17],
+        "heal": [6, 10],
+        "strength": [1, 2]
+      }
+    ]
+  },
+  {
+    "id": "boss_compattatore",
+    "name": "The Hydraulic Compactor",
+    "hp": 145,
+    "is_boss": true,
+    "model_path": "res://assets/models/enemy_boss_compattatore.glb",
+    "collider_size": [
+      2.9,
+      2.4,
+      1.6
+    ],
+    "collider_center_y": 1.2,
+    "label_height": 2.75,
+    "hover_bob_amp": 0.02,
+    "hover_bob_speed": 4.0,
+    "pattern": [
+      {
+        "type": "boss_crush",
+        "damage": [27, 33],
+        "gear_damage_reduction_per_level": 5,
+        "is_melee": true
+      },
+      {
+        "type": "boss_wall",
+        "block": [34, 44],
+        "reflect_high_gear": true,
+        "max_safe_gear": 2
+      },
+      {
+        "type": "attack_debuff",
+        "damage": [12, 17],
+        "is_melee": true,
+        "puncture": [1, 2],
+        "heal": [8, 14]
+      }
+    ]
+  },
+  {
+    "id": "boss_leviathan_turbo",
+    "name": "The Twin-Turbo Leviathan",
+    "hp": 152,
+    "is_boss": true,
+    "model_path": "res://assets/models/enemy_boss_leviathan_turbo.glb",
+    "collider_size": [
+      2.9,
+      2.35,
+      1.7
+    ],
+    "collider_center_y": 1.18,
+    "label_height": 2.72,
+    "hover_bob_amp": 0.025,
+    "hover_bob_speed": 5.2,
+    "pattern": [
+      {
+        "type": "attack_debuff",
+        "damage": [9, 13],
+        "hits": 2,
+        "is_ranged": true,
+        "gear_lock_min": 3
+      },
+      {
+        "type": "boss_crush",
+        "damage": [28, 34],
+        "gear_damage_reduction_per_level": 5,
+        "is_melee": true
+      },
+      {
+        "type": "buff",
+        "block": [22, 30],
+        "heal": [10, 16],
+        "strength": [2, 3]
+      }
+    ]
+  },
+  {
+    "id": "boss_fornace_idraulica",
+    "name": "The Molten Foundry Core",
+    "hp": 158,
+    "is_boss": true,
+    "model_path": "res://assets/models/enemy_boss_fornace_idraulica.glb",
+    "collider_size": [
+      2.85,
+      2.5,
+      1.65
+    ],
+    "collider_center_y": 1.25,
+    "label_height": 2.78,
+    "hover_bob_amp": 0.018,
+    "hover_bob_speed": 3.6,
+    "pattern": [
+      {
+        "type": "attack_debuff",
+        "damage": [18, 24],
+        "is_melee": true,
+        "has_corto_raggio": true,
+        "safe_gears": [
+          -1,
+          5,
+          6
+        ],
+        "heat_add": [1, 2]
+      },
+      {
+        "type": "boss_wall",
+        "block": [30, 40],
+        "heal": [8, 14],
+        "reflect_high_gear": true,
+        "max_safe_gear": 2
+      },
+      {
+        "type": "attack_debuff",
+        "damage": [12, 16],
+        "is_ranged": true,
+        "rpm_drain_units": [1, 2],
+        "gear_lock_max": 3
+      }
+    ]
+  },
+  {
+    "id": "ariete_trivella",
+    "name": "Bore-Drill Rammer",
+    "hp": 58,
+    "model_path": "res://assets/models/enemy_ariete_trivella.glb",
+    "collider_size": [
+      1.65,
+      1.3,
+      1.85
+    ],
+    "collider_center_y": 0.65,
+    "label_height": 1.68,
+    "hover_bob_amp": 0.014,
+    "hover_bob_speed": 10.5,
+    "pattern": [
+      {
+        "type": "attack_debuff",
+        "damage": [12, 16],
+        "is_melee": true,
+        "puncture": [1, 1]
+      },
+      {
+        "type": "buff",
+        "block": [12, 16],
+        "strength": [2, 2]
+      },
+      {
+        "type": "attack",
+        "damage": [14, 19],
+        "is_melee": true,
+        "has_corto_raggio": true,
+        "safe_gears": [
+          -1,
+          5,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "id": "drone_crio_lama",
+    "name": "Cryo-Saw Interceptor",
+    "hp": 44,
+    "model_path": "res://assets/models/enemy_drone_crio_lama.glb",
+    "collider_size": [
+      1.55,
+      1.25,
+      1.4
+    ],
+    "collider_center_y": 1.12,
+    "label_height": 1.92,
+    "hover_bob_amp": 0.085,
+    "hover_bob_speed": 3.4,
+    "pattern": [
+      {
+        "type": "attack_debuff",
+        "damage": [7, 10],
+        "is_ranged": true,
+        "rpm_drain_units": [2, 2]
+      },
+      {
+        "type": "attack",
+        "damage": [5, 7],
+        "hits": 2,
+        "is_melee": true
+      },
+      {
+        "type": "defend_all",
+        "block": [10, 14]
+      }
+    ]
+  },
+  {
+    "id": "torretta_emp",
+    "name": "EMP Coil Sentinel",
+    "hp": 66,
+    "model_path": "res://assets/models/enemy_torretta_emp.glb",
+    "collider_size": [
+      1.55,
+      1.68,
+      1.55
+    ],
+    "collider_center_y": 0.84,
+    "label_height": 1.98,
+    "hover_bob_amp": 0.0,
+    "hover_bob_speed": 0.0,
+    "pattern": [
+      {
+        "type": "attack_debuff",
+        "damage": [8, 12],
+        "is_ranged": true,
+        "gear_lock_max": 2
+      },
+      {
+        "type": "attack_debuff",
+        "damage": [10, 14],
+        "is_ranged": true,
+        "heat_add": [1, 1]
+      },
+      {
+        "type": "buff",
+        "block": [14, 18],
+        "strength": [2, 2]
+      }
+    ]
+  }
+]

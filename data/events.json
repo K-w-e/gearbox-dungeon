@@ -1,0 +1,210 @@
+{
+  "rest_site": {
+    "id": "rest_shelter",
+    "title": "Bunker Alcove: Emergency Pit-Shelter",
+    "subtitle": "SAFE HAVEN • FIELD WELDING & CHASSIS MAINTENANCE",
+    "description": "Automated pneumatic jacks and a burning oil brazier offer a brief respite from tunnel ambushers.",
+    "model_key": "node_rest_shelter",
+    "palette_key": "node_rest",
+    "choices": [
+      {
+        "id": "patch_hull",
+        "label": "EMERGENCY WELDING",
+        "outcome_hint": "Restore 35% of Max Hull HP",
+        "heal_pct": 0.35,
+        "require_missing_hp": true,
+        "icon": "repair"
+      },
+      {
+        "id": "reinforce_frame",
+        "label": "BOLT ROLL-CAGE PLATES",
+        "outcome_hint": "Gain +8 Max Hull HP and heal +8 HP",
+        "max_hp_delta": 8,
+        "hp_delta": 8,
+        "icon": "chassis"
+      },
+      {
+        "id": "field_strip",
+        "label": "FIELD-STRIP MODULE",
+        "outcome_hint": "Permanently remove 1 card from deck",
+        "open_card_remove": true,
+        "icon": "scrap_card"
+      }
+    ]
+  },
+  "upgrade_site": {
+    "id": "upgrade_forge",
+    "title": "Induction Foundry: Hydraulic Forge & Dyno",
+    "subtitle": "CALIBRATION BAY • PERMANENT MODULE OVERCLOCKING",
+    "description": "Twin dyno rollers spin beneath a glowing induction hammer ready to temper your drivetrain maneuvers.",
+    "model_key": "node_upgrade_forge",
+    "palette_key": "node_upgrade",
+    "choices": [
+      {
+        "id": "precision_forge",
+        "label": "PRECISION TEMPER",
+        "outcome_hint": "Choose 1 deck card to upgrade (+Power)",
+        "open_card_upgrade": true,
+        "icon": "chassis"
+      },
+      {
+        "id": "twin_overbore",
+        "label": "DYNO OVERBORE",
+        "outcome_hint": "-6 Hull HP • Upgrade 2 random cards",
+        "upgrade_random_cards": 2,
+        "hp_delta": -6,
+        "min_hp_required": 7,
+        "icon": "scrap_card"
+      },
+      {
+        "id": "smelt_slag",
+        "label": "SMELT ALLOY SLAG",
+        "outcome_hint": "Extract +28 Scrap from the crucible",
+        "scrap_delta": 28,
+        "icon": "scrap"
+      }
+    ]
+  },
+  "random_events": [
+    {
+      "id": "ruined_road",
+      "title": "Collapsed Overpass: Magma Fissure",
+      "subtitle": "ROAD HAZARD • TECTONIC ASPHALT RUPTURE",
+      "description": "The tunnel roadbed has split open over a glowing thermal conduit. A steel ramp angles over the rebar pit.",
+      "model_key": "node_event_ruined_road",
+      "palette_key": "node_event",
+      "choices": [
+        {
+          "id": "nitro_jump",
+          "label": "FULL-THROTTLE RAMP JUMP",
+          "outcome_hint": "-8 Hull HP • Salvage 1 Random Card + 22 Scrap",
+          "hp_delta": -8,
+          "min_hp_required": 9,
+          "scrap_delta": 22,
+          "grant_random_card": true,
+          "icon": "launch"
+        },
+        {
+          "id": "winch_salvage",
+          "label": "WINCH REBAR & SCRAP",
+          "outcome_hint": "Safely collect +20 Scrap from the rubble",
+          "scrap_delta": 20,
+          "icon": "scrap"
+        },
+        {
+          "id": "reinforce_skid",
+          "label": "WELD SKID-PLATE DETOUR",
+          "outcome_hint": "Spend 14 Scrap • Gain +10 Max Hull HP",
+          "req_scrap": 14,
+          "scrap_delta": -14,
+          "max_hp_delta": 10,
+          "hp_delta": 10,
+          "icon": "chassis"
+        }
+      ]
+    },
+    {
+      "id": "abandoned_convoy",
+      "title": "Jackknifed War-Rig: Armored Convoy",
+      "subtitle": "SALVAGE EVENT • WRECKED HEAVY TRANSPORT",
+      "description": "A smoking six-wheel transport rig blocks the center lane. Its cyan-lit Relic Vault is cracked open.",
+      "model_key": "node_event_convoy",
+      "palette_key": "node_event",
+      "choices": [
+        {
+          "id": "breach_vault",
+          "label": "PRY OPEN RELIC VAULT",
+          "outcome_hint": "-11 Hull HP • Claim 1 Unowned Relic",
+          "hp_delta": -11,
+          "min_hp_required": 12,
+          "grant_random_relic": true,
+          "icon": "chassis"
+        },
+        {
+          "id": "strip_cargo",
+          "label": "LOOT CARGO CRATES",
+          "outcome_hint": "Collect +32 Scrap from scattered crates",
+          "scrap_delta": 32,
+          "icon": "scrap"
+        },
+        {
+          "id": "siphon_med_gel",
+          "label": "SIPHON COOLANT & REPAIR GEL",
+          "outcome_hint": "Restore +18 Hull HP from cab reserves",
+          "hp_delta": 18,
+          "icon": "repair"
+        }
+      ]
+    },
+    {
+      "id": "autodoc_monolith",
+      "title": "Black-Market Spire: Autodoc Monolith",
+      "subtitle": "TECH ANOMALY • AUTOMATED CYBER-SURGERY TERMINAL",
+      "description": "A humming obsidian spire with spinning holo-rings extends surgical laser claws toward your chassis.",
+      "model_key": "node_event_monolith",
+      "palette_key": "node_event",
+      "choices": [
+        {
+          "id": "neural_overclock",
+          "label": "LASER MODULE CALIBRATION",
+          "outcome_hint": "Spend 16 Scrap • Choose 1 Card to Upgrade",
+          "req_scrap": 16,
+          "scrap_delta": -16,
+          "open_card_upgrade": true,
+          "icon": "chassis"
+        },
+        {
+          "id": "purge_subroutine",
+          "label": "INCINERATE FAULTY MODULE",
+          "outcome_hint": "Remove 1 card from deck + Restore +10 HP",
+          "hp_delta": 10,
+          "open_card_remove": true,
+          "icon": "scrap_card"
+        },
+        {
+          "id": "nanite_patch",
+          "label": "FREE NANITE HULL SEAL",
+          "outcome_hint": "Restore +20 Hull HP at no cost",
+          "hp_delta": 20,
+          "icon": "repair"
+        }
+      ]
+    },
+    {
+      "id": "toxic_spill",
+      "title": "Ruptured Conduit: Bio-Acid Spill",
+      "subtitle": "CHEMICAL HAZARD • CORROSIVE SLUDGE FLOOD",
+      "description": "An overhead chemical main pours glowing green acid across the asphalt while a decon turbine spins.",
+      "model_key": "node_event_toxic_spill",
+      "palette_key": "node_event",
+      "choices": [
+        {
+          "id": "ford_sludge",
+          "label": "PLOW THROUGH ACID POOL",
+          "outcome_hint": "-10 Hull HP • Etch & Upgrade 2 Random Cards",
+          "hp_delta": -10,
+          "min_hp_required": 11,
+          "upgrade_random_cards": 2,
+          "icon": "scrap_card"
+        },
+        {
+          "id": "harvest_isotopes",
+          "label": "BOTTLE REACTIVE ISOTOPES",
+          "outcome_hint": "-5 Hull HP • Sell isotopes for +34 Scrap",
+          "hp_delta": -5,
+          "min_hp_required": 6,
+          "scrap_delta": 34,
+          "icon": "scrap"
+        },
+        {
+          "id": "decon_bypass",
+          "label": "ENGAGE DECON TURBINE",
+          "outcome_hint": "Safe passage • +12 Hull HP & +10 Scrap",
+          "hp_delta": 12,
+          "scrap_delta": 10,
+          "icon": "repair"
+        }
+      ]
+    }
+  ]
+}

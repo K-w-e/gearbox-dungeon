@@ -1,0 +1,370 @@
+{
+  "gameplay": {
+    "starting_hp": 70,
+    "max_hp": 70,
+    "starting_heat": 0,
+    "max_heat": 5,
+    "overheat_hull_damage": 15,
+    "overheat_reset_gear": 0,
+    "starting_rpm_units": 2,
+    "min_rpm_units": 0,
+    "max_rpm_units": 8,
+    "rpm_display_multiplier": 1000,
+    "natural_rpm_decay_units": 1,
+    "starting_gear": 1,
+    "min_gear": -1,
+    "max_gear": 6,
+    "free_manual_shift_range": 1,
+    "grind_hp_cost_per_step": 3,
+    "grind_heat_cost_per_step": 1,
+    "puncture_rpm_loss_units": 1,
+    "redline_heat_per_card": 1,
+    "stall_draw_penalty": 1,
+    "base_hand_size": 5,
+    "max_hand_size": 10,
+    "reward_card_choices": 3,
+    "weakness_damage_multiplier": 0.75,
+    "vulnerable_damage_multiplier": 1.5,
+    "enemy_hp_variance_pct": 12.0,
+    "spawn_lane_jitter": 0.3,
+    "card_upgrade_max_level": 2,
+    "card_upgrade_damage_bonus": 2,
+    "card_upgrade_block_bonus": 3,
+    "rev_match_block_bonus": 4,
+    "rev_match_torque_bonus": 3,
+    "manual_shift_damage_bonus": 5,
+    "redline_universal_damage_bonus": 4,
+    "hot_engine_min_heat": 2,
+    "hot_engine_damage_bonus": 2,
+    "same_gear_lugging_turns": 2,
+    "same_gear_lugging_heat": 1,
+    "burn_card_rpm_gain_units": 1,
+    "enemy_turn_step_delay_s": 0.48,
+    "starting_scrap": 45,
+    "run_map": {
+      "default_left_bonus_scrap": 12,
+      "default_right_bonus_heal": 10,
+      "elite_grants_relic": true,
+      "elite_upgraded_card_rewards": true,
+      "elite_bonus_scrap": 18,
+      "min_deck_size_for_remove": 4,
+      "fallback_relic_scrap_bonus": 35,
+      "tier_templates": [
+        {
+          "count": 1,
+          "max_count": 1,
+          "pool": ["combat"],
+          "guaranteed": ["combat"],
+          "encounter_stage": 1
+        },
+        {
+          "count": 2,
+          "max_count": 2,
+          "pool": ["combat", "combat"],
+          "guaranteed": ["combat", "combat"],
+          "encounter_stage": 2
+        },
+        {
+          "count": 3,
+          "max_count": 4,
+          "pool": ["combat", "event", "upgrade", "combat"],
+          "guaranteed": ["combat", "event"],
+          "encounter_stage": 2
+        },
+        {
+          "count": 3,
+          "max_count": 4,
+          "pool": ["elite", "combat", "rest", "event"],
+          "guaranteed": ["elite", "combat"],
+          "encounter_stage": 5
+        },
+        {
+          "count": 3,
+          "max_count": 3,
+          "pool": ["workshop", "event", "upgrade"],
+          "guaranteed": ["workshop", "event"],
+          "encounter_stage": 3
+        },
+        {
+          "count": 3,
+          "max_count": 4,
+          "pool": ["combat", "combat", "event", "rest"],
+          "guaranteed": ["combat", "combat"],
+          "encounter_stage": 3
+        },
+        {
+          "count": 3,
+          "max_count": 4,
+          "pool": ["elite", "combat", "upgrade", "event"],
+          "guaranteed": ["elite", "combat"],
+          "encounter_stage": 5
+        },
+        {
+          "count": 3,
+          "max_count": 4,
+          "pool": ["combat", "rest", "upgrade", "event"],
+          "guaranteed": ["combat", "rest"],
+          "encounter_stage": 3
+        },
+        {
+          "count": 3,
+          "max_count": 3,
+          "pool": ["elite", "elite", "combat", "event"],
+          "guaranteed": ["elite", "combat"],
+          "encounter_stage": 6
+        },
+        {
+          "count": 2,
+          "max_count": 3,
+          "pool": ["workshop", "rest", "upgrade"],
+          "guaranteed": ["workshop", "rest"],
+          "encounter_stage": 4
+        },
+        {
+          "count": 1,
+          "max_count": 1,
+          "pool": ["boss"],
+          "guaranteed": ["boss"],
+          "encounter_stage": 7
+        }
+      ]
+    },
+    "starter_deck": [
+      "marcia_ridotta",
+      "marcia_ridotta",
+      "colpo_acceleratore",
+      "paraurti_chiodato",
+      "paraurti_chiodato",
+      "raffiche_finestrino",
+      "raffiche_finestrino",
+      "doppia_frizione"
+    ],
+    "chassis_presets": [
+      {
+        "id": "interceptor",
+        "name": "INTERCEPTOR V8",
+        "subtitle": "70 HP • START 1ST (2K RPM) • HIGH-RPM GUNNER & BURNOUT DECK",
+        "description": "Supercharged muscle coupe: Burnout & Throttle Taps surge past 4,000 RPM to empower twin Volley bursts.",
+        "cockpit_model": "cockpit_interior",
+        "steering_model": "steering_wheel",
+        "cabin_light_color": [
+          1.0,
+          0.84,
+          0.62
+        ],
+        "dash_glow_color": [
+          0.42,
+          0.88,
+          0.76
+        ],
+        "max_hp": 70,
+        "starting_gear": 1,
+        "starting_rpm_units": 2,
+        "starting_scrap": 45,
+        "starting_relic": "turbina_maggiorata",
+        "starting_consumable": "nitro_shot",
+        "starter_deck": [
+          "colpo_acceleratore",
+          "colpo_acceleratore",
+          "raffiche_finestrino",
+          "raffiche_finestrino",
+          "marcia_ridotta",
+          "marcia_ridotta",
+          "paraurti_chiodato",
+          "doppia_frizione",
+          "burnout"
+        ],
+        "bonus_cards": []
+      },
+      {
+        "id": "bulldozer",
+        "name": "ARMORED BULLDOZER",
+        "subtitle": "86 HP • START 1ST (2K RPM) • LOW-GEAR TORQUE & SHIELD-SLAM DECK",
+        "description": "Demolition siege crawler: stacks persistent armor in 1st-2nd gear and converts Shield into crushing Rams.",
+        "cockpit_model": "cockpit_bulldozer",
+        "steering_model": "steering_bulldozer",
+        "cabin_light_color": [
+          1.0,
+          0.72,
+          0.28
+        ],
+        "dash_glow_color": [
+          1.0,
+          0.62,
+          0.16
+        ],
+        "max_hp": 86,
+        "starting_gear": 1,
+        "starting_rpm_units": 2,
+        "starting_scrap": 35,
+        "starting_relic": "paraurti_titanio",
+        "starting_consumable": "nanite_foam",
+        "starter_deck": [
+          "marcia_ridotta",
+          "marcia_ridotta",
+          "paraurti_chiodato",
+          "paraurti_chiodato",
+          "colpo_acceleratore",
+          "ariete_idraulico",
+          "schianto_frontale",
+          "corazza_reattiva",
+          "doppia_frizione"
+        ],
+        "bonus_cards": []
+      },
+      {
+        "id": "turbo_proto",
+        "name": "SEQUENTIAL PROTOTYPE",
+        "subtitle": "58 HP • START 3RD (3K RPM) • MULTI-SHIFT & HIGH-GEAR SLALOM DECK",
+        "description": "Twin-turbo monocoque: chains Heel-and-Toe, Quick-Shifter & Upshift across 2nd-5th to scale Slalom strikes.",
+        "cockpit_model": "cockpit_turbo_proto",
+        "steering_model": "steering_turbo_proto",
+        "cabin_light_color": [
+          0.48,
+          0.9,
+          1.0
+        ],
+        "dash_glow_color": [
+          0.95,
+          0.22,
+          0.38
+        ],
+        "max_hp": 58,
+        "starting_gear": 3,
+        "starting_rpm_units": 3,
+        "starting_scrap": 50,
+        "starting_relic": "sincronizzatore_sequenziale",
+        "starting_consumable": "cryo_flush",
+        "starter_deck": [
+          "colpo_acceleratore",
+          "marcia_ridotta",
+          "tacco_punta",
+          "freno_motore",
+          "innesto_rapido",
+          "cambio_sequenziale",
+          "raffiche_finestrino",
+          "raffiche_finestrino",
+          "slalom_meccanico"
+        ],
+        "bonus_cards": []
+      }
+    ],
+    "max_consumables": 3,
+    "consumable_drop_chance": 0.65,
+    "consumables": [
+      {
+        "id": "nitro_shot",
+        "name": "Nitro Shot",
+        "short": "NITRO +3K",
+        "color_key": "playable_glow",
+        "rpm_delta_units": 3,
+        "description": "Injects pure nitromethane: +3,000 RPM immediately."
+      },
+      {
+        "id": "cryo_flush",
+        "name": "Cryo Coolant",
+        "short": "CRYO -3HT",
+        "color_key": "kw_shield",
+        "heat_delta": -3,
+        "block": 6,
+        "description": "Flushes radiator with liquid nitrogen: -3 Heat and +6 Shield."
+      },
+      {
+        "id": "synchro_oil",
+        "name": "Synchro Fluid",
+        "short": "SYNC +2DRW",
+        "color_key": "selected_glow",
+        "restore_free_shift": true,
+        "free_shift_range_bonus": 2,
+        "draw_cards": 2,
+        "description": "Unlocks free manual shift (+/-3 gears) and draws 2 cards."
+      },
+      {
+        "id": "nanite_foam",
+        "name": "Nanite Sealant",
+        "short": "WELD +14HP",
+        "color_key": "enemy_hp",
+        "heal": 14,
+        "description": "Emergency hull repair foam: restores +14 Hull HP."
+      },
+      {
+        "id": "thermite_charge",
+        "name": "Thermite Canister",
+        "short": "THERM 16AOE",
+        "color_key": "redline_glow",
+        "aoe_damage": 16,
+        "apply_vulnerable": 2,
+        "description": "Deals 16 AOE damage and applies 2 Vulnerable to all enemies."
+      },
+      {
+        "id": "emp_flare",
+        "name": "EMP Chaff",
+        "short": "EMP +12SHD",
+        "color_key": "mfd_accent",
+        "block": 12,
+        "apply_weakness": 2,
+        "description": "Grants +12 Shield and applies 2 Weakness to all enemies."
+      }
+    ]
+  },
+  "workshop": {
+    "repair_cost": 20,
+    "repair_amount": 25,
+    "tune_cost": 30,
+    "tune_max_hp_bonus": 12,
+    "card_remove_cost": 22,
+    "card_buy_cost": 34,
+    "card_sale_cost": 18,
+    "reroll_cost": 10,
+    "reroll_cost_step": 8
+  },
+  "audio": {
+    "mix_rate": 22050,
+    "web_mix_rate": 16000,
+    "buffer_length": 0.12,
+    "web_buffer_length": 0.24,
+    "sfx_buffer_length": 0.25,
+    "web_sfx_buffer_length": 0.32,
+    "engine_base_hz": 28.0,
+    "engine_hz_per_rpm_unit": 9.5,
+    "engine_gain_idle": 0.026,
+    "engine_gain_max": 0.078,
+    "engine_rev_flare_gain": 0.088,
+    "engine_rev_flare_decay": 1.85,
+    "engine_lowpass_cutoff_hz": 150.0,
+    "redline_buzz_gain": 0.012,
+    "ambient_drone_gain": 0.016,
+    "road_noise_gain": 0.022,
+    "threat_pulse_gain": 0.026,
+    "sfx_master_gain": 0.23,
+    "throttle_blip_flare": 0.95,
+    "throttle_blip_duration": 0.22,
+    "throttle_blip_gain": 0.32
+  },
+  "quality_presets": [
+    {
+      "id": "high",
+      "label": "HIGH",
+      "msaa_3d": 2,
+      "scaling_3d_scale": 1.0,
+      "headlights_enabled": true,
+      "props_enabled": true
+    },
+    {
+      "id": "medium",
+      "label": "MEDIUM",
+      "msaa_3d": 1,
+      "scaling_3d_scale": 0.85,
+      "headlights_enabled": true,
+      "props_enabled": true
+    },
+    {
+      "id": "low",
+      "label": "LOW (WEB FAST)",
+      "msaa_3d": 0,
+      "scaling_3d_scale": 0.72,
+      "headlights_enabled": false,
+      "props_enabled": false
+    }
+  ]
+}

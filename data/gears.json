@@ -1,0 +1,188 @@
+[
+  {
+    "id": "R",
+    "index": -1,
+    "short_name": "R",
+    "full_name": "Reverse",
+    "role": "Distance",
+    "stall_rpm_units": 0,
+    "optimal_min_units": 1,
+    "optimal_max_units": 3,
+    "redline_rpm_units": 4,
+    "melee_damage_reduction": 0.5,
+    "end_turn_rpm_cap_units": 1,
+    "tunnel_speed": -3.2,
+    "gate_slot": [
+      -0.07,
+      0.062
+    ],
+    "lever_angles_deg": [
+      -14.0,
+      0.0,
+      14.0
+    ],
+    "description": "Reduces incoming Melee damage by 50%. At turn end, RPM drops to 1,000."
+  },
+  {
+    "id": "N",
+    "index": 0,
+    "short_name": "N",
+    "full_name": "Neutral",
+    "role": "Cooling",
+    "stall_rpm_units": 0,
+    "optimal_min_units": 0,
+    "optimal_max_units": 2,
+    "redline_rpm_units": 5,
+    "end_turn_heat_reduction": 2,
+    "tunnel_speed": 0.4,
+    "gate_slot": [
+      -0.046,
+      0.0
+    ],
+    "lever_angles_deg": [
+      0.0,
+      0.0,
+      8.0
+    ],
+    "description": "Cooling: at turn end, reduces Heat by -2."
+  },
+  {
+    "id": "1",
+    "index": 1,
+    "short_name": "1st",
+    "full_name": "First",
+    "role": "Torque",
+    "stall_rpm_units": 1,
+    "optimal_min_units": 1,
+    "optimal_max_units": 3,
+    "redline_rpm_units": 4,
+    "bonus_block_per_card": 4,
+    "tunnel_speed": 3.5,
+    "gate_slot": [
+      -0.018,
+      0.062
+    ],
+    "lever_angles_deg": [
+      -14.0,
+      0.0,
+      4.0
+    ],
+    "description": "Torque: every card played generates +4 extra Shield."
+  },
+  {
+    "id": "2",
+    "index": 2,
+    "short_name": "2nd",
+    "full_name": "Second",
+    "role": "Drive",
+    "stall_rpm_units": 1,
+    "optimal_min_units": 1,
+    "optimal_max_units": 4,
+    "redline_rpm_units": 5,
+    "ram_damage_bonus": 4,
+    "tunnel_speed": 6.5,
+    "gate_slot": [
+      -0.018,
+      -0.062
+    ],
+    "lever_angles_deg": [
+      14.0,
+      0.0,
+      4.0
+    ],
+    "description": "Drive: Ram cards deal +4 extra damage."
+  },
+  {
+    "id": "3",
+    "index": 3,
+    "short_name": "3rd",
+    "full_name": "Third",
+    "role": "Cruising",
+    "stall_rpm_units": 2,
+    "optimal_min_units": 2,
+    "optimal_max_units": 5,
+    "redline_rpm_units": 6,
+    "start_turn_draw_bonus": 1,
+    "tunnel_speed": 10.5,
+    "gate_slot": [
+      0.018,
+      0.062
+    ],
+    "lever_angles_deg": [
+      -14.0,
+      0.0,
+      -4.0
+    ],
+    "description": "Cruising: starting your turn in 3rd gear draws +1 extra card."
+  },
+  {
+    "id": "4",
+    "index": 4,
+    "short_name": "4th",
+    "full_name": "Fourth",
+    "role": "Recovery",
+    "stall_rpm_units": 3,
+    "optimal_min_units": 3,
+    "optimal_max_units": 6,
+    "redline_rpm_units": 7,
+    "rpm_cost_reduction_units": 1,
+    "tunnel_speed": 15.0,
+    "gate_slot": [
+      0.018,
+      -0.062
+    ],
+    "lever_angles_deg": [
+      14.0,
+      0.0,
+      -4.0
+    ],
+    "description": "Recovery: negative RPM costs on cards are reduced by 1,000."
+  },
+  {
+    "id": "5",
+    "index": 5,
+    "short_name": "5th",
+    "full_name": "Fifth",
+    "role": "Sprint",
+    "stall_rpm_units": 4,
+    "optimal_min_units": 4,
+    "optimal_max_units": 7,
+    "redline_rpm_units": 8,
+    "damage_bonus_pct": 0.25,
+    "tunnel_speed": 20.5,
+    "gate_slot": [
+      0.056,
+      0.062
+    ],
+    "lever_angles_deg": [
+      -14.0,
+      0.0,
+      -12.0
+    ],
+    "description": "Sprint: attacks deal +25% damage."
+  },
+  {
+    "id": "6",
+    "index": 6,
+    "short_name": "6th",
+    "full_name": "Sixth",
+    "role": "Overdrive",
+    "stall_rpm_units": 5,
+    "optimal_min_units": 5,
+    "optimal_max_units": 7,
+    "redline_rpm_units": 8,
+    "damage_bonus_pct": 0.5,
+    "ranged_dodge_charges": 1,
+    "tunnel_speed": 27.0,
+    "gate_slot": [
+      0.056,
+      -0.062
+    ],
+    "lever_angles_deg": [
+      14.0,
+      0.0,
+      -12.0
+    ],
+    "description": "Overdrive: +50% attack damage and 1 Dodge against ranged hits."
+  }
+]

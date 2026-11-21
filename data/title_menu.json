@@ -1,0 +1,227 @@
+{
+  "backdrop_3d": {
+    "world_offset": [0.0, -40.0, 0.0],
+    "environment": {
+      "background_color": [0.028, 0.024, 0.022],
+      "ambient_color": [0.22, 0.19, 0.16],
+      "ambient_energy": 0.92,
+      "fog_color": [0.048, 0.038, 0.032],
+      "fog_density": 0.014
+    },
+    "camera": {
+      "fov_deg": 48.0,
+      "near_clip": 0.05,
+      "far_clip": 80.0,
+      "lerp_speed": 4.2,
+      "orbit_speed": 0.24,
+      "orbit_amplitude_deg": 4.5,
+      "bob_speed": 0.65,
+      "bob_amplitude_m": 0.045,
+      "parallax_yaw_deg": 3.4,
+      "parallax_pitch_deg": 2.1,
+      "presets": {
+        "main": {
+          "pos": [-2.35, 2.28, 4.45],
+          "look_at": [0.55, 1.12, -0.35]
+        },
+        "chassis": {
+          "pos": [-1.55, 1.88, 3.05],
+          "look_at": [0.85, 1.02, -0.25]
+        },
+        "systems": {
+          "pos": [-2.85, 2.65, 3.65],
+          "look_at": [0.95, 1.55, -2.4]
+        }
+      }
+    },
+    "turntable": {
+      "position": [1.15, 0.0, -0.35],
+      "initial_yaw_deg": 142.0,
+      "radius_m": 1.92,
+      "height_m": 0.24,
+      "ring_segments": 16,
+      "idle_deg_per_sec": 12.0,
+      "boost_deg_per_sec": 34.0,
+      "chassis_offset": [0.0, 0.24, 0.0],
+      "chassis_scale": [0.92, 0.92, 0.92],
+      "steering_offset": [-0.30, 1.03, -0.52],
+      "steering_rot_deg": [-22.0, 0.0, 0.0],
+      "shifter_offset": [0.52, 0.68, -0.32],
+      "shifter_scale": [1.05, 1.05, 1.05],
+      "lamp_radius_m": 1.72,
+      "lamp_count": 6
+    },
+    "floor": {
+      "size_xz": [26.0, 26.0],
+      "color": [0.075, 0.07, 0.064],
+      "metallic": 0.55,
+      "roughness": 0.68,
+      "ring_radius_m": 2.38,
+      "ring_height_m": 0.03
+    },
+    "cogwheels": [
+      {
+        "pos": [3.4, 2.4, -5.2],
+        "rot_deg": [0.0, -14.0, 0.0],
+        "radius": 2.35,
+        "thickness": 0.34,
+        "teeth": 16,
+        "tooth_depth": 0.34,
+        "speed_deg_per_sec": 11.5,
+        "color": [0.22, 0.19, 0.16],
+        "metallic": 0.78,
+        "roughness": 0.42,
+        "accent_rim": true
+      },
+      {
+        "pos": [0.15, 3.65, -5.85],
+        "rot_deg": [0.0, -6.0, 0.0],
+        "radius": 1.65,
+        "thickness": 0.28,
+        "teeth": 12,
+        "tooth_depth": 0.30,
+        "speed_deg_per_sec": -16.5,
+        "color": [0.36, 0.26, 0.14],
+        "metallic": 0.82,
+        "roughness": 0.36,
+        "accent_rim": true
+      },
+      {
+        "pos": [-2.25, 1.75, -6.2],
+        "rot_deg": [0.0, 10.0, 0.0],
+        "radius": 1.95,
+        "thickness": 0.30,
+        "teeth": 14,
+        "tooth_depth": 0.32,
+        "speed_deg_per_sec": 14.0,
+        "color": [0.18, 0.17, 0.16],
+        "metallic": 0.72,
+        "roughness": 0.48,
+        "accent_rim": false
+      },
+      {
+        "pos": [5.15, 0.95, -2.9],
+        "rot_deg": [0.0, -48.0, 0.0],
+        "radius": 1.35,
+        "thickness": 0.26,
+        "teeth": 10,
+        "tooth_depth": 0.26,
+        "speed_deg_per_sec": -22.0,
+        "color": [0.42, 0.29, 0.15],
+        "metallic": 0.84,
+        "roughness": 0.35,
+        "accent_rim": true
+      },
+      {
+        "pos": [1.75, 0.85, -4.45],
+        "rot_deg": [0.0, -8.0, 0.0],
+        "radius": 1.05,
+        "thickness": 0.24,
+        "teeth": 10,
+        "tooth_depth": 0.22,
+        "speed_deg_per_sec": -26.0,
+        "color": [0.28, 0.24, 0.20],
+        "metallic": 0.76,
+        "roughness": 0.40,
+        "accent_rim": true
+      }
+    ],
+    "props": {
+      "workshop_bay_pos": [1.15, 0.0, -1.65],
+      "workshop_bay_rot_deg": [0.0, -12.0, 0.0],
+      "workshop_bay_scale": [1.08, 1.08, 1.08],
+      "ceiling_fan_pos": [1.15, 4.15, -0.6],
+      "ceiling_fan_scale": [1.15, 1.15, 1.15],
+      "wall_machinery": [
+        {
+          "pos": [4.35, 0.0, -1.2],
+          "rot_deg": [0.0, 168.0, 0.0]
+        },
+        {
+          "pos": [-3.65, 0.0, -3.4],
+          "rot_deg": [0.0, 22.0, 0.0]
+        }
+      ],
+      "hazard_beacons": [
+        {
+          "pos": [-1.25, 0.0, 0.85],
+          "rot_deg": [0.0, 28.0, 0.0]
+        },
+        {
+          "pos": [3.55, 0.0, 0.65],
+          "rot_deg": [0.0, -148.0, 0.0]
+        }
+      ],
+      "welder_sway_deg": 15.0,
+      "welder_speed": 2.3,
+      "fan_deg_per_sec": 190.0,
+      "cable_sway_deg": 6.5,
+      "cable_sway_speed": 1.9,
+      "gear_large_deg_per_sec": 68.0,
+      "gear_small_deg_per_sec": -118.0,
+      "piston_stroke_m": 0.22,
+      "piston_speed": 3.6,
+      "gyro_deg_per_sec": 260.0
+    },
+    "lights": {
+      "key_spot_pos": [-1.2, 4.4, 3.2],
+      "key_spot_target": [1.15, 0.9, -0.35],
+      "key_spot_color": [1.0, 0.84, 0.58],
+      "key_spot_energy": 6.2,
+      "key_spot_range": 18.0,
+      "key_spot_angle": 44.0,
+      "rim_spot_pos": [4.4, 3.2, -3.8],
+      "rim_spot_target": [1.15, 1.0, -0.35],
+      "rim_spot_color": [0.46, 0.80, 1.0],
+      "rim_spot_energy": 4.8,
+      "rim_spot_range": 16.0,
+      "rim_spot_angle": 52.0,
+      "gear_back_light_pos": [1.4, 2.4, -3.6],
+      "gear_back_light_color": [1.0, 0.56, 0.18],
+      "gear_back_light_energy": 3.4,
+      "gear_back_light_range": 11.0,
+      "turntable_glow_offset": [0.0, 0.55, 0.0],
+      "turntable_glow_energy": 2.1,
+      "turntable_glow_range": 5.2,
+      "accent_lerp_speed": 5.5
+    },
+    "particles": {
+      "spark_pool_size": 24,
+      "steam_pool_size": 12,
+      "spark_interval_s": 0.34,
+      "steam_interval_s": 1.15,
+      "spark_gravity": 6.8,
+      "steam_rise_speed": 0.72
+    }
+  },
+  "ui": {
+    "left_margin_px": 46.0,
+    "top_margin_px": 34.0,
+    "bottom_margin_px": 28.0,
+    "main_panel_width_px": 540.0,
+    "chassis_panel_width_px": 600.0,
+    "systems_panel_width_px": 560.0,
+    "hover_slide_px": 10.0,
+    "anim_speed": 12.0,
+    "transition_flash_duration_s": 0.32,
+    "vignette_width_ratio": 0.58,
+    "hgate_gear_coords": {
+      "-1": [0.14, 0.82],
+      "0": [0.50, 0.50],
+      "1": [0.22, 0.18],
+      "2": [0.22, 0.82],
+      "3": [0.50, 0.18],
+      "4": [0.50, 0.82],
+      "5": [0.78, 0.18],
+      "6": [0.78, 0.82]
+    },
+    "overdrive_descriptions": [
+      "STANDARD SHIFT — Baseline Megadungeon calibration",
+      "OD 1 — Hostile vehicles gain +8% Hull HP",
+      "OD 2 — Hostiles +16% HP & +1 Attack Strength",
+      "OD 3 — +24% Enemy HP, +1 STR • Max Heat -1 & Overheat +3 DMG",
+      "OD 4 — +32% Enemy HP, +1 STR, Tight Heat • Stall deals 4 HP & -2 Draw",
+      "OD 5 (MAX) — +40% Enemy HP, +2 STR, Tight Heat & Lethal Stall"
+    ]
+  }
+}

@@ -1,0 +1,535 @@
+[
+  {
+    "stage": 1,
+    "title": "Sector 1: Scrapyard Outskirts",
+    "type": "combat",
+    "reward_scrap": 22,
+    "enemies": [
+      {
+        "enemy_id": "drone_sparachiodi",
+        "lane_x": 0.0,
+        "distance_z": -5.6
+      }
+    ],
+    "variants": [
+      {
+        "title": "Sector 1: Scrapyard Outskirts",
+        "enemies": [
+          {
+            "enemy_id": "drone_sparachiodi",
+            "lane_x": 0.0,
+            "distance_z": -5.6
+          }
+        ]
+      },
+      {
+        "title": "Sector 1: Highway Patrol",
+        "enemies": [
+          {
+            "enemy_id": "moto_intercettore",
+            "lane_x": 0.0,
+            "distance_z": -5.7
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 2,
+    "title": "Sector 2: Magnetic Corridor",
+    "type": "combat",
+    "reward_scrap": 30,
+    "variants": [
+      {
+        "title": "Sector 2: Magnetic Corridor",
+        "enemies": [
+          {
+            "enemy_id": "drone_sparachiodi",
+            "lane_x": -1.15,
+            "distance_z": -5.8
+          },
+          {
+            "enemy_id": "magnete_industriale",
+            "lane_x": 1.15,
+            "distance_z": -6.2
+          }
+        ]
+      },
+      {
+        "title": "Sector 2: Pillar Crossroad",
+        "enemies": [
+          {
+            "enemy_id": "scavenger_buggy",
+            "lane_x": -1.15,
+            "distance_z": -6.0
+          },
+          {
+            "enemy_id": "drone_sparachiodi",
+            "lane_x": 1.15,
+            "distance_z": -5.8
+          }
+        ]
+      },
+      {
+        "title": "Sector 2: Rust Barricade",
+        "enemies": [
+          {
+            "enemy_id": "magnete_industriale",
+            "lane_x": -0.95,
+            "distance_z": -6.1
+          },
+          {
+            "enemy_id": "scavenger_buggy",
+            "lane_x": 1.25,
+            "distance_z": -5.9
+          }
+        ]
+      },
+      {
+        "title": "Sector 2: Welding Bay",
+        "enemies": [
+          {
+            "enemy_id": "moto_intercettore",
+            "lane_x": -1.15,
+            "distance_z": -5.8
+          },
+          {
+            "enemy_id": "ragno_saldatore",
+            "lane_x": 1.15,
+            "distance_z": -6.1
+          }
+        ]
+      },
+      {
+        "title": "Sector 2: Artillery Overpass",
+        "enemies": [
+          {
+            "enemy_id": "mortaio_acido",
+            "lane_x": -1.15,
+            "distance_z": -6.2
+          },
+          {
+            "enemy_id": "drone_sparachiodi",
+            "lane_x": 1.15,
+            "distance_z": -5.7
+          }
+        ]
+      },
+      {
+        "title": "Sector 2: Cryo-Saw Patrol",
+        "enemies": [
+          {
+            "enemy_id": "drone_crio_lama",
+            "lane_x": -1.15,
+            "distance_z": -5.8
+          },
+          {
+            "enemy_id": "scavenger_buggy",
+            "lane_x": 1.15,
+            "distance_z": -6.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 3,
+    "title": "Sector 3: Thermal Exhaust Tunnel",
+    "type": "combat",
+    "reward_scrap": 36,
+    "variants": [
+      {
+        "title": "Sector 3: Thermal Exhaust Tunnel",
+        "enemies": [
+          {
+            "enemy_id": "torretta_lanciafiamme",
+            "lane_x": -1.2,
+            "distance_z": -5.9
+          },
+          {
+            "enemy_id": "scavenger_buggy",
+            "lane_x": 1.2,
+            "distance_z": -5.7
+          }
+        ]
+      },
+      {
+        "title": "Sector 3: Geothermal Sewers",
+        "enemies": [
+          {
+            "enemy_id": "torretta_lanciafiamme",
+            "lane_x": -1.2,
+            "distance_z": -5.9
+          },
+          {
+            "enemy_id": "magnete_industriale",
+            "lane_x": 1.2,
+            "distance_z": -6.3
+          }
+        ]
+      },
+      {
+        "title": "Sector 3: Cryogenic Chamber",
+        "bonus_heal": 10,
+        "enemies": [
+          {
+            "enemy_id": "crio_iniettore",
+            "lane_x": -1.15,
+            "distance_z": -5.8
+          },
+          {
+            "enemy_id": "drone_sparachiodi",
+            "lane_x": 1.2,
+            "distance_z": -6.1
+          }
+        ]
+      },
+      {
+        "title": "Sector 3: Demolition Hall",
+        "bonus_scrap": 14,
+        "enemies": [
+          {
+            "enemy_id": "scavenger_buggy",
+            "lane_x": -1.15,
+            "distance_z": -5.8
+          },
+          {
+            "enemy_id": "drone_sparachiodi",
+            "lane_x": 0.0,
+            "distance_z": -6.5
+          },
+          {
+            "enemy_id": "torretta_lanciafiamme",
+            "lane_x": 1.3,
+            "distance_z": -5.7
+          }
+        ]
+      },
+      {
+        "title": "Sector 3: Acid Battery",
+        "bonus_scrap": 14,
+        "enemies": [
+          {
+            "enemy_id": "mortaio_acido",
+            "lane_x": -1.2,
+            "distance_z": -6.1
+          },
+          {
+            "enemy_id": "ragno_saldatore",
+            "lane_x": 1.2,
+            "distance_z": -5.9
+          }
+        ]
+      },
+      {
+        "title": "Sector 3: Nitro Ambush",
+        "bonus_heal": 10,
+        "enemies": [
+          {
+            "enemy_id": "moto_intercettore",
+            "lane_x": -1.25,
+            "distance_z": -5.7
+          },
+          {
+            "enemy_id": "crio_iniettore",
+            "lane_x": 1.2,
+            "distance_z": -6.0
+          }
+        ]
+      },
+      {
+        "title": "Sector 3: Tunnel Bore Breach",
+        "bonus_scrap": 14,
+        "enemies": [
+          {
+            "enemy_id": "ariete_trivella",
+            "lane_x": -1.1,
+            "distance_z": -5.9
+          },
+          {
+            "enemy_id": "drone_crio_lama",
+            "lane_x": 1.2,
+            "distance_z": -5.8
+          }
+        ]
+      },
+      {
+        "title": "Sector 3: EMP Relay Bunker",
+        "bonus_heal": 10,
+        "enemies": [
+          {
+            "enemy_id": "torretta_emp",
+            "lane_x": -1.15,
+            "distance_z": -6.1
+          },
+          {
+            "enemy_id": "moto_intercettore",
+            "lane_x": 1.2,
+            "distance_z": -5.7
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 4,
+    "title": "Bunker Station: Mechanical Workshop",
+    "type": "workshop",
+    "reward_scrap": 0,
+    "enemies": []
+  },
+  {
+    "stage": 5,
+    "title": "Sector 5: Scrapper Trench (Elite)",
+    "type": "combat",
+    "is_elite": true,
+    "reward_scrap": 48,
+    "variants": [
+      {
+        "title": "Sector 5: Scrapper Trench (Elite)",
+        "enemies": [
+          {
+            "enemy_id": "sawblade_grinder",
+            "lane_x": -1.05,
+            "distance_z": -5.9
+          },
+          {
+            "enemy_id": "drone_sparachiodi",
+            "lane_x": 1.25,
+            "distance_z": -5.5
+          }
+        ]
+      },
+      {
+        "title": "Sector 5: Abandoned Plant (Elite)",
+        "bonus_scrap": 16,
+        "enemies": [
+          {
+            "enemy_id": "sawblade_grinder",
+            "lane_x": -1.05,
+            "distance_z": -6.0
+          },
+          {
+            "enemy_id": "torretta_lanciafiamme",
+            "lane_x": 1.3,
+            "distance_z": -5.6
+          }
+        ]
+      },
+      {
+        "title": "Sector 5: Cryo-Hydraulic Reactor (Elite)",
+        "bonus_heal": 14,
+        "enemies": [
+          {
+            "enemy_id": "crio_iniettore",
+            "lane_x": -1.1,
+            "distance_z": -5.9
+          },
+          {
+            "enemy_id": "sawblade_grinder",
+            "lane_x": 1.25,
+            "distance_z": -5.7
+          }
+        ]
+      },
+      {
+        "title": "Sector 5: Siege Gauntlet (Elite)",
+        "bonus_scrap": 16,
+        "enemies": [
+          {
+            "enemy_id": "colosso_frizione",
+            "lane_x": -1.05,
+            "distance_z": -6.0
+          },
+          {
+            "enemy_id": "ragno_saldatore",
+            "lane_x": 1.25,
+            "distance_z": -5.7
+          }
+        ]
+      },
+      {
+        "title": "Sector 5: High-Voltage Substation (Elite)",
+        "bonus_heal": 14,
+        "enemies": [
+          {
+            "enemy_id": "mietitore_voltaico",
+            "lane_x": -1.05,
+            "distance_z": -5.9
+          },
+          {
+            "enemy_id": "moto_intercettore",
+            "lane_x": 1.25,
+            "distance_z": -5.6
+          }
+        ]
+      },
+      {
+        "title": "Sector 5: Excavation Killbox (Elite)",
+        "bonus_scrap": 16,
+        "enemies": [
+          {
+            "enemy_id": "ariete_trivella",
+            "lane_x": -1.1,
+            "distance_z": -5.9
+          },
+          {
+            "enemy_id": "torretta_emp",
+            "lane_x": 1.25,
+            "distance_z": -6.1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 6,
+    "title": "Sector 6: Underground Foundry (Elite)",
+    "type": "combat",
+    "is_elite": true,
+    "reward_scrap": 58,
+    "variants": [
+      {
+        "title": "Sector 6: Underground Foundry (Elite)",
+        "enemies": [
+          {
+            "enemy_id": "torretta_lanciafiamme",
+            "lane_x": -1.55,
+            "distance_z": -6.3
+          },
+          {
+            "enemy_id": "magnete_industriale",
+            "lane_x": 0.0,
+            "distance_z": -6.7
+          },
+          {
+            "enemy_id": "scavenger_buggy",
+            "lane_x": 1.55,
+            "distance_z": -6.1
+          }
+        ]
+      },
+      {
+        "title": "Sector 6: Lower Kiln (Elite)",
+        "enemies": [
+          {
+            "enemy_id": "sawblade_grinder",
+            "lane_x": -1.1,
+            "distance_z": -6.4
+          },
+          {
+            "enemy_id": "magnete_industriale",
+            "lane_x": 0.15,
+            "distance_z": -6.9
+          },
+          {
+            "enemy_id": "drone_sparachiodi",
+            "lane_x": 1.45,
+            "distance_z": -5.8
+          }
+        ]
+      },
+      {
+        "title": "Sector 6: Crusher Convoy (Elite)",
+        "enemies": [
+          {
+            "enemy_id": "colosso_frizione",
+            "lane_x": -1.15,
+            "distance_z": -6.2
+          },
+          {
+            "enemy_id": "mortaio_acido",
+            "lane_x": 1.2,
+            "distance_z": -6.3
+          }
+        ]
+      },
+      {
+        "title": "Sector 6: Tesla Dynamo (Elite)",
+        "enemies": [
+          {
+            "enemy_id": "mietitore_voltaico",
+            "lane_x": -1.15,
+            "distance_z": -6.1
+          },
+          {
+            "enemy_id": "ragno_saldatore",
+            "lane_x": 0.1,
+            "distance_z": -6.7
+          },
+          {
+            "enemy_id": "moto_intercettore",
+            "lane_x": 1.4,
+            "distance_z": -5.8
+          }
+        ]
+      },
+      {
+        "title": "Sector 6: Cryo-EMP Lockdown (Elite)",
+        "enemies": [
+          {
+            "enemy_id": "torretta_emp",
+            "lane_x": -1.35,
+            "distance_z": -6.2
+          },
+          {
+            "enemy_id": "ariete_trivella",
+            "lane_x": 0.0,
+            "distance_z": -6.6
+          },
+          {
+            "enemy_id": "drone_crio_lama",
+            "lane_x": 1.4,
+            "distance_z": -5.8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "stage": 7,
+    "title": "Mechanical Core: The Hydraulic Compactor (BOSS)",
+    "type": "combat",
+    "is_boss": true,
+    "reward_scrap": 100,
+    "enemies": [
+      {
+        "enemy_id": "boss_compattatore",
+        "lane_x": 0.0,
+        "distance_z": -6.8
+      }
+    ],
+    "variants": [
+      {
+        "title": "Mechanical Core: The Hydraulic Compactor (BOSS)",
+        "enemies": [
+          {
+            "enemy_id": "boss_compattatore",
+            "lane_x": 0.0,
+            "distance_z": -6.8
+          }
+        ]
+      },
+      {
+        "title": "Turbine Sanctum: The Twin-Turbo Leviathan (BOSS)",
+        "enemies": [
+          {
+            "enemy_id": "boss_leviathan_turbo",
+            "lane_x": 0.0,
+            "distance_z": -6.8
+          }
+        ]
+      },
+      {
+        "title": "Smelter Abyss: The Molten Foundry Core (BOSS)",
+        "enemies": [
+          {
+            "enemy_id": "boss_fornace_idraulica",
+            "lane_x": 0.0,
+            "distance_z": -6.8
+          }
+        ]
+      }
+    ]
+  }
+]
