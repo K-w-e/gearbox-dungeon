@@ -614,12 +614,21 @@ func _mark_onboarding_seen() -> void:
 	_save_pilot_profile()
 
 func _is_fullscreen_active() -> bool:
+	if OS.has_feature("web") and JavaScriptBridge.eval("Boolean(document.fullscreenElement || document.webkitFullscreenElement)", true):
+		return true
 	var wmode: DisplayServer.WindowMode = DisplayServer.window_get_mode()
 	return wmode == DisplayServer.WINDOW_MODE_FULLSCREEN or wmode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 
+func _exit_web_fullscreen() -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("try { if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen(); else if (document.webkitFullscreenElement && document.webkitExitFullscreen) document.webkitExitFullscreen(); } catch(e) {}", true)
+
 func _toggle_fullscreen_mode() -> void:
-	var next_mode: DisplayServer.WindowMode = DisplayServer.WINDOW_MODE_WINDOWED if _is_fullscreen_active() else DisplayServer.WINDOW_MODE_FULLSCREEN
-	DisplayServer.window_set_mode(next_mode)
+	if _is_fullscreen_active():
+		_exit_web_fullscreen()
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	_sync_pause_menu_state()
 
 func _sync_pause_menu_state() -> void:
@@ -694,9 +703,8 @@ func _on_pause_action(action_id: String) -> void:
 
 func _on_quit_requested() -> void:
 	if OS.has_feature("web"):
-		if _is_fullscreen_active():
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			_sync_pause_menu_state()
+		_exit_web_fullscreen()
+		_sync_pause_menu_state()
 		return
 	if engine != null and engine.mode != CombatEngine.MODE_TITLE and not engine.tutorial_active:
 		engine.save_active_run()

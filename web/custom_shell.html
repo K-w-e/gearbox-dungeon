@@ -5,16 +5,6 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 	<title>$GODOT_PROJECT_NAME</title>
 	<style>
-		:root {
-			--bg-dark: #07090c;
-			--panel-bg: #111419;
-			--amber: #f5a623;
-			--amber-dim: #7a5214;
-			--green: #7ae852;
-			--red: #ff472b;
-			--text-main: #f5ecce;
-			--text-muted: #9c9278;
-		}
 		* { box-sizing: border-box; }
 		html, body, #canvas {
 			margin: 0;
@@ -22,13 +12,13 @@
 			border: 0;
 			width: 100%;
 			height: 100%;
-			background: var(--bg-dark);
-			color: var(--text-main);
+			background: #0b0d11;
+			color: #f4f1e8;
 			overflow: hidden;
 			user-select: none;
 			-webkit-user-select: none;
 			touch-action: none;
-			font-family: "Segoe UI", system-ui, -apple-system, Roboto, monospace;
+			font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 		}
 		#canvas {
 			display: block;
@@ -43,122 +33,65 @@
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			background:
-				radial-gradient(circle at 50% 42%, rgba(245, 166, 35, 0.12), transparent 58%),
-				repeating-linear-gradient(
-					-45deg,
-					rgba(255, 255, 255, 0.014) 0px,
-					rgba(255, 255, 255, 0.014) 8px,
-					transparent 8px,
-					transparent 16px
-				),
-				var(--bg-dark);
+			background: #0b0d11;
 			z-index: 10;
-			transition: opacity 0.28s ease-out;
+			transition: opacity 0.25s ease-out;
 		}
 		#status.fade-out {
 			opacity: 0;
 			pointer-events: none;
 		}
-		.loader-card {
-			width: min(560px, 90vw);
-			background: rgba(14, 16, 20, 0.94);
-			border: 2px solid var(--amber-dim);
-			box-shadow: 0 0 0 1px rgba(245, 166, 35, 0.16), 0 24px 64px rgba(0, 0, 0, 0.78);
-			padding: 28px 30px 24px;
-			position: relative;
-		}
-		.hazard-strip {
-			height: 8px;
-			margin: -28px -30px 22px;
-			background: repeating-linear-gradient(
-				-55deg,
-				var(--amber) 0px,
-				var(--amber) 12px,
-				#15171b 12px,
-				#15171b 24px
-			);
-			opacity: 0.85;
-		}
-		.kicker {
-			font-size: 11px;
-			letter-spacing: 0.26em;
-			color: var(--amber);
-			text-transform: uppercase;
-			margin-bottom: 6px;
-			font-weight: 700;
-		}
-		.title {
-			font-size: clamp(26px, 4.4vw, 38px);
-			font-weight: 900;
-			letter-spacing: 0.1em;
-			margin: 0 0 6px;
-			color: var(--text-main);
-			text-transform: uppercase;
-		}
-		.subtitle {
-			font-size: 13px;
-			letter-spacing: 0.06em;
-			color: var(--text-muted);
-			margin: 0 0 22px;
-		}
-		.rpm-header {
+		.loader {
+			width: min(320px, 80vw);
 			display: flex;
-			justify-content: space-between;
-			align-items: baseline;
-			font-size: 12px;
-			letter-spacing: 0.12em;
+			flex-direction: column;
+			align-items: center;
+			gap: 18px;
+		}
+		.hgate-mark {
+			width: 48px;
+			height: 48px;
+			display: block;
+		}
+		.brand {
+			margin: 0;
+			font-size: 18px;
+			font-weight: 700;
+			letter-spacing: 0.24em;
 			text-transform: uppercase;
-			margin-bottom: 8px;
+			color: #f4f1e8;
+			text-align: center;
 		}
-		#status-label {
-			color: var(--text-main);
-			font-weight: 700;
+		.brand span {
+			color: #ffb830;
 		}
-		#status-pct {
-			color: var(--green);
-			font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-			font-weight: 700;
-		}
-		.rpm-track {
+		.bar-wrap {
 			width: 100%;
-			height: 16px;
-			background: #090b0f;
-			border: 1px solid var(--amber-dim);
-			padding: 2px;
+			height: 3px;
+			background: #1d222c;
 			overflow: hidden;
 		}
-		#rpm-fill {
+		#bar-fill {
 			height: 100%;
-			width: 4%;
-			background: linear-gradient(90deg, var(--green) 0%, var(--amber) 72%, var(--red) 100%);
-			transition: width 0.14s linear;
+			width: 0%;
+			background: #ffb830;
+			transition: width 0.12s linear;
 		}
-		.controls-bar {
-			margin-top: 20px;
-			padding-top: 14px;
-			border-top: 1px solid rgba(245, 166, 35, 0.22);
-			display: flex;
-			flex-wrap: wrap;
-			gap: 8px 14px;
-			font-size: 11px;
-			color: var(--text-muted);
-			letter-spacing: 0.05em;
-		}
-		.controls-bar span b {
-			color: var(--amber);
-			font-weight: 700;
+		#status-pct {
+			font-size: 12px;
+			letter-spacing: 0.16em;
+			color: #8c95a6;
 		}
 		#status-notice {
 			display: none;
-			margin-top: 16px;
-			background: rgba(110, 26, 22, 0.9);
-			border: 1px solid var(--red);
-			color: #ffdcd6;
-			padding: 12px 14px;
-			font-size: 13px;
+			width: 100%;
+			margin-top: 8px;
+			padding: 10px 12px;
+			border-left: 2px solid #ff472b;
+			background: #171214;
+			color: #f4c7c0;
+			font-size: 12px;
 			line-height: 1.45;
-			text-align: left;
 		}
 	</style>
 	$GODOT_HEAD_INCLUDE
@@ -171,26 +104,18 @@
 		Your browser does not support JavaScript.
 	</noscript>
 	<div id="status">
-		<div class="loader-card">
-			<div class="hazard-strip"></div>
-			<div class="kicker">GAME OFF 2026 &bull; SHIFT GEARS &bull; SURVIVE</div>
-			<h1 class="title">GEARBOX DUNGEON</h1>
-			<p class="subtitle">First-Person Mechanical Roguelike Deckbuilder</p>
-			<div class="rpm-header">
-				<span id="status-label">IGNITING DRIVETRAIN...</span>
-				<span id="status-pct">0%</span>
+		<div class="loader">
+			<svg class="hgate-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+				<rect x="2" y="2" width="60" height="60" rx="5" stroke="#ffb830" stroke-width="2.5"/>
+				<path d="M16 18V46M32 18V46M48 18V46M16 32H48" stroke="#ffb830" stroke-width="2.5" stroke-linecap="square"/>
+				<circle cx="32" cy="32" r="5" fill="#ffb830"/>
+			</svg>
+			<h1 class="brand">GEARBOX <span>DUNGEON</span></h1>
+			<div class="bar-wrap">
+				<div id="bar-fill"></div>
 			</div>
-			<div class="rpm-track">
-				<div id="rpm-fill"></div>
-			</div>
+			<div id="status-pct">LOADING 0%</div>
 			<div id="status-notice"></div>
-			<div class="controls-bar">
-				<span><b>[Q / E]</b> SHIFT GEARS</span>
-				<span><b>[DRAG / 1-9]</b> PLAY CARDS</span>
-				<span><b>[X]</b> BURN +1K RPM</span>
-				<span><b>[SPACE]</b> END TURN</span>
-				<span><b>[F]</b> FULLSCREEN</span>
-			</div>
 		</div>
 	</div>
 	<script src="$GODOT_URL"></script>
@@ -201,9 +126,8 @@ const engine = new Engine(GODOT_CONFIG);
 
 (function () {
 	const statusOverlay = document.getElementById('status');
-	const statusLabel = document.getElementById('status-label');
 	const statusPct = document.getElementById('status-pct');
-	const rpmFill = document.getElementById('rpm-fill');
+	const barFill = document.getElementById('bar-fill');
 	const statusNotice = document.getElementById('status-notice');
 
 	let initializing = true;
@@ -222,7 +146,7 @@ const engine = new Engine(GODOT_CONFIG);
 
 	function displayFailureNotice(err) {
 		console.error(err);
-		statusLabel.textContent = 'IGNITION FAULT';
+		statusPct.textContent = 'LOAD ERROR';
 		if (err instanceof Error) {
 			setStatusNotice(err.message);
 		} else if (typeof err === 'string') {
@@ -246,15 +170,8 @@ const engine = new Engine(GODOT_CONFIG);
 				if (current > 0 && total > 0) {
 					const ratio = Math.min(1, Math.max(0, current / total));
 					const pct = Math.round(ratio * 100);
-					rpmFill.style.width = Math.max(4, pct) + '%';
-					statusPct.textContent = pct + '%';
-					if (pct >= 98) {
-						statusLabel.textContent = 'CALIBRATING COCKPIT...';
-					} else if (pct >= 65) {
-						statusLabel.textContent = 'PRESSURIZING HYDRAULICS...';
-					} else {
-						statusLabel.textContent = 'IGNITING DRIVETRAIN...';
-					}
+					barFill.style.width = pct + '%';
+					statusPct.textContent = 'LOADING ' + pct + '%';
 				}
 			},
 		}).then(() => {
@@ -262,13 +179,12 @@ const engine = new Engine(GODOT_CONFIG);
 				return;
 			}
 			initializing = false;
-			rpmFill.style.width = '100%';
+			barFill.style.width = '100%';
 			statusPct.textContent = '100%';
-			statusLabel.textContent = 'ENGINE ONLINE';
 			statusOverlay.classList.add('fade-out');
 			setTimeout(() => {
 				statusOverlay.remove();
-			}, 300);
+			}, 260);
 		}, displayFailureNotice);
 	}
 }());

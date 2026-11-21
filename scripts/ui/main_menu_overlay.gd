@@ -436,17 +436,6 @@ func _build_main_view() -> void:
 			func() -> void:
 				quit_requested.emit()
 		)
-	elif fullscreen_active:
-		_add_action_plate(
-			str(slot_num),
-			repo.get_ui_text("main_menu", "btn_exit_web_fs"),
-			repo.get_ui_text("main_menu", "btn_exit_web_fs_sub"),
-			col_red,
-			-1,
-			0.20,
-			func() -> void:
-				fullscreen_toggle_requested.emit()
-		)
 
 func _build_chassis_view() -> void:
 	var presets: Array = repo.gameplay().get("chassis_presets", []) as Array

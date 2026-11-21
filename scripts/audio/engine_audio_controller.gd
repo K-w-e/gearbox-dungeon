@@ -95,10 +95,12 @@ func _input(event: InputEvent) -> void:
 		ensure_playback_active()
 
 func ensure_playback_active() -> void:
-	if engine_player != null and is_instance_valid(engine_player) and not engine_player.playing:
-		engine_player.play()
-	if sfx_player != null and is_instance_valid(sfx_player) and not sfx_player.playing:
-		sfx_player.play()
+	if engine_player != null and is_instance_valid(engine_player):
+		if not engine_player.playing or engine_player.get_stream_playback() == null:
+			engine_player.play()
+	if sfx_player != null and is_instance_valid(sfx_player):
+		if not sfx_player.playing or sfx_player.get_stream_playback() == null:
+			sfx_player.play()
 
 func set_chassis_profile(chassis_id: String) -> void:
 	if not chassis_id.is_empty():
@@ -362,9 +364,9 @@ func _fill_engine_buffer(acfg: Dictionary) -> void:
 	var dt: float = 1.0 / sample_rate
 	var rc: float = 1.0 / (TAU * cutoff_hz)
 	var alpha: float = dt / (rc + dt)
-	var drone_alpha: float = dt / ((1.0 / (TAU * 105.0)) + dt)
-	var road_lp_alpha: float = dt / ((1.0 / (TAU * (160.0 + speed_norm * 420.0))) + dt)
-	var road_hp_alpha: float = dt / ((1.0 / (TAU * 65.0)) + dt)
+	var drone_alpha: float = dt / ((1.0 / (TAU * 240.0)) + dt)
+	var road_lp_alpha: float = dt / ((1.0 / (TAU * (240.0 + speed_norm * 560.0))) + dt)
+	var road_hp_alpha: float = dt / ((1.0 / (TAU * 75.0)) + dt)
 
 	if engine_buf_vec.size() != frames:
 		engine_buf_vec.resize(frames)
@@ -403,15 +405,16 @@ func _fill_engine_buffer(acfg: Dictionary) -> void:
 				var spool: float = sin(phase_turbo * TAU) * (0.06 + rpm_norm * 0.12 + rev_flare * 0.10)
 				warm_wave = scream * chug_env + spool
 			else:
-				var burble: float = sin(phase_sub * TAU * 1.5) * (0.22 if active_tunnel_drive else 0.08)
-				warm_wave = (sin(phase_primary * TAU) * 0.48 + sin(phase_sub * TAU) * 0.46 + burble) * chug_env
+				var burble: float = sin(phase_sub * TAU * 1.5) * (0.28 if active_tunnel_drive else 0.14)
+				var raw_v8: float = sin(phase_primary * TAU) * 0.72 + sin(phase_primary * TAU * 2.0) * 0.44 + sin(phase_primary * TAU * 3.0) * 0.22 + sin(phase_sub * TAU) * 0.48 + burble
+				warm_wave = (raw_v8 / (1.0 + 0.55 * absf(raw_v8))) * chug_env * 1.15
 			if in_redline:
 				warm_wave += sin(phase_primary * TAU * 2.0) * red_buzz * (4.0 + rev_flare * 8.0)
 
 		lowpass_state = lowpass_state + alpha * (warm_wave - lowpass_state)
 
 		var raw_noise: float = noise_rng.randf_range(-1.0, 1.0)
-		var vent_air: float = raw_noise * (0.32 + site_crackle * (1.0 if raw_noise > 0.82 else 0.0)) + sin(phase_drone * TAU) * 0.52 + sin(phase_drone_b * TAU) * 0.28
+		var vent_air: float = raw_noise * (0.38 + site_crackle * (1.0 if raw_noise > 0.80 else 0.0)) + sin(phase_drone * TAU) * 0.46 + sin(phase_drone_b * TAU) * 0.34 + sin(phase_drone * TAU * 2.0) * 0.22
 		drone_lp_state = drone_lp_state + drone_alpha * (vent_air - drone_lp_state)
 		var lfo_mod: float = 0.78 + 0.22 * sin(phase_drone_lfo * TAU)
 		var ambient: float = drone_lp_state * drone_gain * lfo_mod * bus_amp
