@@ -157,6 +157,7 @@ func _build_workshop_bay() -> void:
 	welder_arc_light.light_color = repo.get_palette_color("fork_left_glow")
 	welder_arc_light.light_energy = 0.0
 	welder_arc_light.omni_range = 6.5
+	welder_arc_light.visible = false
 	workshop_root.add_child(welder_arc_light)
 
 func _sync_mode_visibility() -> void:
@@ -279,8 +280,11 @@ func _update_workshop_bay(delta: float, pcfg: Dictionary) -> void:
 		)
 
 	spark_timer += delta
-	if welder_arc_light != null:
+	if welder_arc_light != null and welder_arc_light.visible:
 		welder_arc_light.light_energy = lerpf(welder_arc_light.light_energy, 0.0, clampf(delta * 10.0, 0.0, 1.0))
+		if welder_arc_light.light_energy <= 0.01:
+			welder_arc_light.light_energy = 0.0
+			welder_arc_light.visible = false
 
 	if spark_timer >= spark_int:
 		spark_timer = 0.0
@@ -294,6 +298,7 @@ func _update_workshop_bay(delta: float, pcfg: Dictionary) -> void:
 			if welder_arc_light != null:
 				welder_arc_light.global_position = wpos
 				welder_arc_light.light_energy = 2.6
+				welder_arc_light.visible = true
 
 func _init_puff_pool() -> void:
 	shared_steam_sph = SphereMesh.new()

@@ -502,7 +502,8 @@ func _process(delta: float) -> void:
 
 	redraw_accum += delta
 	var needs_fast_redraw: bool = scroll_diff > 0.003
-	if nav_canvas != null and (needs_fast_redraw or redraw_accum >= 0.085) and engine.mode != CombatEngine.MODE_TITLE:
+	var idle_interval: float = 0.085 if (is_zoomed or engine.mode == CombatEngine.MODE_ROUTE_CHOICE) else 0.16
+	if nav_canvas != null and (needs_fast_redraw or redraw_accum >= idle_interval) and engine.mode != CombatEngine.MODE_TITLE:
 		redraw_accum = 0.0
 		if needs_fast_redraw:
 			nav_canvas.rebuild_layout_and_hotspots()

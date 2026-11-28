@@ -1053,6 +1053,32 @@ class _MenuBackdropCanvas extends Control:
 	var repo: GameRepository
 	var vignette_ratio: float = 0.58
 	var anim_time: float = 0.0
+	var _scrim_tex: GradientTexture2D
+	var _scrim_bg_color: Color = Color.TRANSPARENT
+
+	func _ensure_scrim_texture(bg: Color) -> void:
+		if _scrim_tex != null and _scrim_bg_color.is_equal_approx(bg):
+			return
+		_scrim_bg_color = bg
+		var grad: Gradient = Gradient.new()
+		var stops: int = 12
+		var offsets: PackedFloat32Array = PackedFloat32Array()
+		var colors: PackedColorArray = PackedColorArray()
+		for i: int in range(stops + 1):
+			var frac: float = float(i) / float(stops)
+			var alpha: float = pow(1.0 - frac, 1.65) * 0.86
+			offsets.append(frac)
+			colors.append(Color(bg.r, bg.g, bg.b, alpha))
+		grad.offsets = offsets
+		grad.colors = colors
+		var tex: GradientTexture2D = GradientTexture2D.new()
+		tex.gradient = grad
+		tex.width = 128
+		tex.height = 1
+		tex.fill = GradientTexture2D.FILL_LINEAR
+		tex.fill_from = Vector2(0.0, 0.5)
+		tex.fill_to = Vector2(1.0, 0.5)
+		_scrim_tex = tex
 
 	func _draw() -> void:
 		if repo == null:
@@ -1061,12 +1087,8 @@ class _MenuBackdropCanvas extends Control:
 		var bg: Color = repo.get_palette_color("mfd_bg")
 		var acc: Color = repo.get_palette_color("mfd_accent")
 		var scrim_w: float = sz.x * clampf(vignette_ratio, 0.35, 0.85)
-		var steps: int = 64
-		var step_w: float = scrim_w / float(steps)
-		for i: int in range(steps):
-			var frac: float = float(i) / float(steps)
-			var alpha: float = pow(1.0 - frac, 1.65) * 0.86
-			draw_rect(Rect2(float(i) * step_w, 0.0, step_w + 1.0, sz.y), Color(bg.r, bg.g, bg.b, alpha))
+		_ensure_scrim_texture(bg)
+		draw_texture_rect(_scrim_tex, Rect2(0.0, 0.0, scrim_w, sz.y), false)
 
 		draw_line(Vector2(18.0, 26.0), Vector2(18.0, sz.y - 26.0), Color(acc.r, acc.g, acc.b, 0.36), 2.0)
 		var tick_y: float = 42.0

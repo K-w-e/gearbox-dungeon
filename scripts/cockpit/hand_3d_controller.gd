@@ -19,11 +19,28 @@ var selected_hand_index: int = -1
 var dragged_hand_index: int = -1
 var drag_visual_delta_px: Vector2 = Vector2.ZERO
 
+var _cached_anchor_pos: Vector3 = Vector3(-0.215, 0.690, -0.292)
+var _cached_smoothing_speed: float = 14.0
+var _cached_c_sel: Color = Color.WHITE
+var _cached_c_play: Color = Color.WHITE
+var _cached_c_dis: Color = Color.GRAY
+var _cached_shadow_plane_y: float = -0.065
+var _cached_shadow_fade_k: float = 3.8
+var _cached_shadow_spread_k: float = 0.95
+
 func initialize(repository: GameRepository, combat_engine: CombatEngine) -> void:
 	repo = repository
 	engine = combat_engine
 	var hcfg: Dictionary = repo.cockpit.get("hand_3d", {}) as Dictionary
-	position = JsonConfigLoader.to_vec3(hcfg.get("anchor_pos", []), Vector3(-0.185, 0.692, -0.295))
+	_cached_anchor_pos = JsonConfigLoader.to_vec3(hcfg.get("anchor_pos", []), Vector3(-0.215, 0.690, -0.292))
+	_cached_smoothing_speed = float(hcfg.get("smoothing_speed", 14.0))
+	_cached_c_sel = repo.get_palette_color("selected_glow")
+	_cached_c_play = repo.get_palette_color("playable_glow")
+	_cached_c_dis = repo.get_palette_color("disabled_tint")
+	_cached_shadow_plane_y = float(hcfg.get("card_shadow_plane_y", -0.065))
+	_cached_shadow_fade_k = float(hcfg.get("card_shadow_lift_fade", 3.8))
+	_cached_shadow_spread_k = float(hcfg.get("card_shadow_lift_spread", 0.95))
+	position = _cached_anchor_pos
 	_init_shared_meshes_and_pool(hcfg)
 	_init_recyclable_discard_slot(hcfg)
 	engine.state_changed.connect(_rebuild_hand)
@@ -466,13 +483,12 @@ func _compute_slot_transform(idx: int, count: int, playable: bool, is_hovered: b
 func _process(delta: float) -> void:
 	if repo == null:
 		return
-	var hcfg: Dictionary = repo.cockpit.get("hand_3d", {}) as Dictionary
-	var smooth: float = clampf(delta * float(hcfg.get("smoothing_speed", 14.0)), 0.0, 1.0)
-	var c_sel: Color = repo.get_palette_color("selected_glow")
-	var c_play: Color = repo.get_palette_color("playable_glow")
-	var c_dis: Color = repo.get_palette_color("disabled_tint")
+	var smooth: float = clampf(delta * _cached_smoothing_speed, 0.0, 1.0)
+	var c_sel: Color = _cached_c_sel
+	var c_play: Color = _cached_c_play
+	var c_dis: Color = _cached_c_dis
 
-	var base_anchor: Vector3 = JsonConfigLoader.to_vec3(hcfg.get("anchor_pos", []), Vector3(-0.215, 0.690, -0.292))
+	var base_anchor: Vector3 = _cached_anchor_pos
 	var hand_active: bool = hovered_hand_index >= 0 or selected_hand_index >= 0 or dragged_hand_index >= 0
 	var target_anchor: Vector3 = base_anchor if hand_active else (base_anchor + Vector3(0.0, -0.026, 0.0))
 	position = position.lerp(target_anchor, smooth)
@@ -522,13 +538,13 @@ func _process(delta: float) -> void:
 		var shadow_m: MeshInstance3D = entry.get("shadow") as MeshInstance3D
 		var shadow_mat: StandardMaterial3D = entry.get("shadow_mat") as StandardMaterial3D
 		if shadow_m != null and is_instance_valid(shadow_m) and shadow_mat != null:
-			var s_plane_y: float = float(hcfg.get("card_shadow_plane_y", -0.065))
+			var s_plane_y: float = _cached_shadow_plane_y
 			var s_pos: Vector3 = Vector3(holder.position.x, s_plane_y, holder.position.z + 0.016)
 			shadow_m.position = shadow_m.position.lerp(s_pos, smooth)
 			shadow_m.rotation_degrees.y = holder.rotation_degrees.y
 			var lift: float = maxf(0.0, holder.position.y - s_plane_y - 0.05)
-			var fade_k: float = float(hcfg.get("card_shadow_lift_fade", 3.8))
-			var spread_k: float = float(hcfg.get("card_shadow_lift_spread", 0.95))
+			var fade_k: float = _cached_shadow_fade_k
+			var spread_k: float = _cached_shadow_spread_k
 			var alpha_factor: float = clampf(1.0 - lift * fade_k, 0.12, 1.0)
 			var base_col: Color = entry.get("base_shadow_color", Color(0.015, 0.018, 0.024, 0.58))
 			shadow_mat.albedo_color = Color(base_col.r, base_col.g, base_col.b, base_col.a * alpha_factor)

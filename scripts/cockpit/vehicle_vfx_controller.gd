@@ -279,6 +279,7 @@ func _setup_lights() -> void:
 	shield_light.light_color = shield_base_color
 	shield_light.light_energy = 0.0
 	shield_light.omni_range = 3.2
+	shield_light.visible = false
 	if cockpit_rig != null:
 		cockpit_rig.add_child(shield_light)
 	else:
@@ -289,6 +290,7 @@ func _setup_lights() -> void:
 	impact_light.light_color = Color(1.0, 0.88, 0.52)
 	impact_light.light_energy = 0.0
 	impact_light.omni_range = 4.2
+	impact_light.visible = false
 	add_child(impact_light)
 
 	muzzle_light_l = OmniLight3D.new()
@@ -296,6 +298,7 @@ func _setup_lights() -> void:
 	muzzle_light_l.light_color = Color(1.0, 0.84, 0.36)
 	muzzle_light_l.light_energy = 0.0
 	muzzle_light_l.omni_range = 2.4
+	muzzle_light_l.visible = false
 	add_child(muzzle_light_l)
 
 	muzzle_light_r = OmniLight3D.new()
@@ -303,6 +306,7 @@ func _setup_lights() -> void:
 	muzzle_light_r.light_color = Color(1.0, 0.84, 0.36)
 	muzzle_light_r.light_energy = 0.0
 	muzzle_light_r.omni_range = 2.4
+	muzzle_light_r.visible = false
 	add_child(muzzle_light_r)
 
 func on_card_played(card_data: Dictionary, target_index: int) -> void:
@@ -330,6 +334,7 @@ func trigger_ram_feedback() -> void:
 		camera_ctrl.add_trauma(ram_trauma)
 	if impact_light != null:
 		impact_light.light_energy = 5.5
+		impact_light.visible = true
 	_spawn_shockwave(ram_bumper)
 	_spawn_spark_burst(ram_bumper + Vector3(0.0, 0.25, 0.1), 16, Vector3(0.0, 2.2, 3.8), 2.8)
 
@@ -345,6 +350,7 @@ func trigger_shield_feedback() -> void:
 					mesh_inst.material_overlay = shield_material
 	if shield_light != null:
 		shield_light.light_energy = 2.4
+		shield_light.visible = true
 
 func trigger_shooting_feedback(card_data: Dictionary, target_index: int) -> void:
 	var hits_count: int = maxi(1, int(card_data.get("hits", 1)))
@@ -421,6 +427,7 @@ func _update_shield(delta: float) -> void:
 		shield_material.set_shader_parameter("shield_intensity", intensity)
 	if shield_light != null:
 		shield_light.light_energy = intensity * 1.6
+		shield_light.visible = shield_light.light_energy > 0.001
 
 	if progress >= 1.0:
 		shield_active = false
@@ -431,6 +438,7 @@ func _update_shield(delta: float) -> void:
 				mesh_inst.material_overlay = null
 		if shield_light != null:
 			shield_light.light_energy = 0.0
+			shield_light.visible = false
 
 func _update_pending_shots(delta: float) -> void:
 	for idx: int in range(pending_shots.size() - 1, -1, -1):
@@ -458,8 +466,10 @@ func _fire_single_shot(muzzle_pos: Vector3, target_pos: Vector3, is_left: bool, 
 
 	if is_left and muzzle_light_l != null:
 		muzzle_light_l.light_energy = 3.6
+		muzzle_light_l.visible = true
 	elif not is_left and muzzle_light_r != null:
 		muzzle_light_r.light_energy = 3.6
+		muzzle_light_r.visible = true
 
 	_spawn_muzzle_flash(muzzle_pos)
 
@@ -554,10 +564,13 @@ func _update_vfx_nodes(delta: float) -> void:
 func _update_lights_decay(delta: float) -> void:
 	if impact_light != null and impact_light.light_energy > 0.0:
 		impact_light.light_energy = maxf(0.0, impact_light.light_energy - delta * 24.0)
+		impact_light.visible = impact_light.light_energy > 0.001
 	if muzzle_light_l != null and muzzle_light_l.light_energy > 0.0:
 		muzzle_light_l.light_energy = maxf(0.0, muzzle_light_l.light_energy - delta * 32.0)
+		muzzle_light_l.visible = muzzle_light_l.light_energy > 0.001
 	if muzzle_light_r != null and muzzle_light_r.light_energy > 0.0:
 		muzzle_light_r.light_energy = maxf(0.0, muzzle_light_r.light_energy - delta * 32.0)
+		muzzle_light_r.visible = muzzle_light_r.light_energy > 0.001
 
 func _spawn_shockwave(pos: Vector3) -> void:
 	if shockwave_pool.is_empty():

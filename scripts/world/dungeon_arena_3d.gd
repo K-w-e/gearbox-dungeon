@@ -29,9 +29,20 @@ var time_accum: float = 0.0
 var floating_labels: Array[Dictionary] = []
 var suppress_straight_tunnel: bool = false
 
+var _cached_seg_len: float = 6.0
+var _cached_start_z: float = 2.0
+var _cached_road_y: float = -0.08
+var _cached_rpm_factor: float = 0.18
+
 func initialize(repository: GameRepository, combat_engine: CombatEngine) -> void:
 	repo = repository
 	engine = combat_engine
+
+	var dcfg: Dictionary = repo.cockpit.get("dungeon", {}) as Dictionary
+	_cached_seg_len = maxf(2.0, float(dcfg.get("segment_length", 6.0)))
+	_cached_start_z = float(dcfg.get("start_z", 2.0))
+	_cached_road_y = float(dcfg.get("road_y", -0.08))
+	_cached_rpm_factor = float(dcfg.get("rpm_speed_factor", 0.18))
 
 	tunnel_root = Node3D.new()
 	add_child(tunnel_root)
@@ -334,11 +345,10 @@ func _process(delta: float) -> void:
 	if repo == null or engine == null:
 		return
 	time_accum += delta
-	var dcfg: Dictionary = repo.cockpit.get("dungeon", {}) as Dictionary
-	var seg_len: float = maxf(2.0, float(dcfg.get("segment_length", 6.0)))
-	var start_z: float = float(dcfg.get("start_z", 2.0))
-	var road_y: float = float(dcfg.get("road_y", -0.08))
-	var rpm_factor: float = float(dcfg.get("rpm_speed_factor", 0.18))
+	var seg_len: float = _cached_seg_len
+	var start_z: float = _cached_start_z
+	var road_y: float = _cached_road_y
+	var rpm_factor: float = _cached_rpm_factor
 
 	var g_dict: Dictionary = repo.get_gear(engine.current_gear)
 	var base_speed: float = float(g_dict.get("tunnel_speed", 0.0))

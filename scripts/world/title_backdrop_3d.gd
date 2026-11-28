@@ -393,6 +393,7 @@ func _setup_lights(bcfg: Dictionary) -> void:
 	welder_arc_light.light_color = repo.get_palette_color("fork_left_glow", Color(1.0, 0.76, 0.22))
 	welder_arc_light.light_energy = 0.0
 	welder_arc_light.omni_range = 6.0
+	welder_arc_light.visible = false
 	stage_root.add_child(welder_arc_light)
 
 func _init_particle_pools(bcfg: Dictionary) -> void:
@@ -613,8 +614,9 @@ func _update_turntable_and_lights(delta: float, bcfg: Dictionary) -> void:
 		var pulse: float = 0.55 + 0.45 * sin(time_accum * 4.2 + float(li) * 1.05)
 		lamp_materials[li].albedo_color = current_accent_color.lerp(Color.WHITE, pulse * 0.35 + ignition_pulse * 0.4)
 
-	if welder_arc_light != null:
+	if welder_arc_light != null and welder_arc_light.visible:
 		welder_arc_light.light_energy = maxf(0.0, welder_arc_light.light_energy - delta * 14.0)
+		welder_arc_light.visible = welder_arc_light.light_energy > 0.001
 
 func _update_machinery_and_cogs(delta: float, bcfg: Dictionary) -> void:
 	var pcfg: Dictionary = bcfg.get("props", {}) as Dictionary
@@ -675,6 +677,7 @@ func _update_particles(delta: float, bcfg: Dictionary) -> void:
 		if welder_arc_light != null:
 			welder_arc_light.position = origin_local
 			welder_arc_light.light_energy = 4.2
+			welder_arc_light.visible = true
 		for _b: int in range(3):
 			_spawn_spark(origin_local)
 
