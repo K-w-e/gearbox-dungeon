@@ -145,6 +145,9 @@
         "name": "INTERCEPTOR V8",
         "subtitle": "70 HP • START 1ST (2K RPM) • HIGH-RPM GUNNER & BURNOUT DECK",
         "description": "Supercharged muscle coupe: Burnout & Throttle Taps surge past 4,000 RPM to empower twin Volley bursts.",
+        "menu_role": "BALANCED",
+        "menu_difficulty": 1,
+        "menu_summary": "Balanced muscle car. Rev the engine past 4,000 RPM and your attacks hit much harder.",
         "cockpit_model": "cockpit_interior",
         "steering_model": "steering_wheel",
         "cabin_light_color": [
@@ -181,6 +184,9 @@
         "name": "ARMORED BULLDOZER",
         "subtitle": "86 HP • START 1ST (2K RPM) • LOW-GEAR TORQUE & SHIELD-SLAM DECK",
         "description": "Demolition siege crawler: stacks persistent armor in 1st-2nd gear and converts Shield into crushing Rams.",
+        "menu_role": "TANK",
+        "menu_difficulty": 2,
+        "menu_summary": "Slow but very tough. Stay in low gears to build big Shields, then turn them into crushing Rams.",
         "cockpit_model": "cockpit_bulldozer",
         "steering_model": "steering_bulldozer",
         "cabin_light_color": [
@@ -217,6 +223,9 @@
         "name": "SEQUENTIAL PROTOTYPE",
         "subtitle": "58 HP • START 3RD (3K RPM) • MULTI-SHIFT & HIGH-GEAR SLALOM DECK",
         "description": "Twin-turbo monocoque: chains Heel-and-Toe, Quick-Shifter & Upshift across 2nd-5th to scale Slalom strikes.",
+        "menu_role": "DPS / SPEED",
+        "menu_difficulty": 3,
+        "menu_summary": "Fast but fragile. Starts in 3rd gear: shift gears every turn to chain combos and power up your strikes.",
         "cockpit_model": "cockpit_turbo_proto",
         "steering_model": "steering_turbo_proto",
         "cabin_light_color": [

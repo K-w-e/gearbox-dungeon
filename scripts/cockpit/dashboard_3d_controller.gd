@@ -331,7 +331,7 @@ func _build_slam_button(dcfg: Dictionary) -> void:
 
 	slam_label = Label3D.new()
 	slam_label.text = repo.get_ui_text("hud", "end_turn_label")
-	DiegeticScreenFactory.style_label_3d(slam_label, repo, "display", 44, 13, 0.00036, repo.get_palette_color("mfd_text"))
+	DiegeticScreenFactory.style_label_3d(slam_label, repo, "display", 46, 14, 0.00044, repo.get_palette_color("mfd_text"))
 	slam_label.position = JsonConfigLoader.to_vec3(dcfg.get("slam_label_offset", []), Vector3(0.0, 0.048, -0.056))
 	slam_label.rotation_degrees = JsonConfigLoader.to_vec3(dcfg.get("slam_label_rot_deg", []), Vector3(-38.0, 0.0, 0.0))
 	slam_holder.add_child(slam_label)
@@ -378,7 +378,7 @@ func _build_switches(dcfg: Dictionary) -> void:
 
 		var lbl: Label3D = Label3D.new()
 		lbl.text = str(sw.get("label", sw_id))
-		DiegeticScreenFactory.style_label_3d(lbl, repo, "display", 40, 11, 0.00032, repo.get_palette_color("mfd_text"))
+		DiegeticScreenFactory.style_label_3d(lbl, repo, "display", 42, 12, 0.00034, repo.get_palette_color("mfd_text"))
 		lbl.position = Vector3(0.0, 0.026, 0.046)
 		lbl.rotation_degrees = Vector3(-42.0, 0.0, 0.0)
 		holder.add_child(lbl)
@@ -429,7 +429,7 @@ func _build_warning_lamps(dcfg: Dictionary) -> void:
 
 		var lbl: Label3D = Label3D.new()
 		lbl.text = str(l_cfg.get("label", lid))
-		DiegeticScreenFactory.style_label_3d(lbl, repo, "display", 40, 11, 0.00032, repo.get_palette_color("mfd_text"))
+		DiegeticScreenFactory.style_label_3d(lbl, repo, "display", 44, 14, 0.00048, repo.get_palette_color("mfd_text"))
 		lbl.position = Vector3(0.0, 0.016, -0.028)
 		lbl.rotation_degrees = Vector3(-68.0, 0.0, 0.0)
 		holder.add_child(lbl)
@@ -711,15 +711,15 @@ class _DashboardSynopticCanvas extends Control:
 			DiegeticScreenFactory.draw_fitted_text(
 				self,
 				f_disp,
-				Vector2(tr.position.x + 6.0, tr.position.y + 22.0),
+				Vector2(tr.position.x + 6.0, tr.position.y + 23.0),
 				str(td["label"]),
 				HORIZONTAL_ALIGNMENT_CENTER,
 				tr.size.x - 12.0,
-				16,
+				18,
 				c_txt if (is_act or is_thov) else tcol.lightened(0.22),
 				out_col,
 				2,
-				11
+				12
 			)
 			ctrl.mfd_hotspots.append({"id": tid, "rect": tr, "hint": str(td["hint"])})
 
@@ -753,11 +753,11 @@ class _DashboardSynopticCanvas extends Control:
 			label,
 			HORIZONTAL_ALIGNMENT_CENTER,
 			rect.size.x - 8.0,
-			15,
+			17,
 			col.lightened(0.24),
 			out_col,
 			2,
-			11
+			12
 		)
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
@@ -766,11 +766,11 @@ class _DashboardSynopticCanvas extends Control:
 			val,
 			HORIZONTAL_ALIGNMENT_CENTER,
 			rect.size.x - 8.0,
-			32,
+			36,
 			txt_col,
 			out_col,
 			3,
-			18
+			20
 		)
 
 	func _draw_deck_counter_summary(rect: Rect2, rep: GameRepository, eng: CombatEngine) -> void:
@@ -802,28 +802,15 @@ class _DashboardSynopticCanvas extends Control:
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
 			f_disp,
-			Vector2(btn_r.position.x + 8.0, btn_r.position.y + 30.0),
+			Vector2(btn_r.position.x + 10.0, btn_r.position.y + 45.0),
 			rep.get_ui_text("screens", "mfd_inspect_btn"),
 			HORIZONTAL_ALIGNMENT_CENTER,
-			btn_r.size.x - 16.0,
-			19,
+			btn_r.size.x - 20.0,
+			24,
 			c_txt if is_hov else btn_col.lightened(0.24),
 			out_col,
 			3,
-			12
-		)
-		DiegeticScreenFactory.draw_fitted_text(
-			self,
-			f_body,
-			Vector2(btn_r.position.x + 8.0, btn_r.position.y + 55.0),
-			rep.get_ui_text("screens", "mfd_inspect_sub"),
-			HORIZONTAL_ALIGNMENT_CENTER,
-			btn_r.size.x - 16.0,
-			15,
-			c_txt if is_hov else c_muted.lightened(0.18),
-			out_col,
-			2,
-			11
+			15
 		)
 		ctrl.mfd_hotspots.append({"id": "inspect_deck", "rect": btn_r, "hint": rep.get_ui_text("hud", "hover_mfd_deck")})
 
@@ -831,7 +818,7 @@ class _DashboardSynopticCanvas extends Control:
 		var g_dict: Dictionary = rep.get_gear(eval_gear)
 		var g_short: String = eng.transmission.gear_short_name(eval_gear)
 		var pas_y: float = cnt_y + cnt_h + 8.0
-		var pas_h: float = 96.0
+		var pas_h: float = 112.0
 		var pas_r: Rect2 = Rect2(rect.position.x + 6.0, pas_y, rect.size.x - 12.0, pas_h)
 		DiegeticScreenFactory.draw_chamfer_rect(self, pas_r, 7.0, c_panel, c_sel * 0.78, 1.8)
 		var sync_lbl: String = rep.get_ui_text("screens", "mfd_free_shift_ready" if eng.free_shift_available else "mfd_grind_warning")
@@ -839,41 +826,41 @@ class _DashboardSynopticCanvas extends Control:
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
 			f_disp,
-			Vector2(pas_r.position.x + 12.0, pas_r.position.y + 24.0),
+			Vector2(pas_r.position.x + 12.0, pas_r.position.y + 27.0),
 			"%s  [%s — %s]" % [rep.get_ui_text("screens", "mfd_section_passive"), g_short, str(g_dict.get("role", "")).to_upper()],
 			HORIZONTAL_ALIGNMENT_LEFT,
 			pas_r.size.x - 250.0,
-			16,
+			18,
 			c_sel.lightened(0.20),
 			out_col,
 			2,
-			11
+			13
 		)
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
 			f_disp,
-			Vector2(pas_r.end.x - 234.0, pas_r.position.y + 24.0),
+			Vector2(pas_r.end.x - 234.0, pas_r.position.y + 27.0),
 			sync_lbl,
 			HORIZONTAL_ALIGNMENT_RIGHT,
 			222.0,
-			14,
+			16,
 			sync_col.lightened(0.20),
 			out_col,
 			2,
-			10
+			12
 		)
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
 			f_body,
-			Vector2(pas_r.position.x + 12.0, pas_r.position.y + 52.0),
+			Vector2(pas_r.position.x + 12.0, pas_r.position.y + 60.0),
 			str(g_dict.get("description", "")),
 			HORIZONTAL_ALIGNMENT_LEFT,
 			pas_r.size.x - 24.0,
-			18,
+			22,
 			c_txt,
 			out_col,
 			2,
-			12
+			14
 		)
 		var rel_names: PackedStringArray = PackedStringArray()
 		for rid: String in eng.owned_relics:
@@ -884,15 +871,15 @@ class _DashboardSynopticCanvas extends Control:
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
 			f_body,
-			Vector2(pas_r.position.x + 12.0, pas_r.position.y + 80.0),
+			Vector2(pas_r.position.x + 12.0, pas_r.position.y + 92.0),
 			rel_str,
 			HORIZONTAL_ALIGNMENT_LEFT,
 			pas_r.size.x - 24.0,
-			15,
+			18,
 			c_accent.lightened(0.18),
 			out_col,
 			2,
-			10
+			13
 		)
 
 		var log_y: float = pas_y + pas_h + 8.0
@@ -914,37 +901,37 @@ class _DashboardSynopticCanvas extends Control:
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
 			f_disp,
-			Vector2(log_r.position.x + 12.0, log_r.position.y + 23.0),
+			Vector2(log_r.position.x + 12.0, log_r.position.y + 26.0),
 			rep.get_ui_text("screens", "mfd_section_vehicle"),
 			HORIZONTAL_ALIGNMENT_LEFT,
-			320.0,
-			15,
+			240.0,
+			18,
 			c_accent,
 			out_col,
 			2,
-			11
+			13
 		)
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
 			f_body,
-			Vector2(log_r.position.x + 336.0, log_r.position.y + 23.0),
+			Vector2(log_r.position.x + 256.0, log_r.position.y + 26.0),
 			status_txt,
 			HORIZONTAL_ALIGNMENT_RIGHT,
-			log_r.size.x - 348.0,
-			15,
+			log_r.size.x - 268.0,
+			17,
 			status_col,
 			out_col,
 			2,
-			11
+			13
 		)
-		draw_line(Vector2(log_r.position.x + 10.0, log_r.position.y + 32.0), Vector2(log_r.end.x - 10.0, log_r.position.y + 32.0), Color(c_accent.r, c_accent.g, c_accent.b, 0.25), 1.2)
+		draw_line(Vector2(log_r.position.x + 10.0, log_r.position.y + 36.0), Vector2(log_r.end.x - 10.0, log_r.position.y + 36.0), Color(c_accent.r, c_accent.g, c_accent.b, 0.25), 1.2)
 
 		var total_logs: int = eng.combat_log.size()
-		var show_n: int = mini(5, total_logs)
+		var show_n: int = mini(2, total_logs)
 		for li: int in range(show_n):
 			var msg: String = eng.combat_log[total_logs - show_n + li]
 			var is_latest: bool = (li == show_n - 1)
-			var ly: float = log_r.position.y + 56.0 + float(li) * 35.0
+			var ly: float = log_r.position.y + 64.0 + float(li) * 32.0
 			DiegeticScreenFactory.draw_fitted_text(
 				self,
 				f_body,
@@ -952,11 +939,11 @@ class _DashboardSynopticCanvas extends Control:
 				("> " if is_latest else "· ") + msg,
 				HORIZONTAL_ALIGNMENT_LEFT,
 				log_r.size.x - 28.0,
-				17 if is_latest else 16,
-				c_txt if is_latest else c_muted.lightened(0.26),
+				20 if is_latest else 18,
+				c_txt if is_latest else c_muted.lightened(0.28),
 				out_col,
 				2,
-				11
+				13
 			)
 
 	func _draw_gears_table(rect: Rect2, rep: GameRepository, eng: CombatEngine) -> void:

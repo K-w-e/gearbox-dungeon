@@ -138,14 +138,12 @@ func resolve_ticker_state() -> Dictionary:
 		return {"text": navigation_prompt_text, "mode": "nav"}
 	var g_short: String = engine.transmission.gear_short_name(engine.current_gear)
 	var g_role: String = str(repo.get_gear(engine.current_gear).get("role", "")).to_upper()
-	var sync_str: String = repo.get_ui_text("hud", "shift_ready_badge") if engine.free_shift_available else repo.get_ui_text("hud", "shift_grind_badge")
 	var txt: String = repo.get_ui_text("hud", "overhead_telemetry_fmt") % [
 		g_short,
 		g_role,
 		engine.display_rpm(),
 		engine.heat,
-		engine.max_heat(),
-		sync_str
+		engine.max_heat()
 	]
 	return {"text": txt, "mode": "telemetry"}
 
@@ -225,15 +223,15 @@ class _OverheadVisorCanvas extends Control:
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
 			f_disp,
-			Vector2(28.0, 31.0),
+			Vector2(28.0, 32.0),
 			sec_title.to_upper(),
 			HORIZONTAL_ALIGNMENT_LEFT,
 			436.0,
-			20,
+			23,
 			rep.get_palette_color("mfd_accent"),
 			out_col,
 			3,
-			13
+			15
 		)
 
 		var tier_nodes: Array[Dictionary] = _collect_tier_nodes(rep, eng)
@@ -273,15 +271,15 @@ class _OverheadVisorCanvas extends Control:
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
 			f_disp,
-			Vector2(hx, hy + 17.0),
+			Vector2(hx, hy + 18.0),
 			hull_lbl,
 			HORIZONTAL_ALIGNMENT_LEFT,
 			142.0,
-			17,
+			21,
 			hp_col.lightened(0.24),
 			out_col,
 			3,
-			12
+			14
 		)
 
 		var badge_txt: String = ""
@@ -304,15 +302,15 @@ class _OverheadVisorCanvas extends Control:
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
 			f_body,
-			Vector2(badge_r.position.x + 6.0, badge_r.position.y + 18.0),
+			Vector2(badge_r.position.x + 6.0, badge_r.position.y + 19.0),
 			badge_txt,
 			HORIZONTAL_ALIGNMENT_CENTER,
 			badge_r.size.x - 12.0,
-			15,
+			17,
 			badge_col.lightened(0.2),
 			out_col,
 			2,
-			11
+			12
 		)
 
 		var segs: int = 12
@@ -336,14 +334,14 @@ class _OverheadVisorCanvas extends Control:
 		var sh_c: Vector2 = Vector2(854.0, 44.0)
 		var sh_col: Color = rep.get_palette_color("kw_shield")
 		CardEmblemCanvas._s_draw_shield_shape(self, sh_c, 25.0, sh_col, Color(sh_col.r, sh_col.g, sh_col.b, 0.24))
-		DiegeticScreenFactory.draw_fitted_text(self, f_body, sh_c + Vector2(30.0, -5.0), rep.get_ui_text("hud", "overhead_shield_lbl"), HORIZONTAL_ALIGNMENT_LEFT, 108.0, 14, sh_col, out_col, 2, 11)
-		DiegeticScreenFactory.draw_fitted_text(self, f_disp, sh_c + Vector2(30.0, 20.0), "+%d" % eng.block, HORIZONTAL_ALIGNMENT_LEFT, 108.0, 25, text_col, out_col, 3, 14)
+		DiegeticScreenFactory.draw_fitted_text(self, f_body, sh_c + Vector2(30.0, -5.0), rep.get_ui_text("hud", "overhead_shield_lbl"), HORIZONTAL_ALIGNMENT_LEFT, 108.0, 17, sh_col, out_col, 2, 12)
+		DiegeticScreenFactory.draw_fitted_text(self, f_disp, sh_c + Vector2(30.0, 22.0), "+%d" % eng.block, HORIZONTAL_ALIGNMENT_LEFT, 108.0, 28, text_col, out_col, 3, 16)
 
 		var sc_c: Vector2 = Vector2(1022.0, 44.0)
 		var sc_col: Color = rep.get_palette_color("selected_glow")
 		CardEmblemCanvas._s_draw_gear_wheel(self, sc_c, 23.0, sc_col, 8)
-		DiegeticScreenFactory.draw_fitted_text(self, f_body, sc_c + Vector2(30.0, -5.0), rep.get_ui_text("hud", "overhead_scrap_lbl"), HORIZONTAL_ALIGNMENT_LEFT, 108.0, 14, sc_col, out_col, 2, 11)
-		DiegeticScreenFactory.draw_fitted_text(self, f_disp, sc_c + Vector2(30.0, 20.0), str(eng.scrap), HORIZONTAL_ALIGNMENT_LEFT, 108.0, 25, text_col, out_col, 3, 14)
+		DiegeticScreenFactory.draw_fitted_text(self, f_body, sc_c + Vector2(30.0, -5.0), rep.get_ui_text("hud", "overhead_scrap_lbl"), HORIZONTAL_ALIGNMENT_LEFT, 108.0, 17, sc_col, out_col, 2, 12)
+		DiegeticScreenFactory.draw_fitted_text(self, f_disp, sc_c + Vector2(30.0, 22.0), str(eng.scrap), HORIZONTAL_ALIGNMENT_LEFT, 108.0, 28, text_col, out_col, 3, 16)
 
 		_draw_relics_and_consumables_row(sz, rep, eng, f_disp, f_body, out_col, panel_bg, text_col)
 
@@ -422,15 +420,15 @@ class _OverheadVisorCanvas extends Control:
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
 			f_body if t_mode == "telemetry" else f_disp,
-			Vector2(tick_r.position.x + 12.0, tick_r.position.y + 30.0),
+			Vector2(tick_r.position.x + 12.0, tick_r.position.y + 31.0),
 			t_txt,
 			HORIZONTAL_ALIGNMENT_CENTER,
 			tick_r.size.x - 24.0,
-			17,
+			21,
 			t_fg,
 			out_col,
 			2,
-			11
+			14
 		)
 
 		var max_slots: int = eng.max_consumable_slots()

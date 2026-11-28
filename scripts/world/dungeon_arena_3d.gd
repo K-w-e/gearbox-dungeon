@@ -479,7 +479,7 @@ class _EnemyReticleCanvas extends Control:
 
 		var rx: float = 128.0
 		var rw: float = sz.x - rx - 18.0
-		DiegeticScreenFactory.draw_fitted_text(self, f_disp, Vector2(rx, 38.0), str(edata.get("name", "")).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, rw - 146.0, 24, txt_col, out_col, 3, 14)
+		DiegeticScreenFactory.draw_fitted_text(self, f_disp, Vector2(rx, 38.0), str(edata.get("name", "")).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, rw - 156.0, 26, txt_col, out_col, 3, 15)
 
 		var hp_cur: int = int(edata.get("hp", 0))
 		var hp_max: int = maxi(1, int(edata.get("max_hp", 1)))
@@ -527,7 +527,7 @@ class _EnemyReticleCanvas extends Control:
 			hp_str = rep.get_ui_text("combat", "plate_shield_dmg_fmt") % blocked_dmg
 			hp_txt_col = rep.get_palette_color("kw_shield")
 
-		DiegeticScreenFactory.draw_fitted_text(self, f_disp, Vector2(sz.x - 164.0, 38.0), hp_str, HORIZONTAL_ALIGNMENT_RIGHT, 144.0, 20, hp_txt_col, out_col, 3, 12)
+		DiegeticScreenFactory.draw_fitted_text(self, f_disp, Vector2(sz.x - 168.0, 38.0), hp_str, HORIZONTAL_ALIGNMENT_RIGHT, 148.0, 23, hp_txt_col, out_col, 3, 14)
 
 		var segs: int = 12
 		var seg_w: float = (rw - float(segs - 1) * 4.0) / float(segs)
@@ -565,9 +565,9 @@ class _EnemyReticleCanvas extends Control:
 			var safe_g: String = eng.transmission.gear_short_name(int(edata.get("max_safe_gear", 2)))
 			tags.append(rep.get_ui_text("combat", "tag_reflect_fmt") % safe_g)
 		if not tags.is_empty():
-			DiegeticScreenFactory.draw_fitted_text(self, f_body, Vector2(rx, 88.0), "  •  ".join(tags), HORIZONTAL_ALIGNMENT_LEFT, rw, 18, rep.get_palette_color("kw_shield").lightened(0.18), out_col, 3, 12)
+			DiegeticScreenFactory.draw_fitted_text(self, f_body, Vector2(rx, 88.0), "  •  ".join(tags), HORIZONTAL_ALIGNMENT_LEFT, rw, 20, rep.get_palette_color("kw_shield").lightened(0.18), out_col, 3, 14)
 
-		var move_y: float = 112.0 if not tags.is_empty() else 94.0
+		var move_y: float = 114.0 if not tags.is_empty() else 96.0
 		var move_txt: String = eng.format_enemy_intent_summary(edata)
 		var intent_col: Color = rep.get_palette_color("enemy_intent").lightened(0.18)
 		draw_multiline_string_outline(
@@ -576,7 +576,7 @@ class _EnemyReticleCanvas extends Control:
 			move_txt,
 			HORIZONTAL_ALIGNMENT_LEFT,
 			rw,
-			18,
+			22,
 			3,
 			3,
 			out_col
@@ -587,7 +587,7 @@ class _EnemyReticleCanvas extends Control:
 			move_txt,
 			HORIZONTAL_ALIGNMENT_LEFT,
 			rw,
-			18,
+			22,
 			3,
 			intent_col
 		)

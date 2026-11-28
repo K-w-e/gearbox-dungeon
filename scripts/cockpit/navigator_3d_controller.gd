@@ -719,15 +719,15 @@ class _NavigatorCanvas extends Control:
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
 			f_disp,
-			Vector2(18.0, 34.0),
+			Vector2(18.0, 35.0),
 			hdr_txt,
 			HORIZONTAL_ALIGNMENT_LEFT,
 			sz.x - 196.0,
-			22,
+			26,
 			txt_col,
 			out_col,
 			3,
-			14
+			16
 		)
 
 		var z_lbl: String = rep.get_ui_text("navigator", "zoom_close_badge" if nav.is_zoomed else "zoom_badge")
@@ -743,15 +743,15 @@ class _NavigatorCanvas extends Control:
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
 			f_disp,
-			Vector2(nav.zoom_btn_rect.position.x + 6.0, nav.zoom_btn_rect.position.y + 25.0),
+			Vector2(nav.zoom_btn_rect.position.x + 6.0, nav.zoom_btn_rect.position.y + 26.0),
 			z_lbl,
 			HORIZONTAL_ALIGNMENT_CENTER,
 			nav.zoom_btn_rect.size.x - 12.0,
-			18,
+			20,
 			txt_col if nav.hovered_zoom_btn else z_col.lightened(0.2),
 			out_col,
 			3,
-			12
+			14
 		)
 
 		if nav.is_zoomed:
@@ -825,15 +825,15 @@ class _NavigatorCanvas extends Control:
 		DiegeticScreenFactory.draw_fitted_text(
 			self,
 			f_disp,
-			Vector2(box_r.position.x + 12.0, box_r.position.y + 39.0),
+			Vector2(box_r.position.x + 12.0, box_r.position.y + 40.0),
 			msg,
 			HORIZONTAL_ALIGNMENT_CENTER,
 			box_r.size.x - 24.0,
-			24,
+			26,
 			txt_col if is_fork else rep.get_palette_color("mfd_accent"),
 			out_col,
 			3,
-			14
+			16
 		)
 
 	func _draw_zoomed_footer_intel(f_disp: Font, f_body: Font, out_col: Color, txt_col: Color, panel_bg: Color, sz: Vector2, footer_top: float, rep: GameRepository, eng: CombatEngine) -> void:

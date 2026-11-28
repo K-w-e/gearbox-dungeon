@@ -51,14 +51,6 @@ func start(quick_mode: bool = false) -> void:
 				"body": repo.get_ui_text("combat", "quick_tour_step_2_body"),
 				"yaw": -11.5,
 				"pitch": -7.5
-			},
-			{
-				"key": "slam",
-				"title": repo.get_ui_text("combat", "quick_tour_step_3_title"),
-				"keys": repo.get_ui_text("combat", "quick_tour_step_3_keys"),
-				"body": repo.get_ui_text("combat", "quick_tour_step_3_body"),
-				"yaw": -14.0,
-				"pitch": -2.0
 			}
 		]
 	else:
@@ -86,38 +78,6 @@ func start(quick_mode: bool = false) -> void:
 				"body": repo.get_ui_text("combat", "tour_step_3_body"),
 				"yaw": 4.0,
 				"pitch": 0.5
-			},
-			{
-				"key": "enemies",
-				"title": repo.get_ui_text("combat", "tour_step_4_title"),
-				"keys": repo.get_ui_text("combat", "tour_step_4_keys"),
-				"body": repo.get_ui_text("combat", "tour_step_4_body"),
-				"yaw": 0.0,
-				"pitch": 5.5
-			},
-			{
-				"key": "overhead",
-				"title": repo.get_ui_text("combat", "tour_step_5_title"),
-				"keys": repo.get_ui_text("combat", "tour_step_5_keys"),
-				"body": repo.get_ui_text("combat", "tour_step_5_body"),
-				"yaw": -4.0,
-				"pitch": 9.0
-			},
-			{
-				"key": "screens",
-				"title": repo.get_ui_text("combat", "tour_step_6_title"),
-				"keys": repo.get_ui_text("combat", "tour_step_6_keys"),
-				"body": repo.get_ui_text("combat", "tour_step_6_body"),
-				"yaw": 2.0,
-				"pitch": -1.0
-			},
-			{
-				"key": "slam",
-				"title": repo.get_ui_text("combat", "tour_step_7_title"),
-				"keys": repo.get_ui_text("combat", "tour_step_7_keys"),
-				"body": repo.get_ui_text("combat", "tour_step_7_body"),
-				"yaw": -14.0,
-				"pitch": -2.0
 			}
 		]
 	if not connected:

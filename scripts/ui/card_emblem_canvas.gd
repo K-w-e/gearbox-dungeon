@@ -238,8 +238,8 @@ static func draw_full_card_cartridge(
 	var title_x: float = hdr_rect.position.x + 48.0 * scale_f
 	var title_w: float = maxf(40.0, hdr_rect.size.x - 50.0 * scale_f - key_reserve)
 	var title_str: String = str(card.get("name", "")).to_upper()
-	var max_t_sz: int = maxi(14, roundi(22.0 * scale_f))
-	var min_t_sz: int = maxi(10, roundi(12.0 * scale_f))
+	var max_t_sz: int = maxi(16, roundi(25.0 * scale_f))
+	var min_t_sz: int = maxi(12, roundi(14.0 * scale_f))
 	DiegeticScreenFactory.draw_fitted_text(
 		canvas,
 		f_disp,
@@ -287,7 +287,7 @@ static func draw_full_card_cartridge(
 	var footer_h: float = (36.0 * scale_f) if show_footer else 0.0
 	var chips: Array[Dictionary] = visual_model.get("chips", []) as Array[Dictionary]
 	var chip_rows: int = 0 if chips.is_empty() else (1 if chips.size() <= 2 else (2 if chips.size() <= 4 else 3))
-	var chip_area_h: float = (float(chip_rows) * 44.0 * scale_f + 12.0 * scale_f) if chip_rows > 0 else 0.0
+	var chip_area_h: float = (float(chip_rows) * 48.0 * scale_f + 12.0 * scale_f) if chip_rows > 0 else 0.0
 	var bottom_reserved: float = pad + footer_h + (6.0 * scale_f if show_footer else 0.0) + chip_area_h + (7.0 * scale_f if chip_rows > 0 else 0.0)
 	var hero_h: float = maxf(116.0 * scale_f, outer_rect.end.y - bottom_reserved - cur_y)
 	var hero_rect: Rect2 = Rect2(inner_x, cur_y, inner_w, hero_h)
@@ -307,7 +307,7 @@ static func draw_full_card_cartridge(
 		var bmp_bg: Color = Color(bmp_col.r * 0.22, bmp_col.g * 0.14, bmp_col.b * 0.08, 0.96)
 		draw_chamfer_plate(canvas, bmp_rect, 7.0 * scale_f, bmp_bg, bmp_col * 0.94, 2.2 * scale_f, false)
 
-		var f_sz: int = maxi(12, roundi(18.0 * scale_f))
+		var f_sz: int = maxi(14, roundi(21.0 * scale_f))
 		DiegeticScreenFactory.draw_fitted_text(
 			canvas,
 			f_body,
@@ -319,7 +319,7 @@ static func draw_full_card_cartridge(
 			bmp_col.lightened(0.32),
 			out_col,
 			maxi(2, roundi(3.0 * scale_f)),
-			10
+			12
 		)
 
 	if on_sale and not is_sold:
@@ -531,11 +531,11 @@ static func _draw_card_hero_panel(
 		h_sub,
 		HORIZONTAL_ALIGNMENT_CENTER,
 		rect.size.x - 24.0 * scale_f,
-		maxi(12, roundi(20.0 * scale_f)),
+		maxi(14, roundi(23.0 * scale_f)),
 		accent.lightened(0.30) if playable else accent.lightened(0.10),
 		out_col,
 		maxi(2, roundi(3.0 * scale_f)),
-		10
+		13
 	)
 
 	if has_bonus:
@@ -609,8 +609,8 @@ static func _draw_card_chip_grid(
 
 		var tx: float = icon_c.x + icon_r + 6.0 * scale_f
 		var tw: float = maxf(20.0, cr.end.x - tx - 6.0 * scale_f)
-		var max_sz: int = maxi(11, roundi(20.0 * scale_f))
-		var min_sz: int = maxi(9, roundi(11.0 * scale_f))
+		var max_sz: int = maxi(14, roundi(23.0 * scale_f))
+		var min_sz: int = maxi(12, roundi(13.0 * scale_f))
 		var fit_sz: int = DiegeticScreenFactory.fit_font_size(f_disp, val_txt, tw, max_sz, min_sz)
 		DiegeticScreenFactory.draw_fitted_text(
 			canvas,

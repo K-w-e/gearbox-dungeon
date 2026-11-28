@@ -32,14 +32,14 @@ func _process(_delta: float) -> bool:
 	assert(game.hand_ctrl.get_parent() == game.cockpit_rig, "hand_ctrl must be parented under cockpit_rig")
 	assert(game.terminal_ctrl.first_boot_tutorial_recommended, "First boot should highlight Guided Run")
 	assert(game.terminal_ctrl.hotspots.size() >= 2, "Title hotspots must be populated")
-	assert(str(game.terminal_ctrl.hotspots[0].get("title", "")).find("FIRST SHIFT") >= 0, "Slot [1] on first boot must be First Shift Guided Run")
+	assert(str(game.terminal_ctrl.hotspots[0].get("title", "")).find("TUTORIAL") >= 0, "Slot [1] on first boot must be Tutorial Run")
 
 	# 2. Start run with deterministic seed & verify first-boot Cockpit Popup Tour + 11-tier DAG
 	game.engine.rng.seed = 20261112
 	game._on_title_action("run:interceptor:0")
 	assert(game.engine.mode == CombatEngine.MODE_COMBAT, "Must enter normal combat run")
 	assert(not game.terminal_ctrl.first_boot_tutorial_recommended, "Onboarding flag should clear after starting")
-	assert(game.tutorial_ctrl.is_active() and game.tutorial_ctrl.is_quick_mode and game.tutorial_ctrl.steps.size() == 3 and game.hud.tour_active and game.hud.tour_panel.visible, "First-boot normal run must automatically open 3-step Quick Cockpit Tour")
+	assert(game.tutorial_ctrl.is_active() and game.tutorial_ctrl.is_quick_mode and game.tutorial_ctrl.steps.size() == 2 and game.hud.tour_active and game.hud.tour_panel.visible, "First-boot normal run must automatically open 2-step Quick Cockpit Tour")
 	game.tutorial_ctrl.stop()
 	assert(not game.tutorial_ctrl.is_active() and not game.hud.tour_active, "Stopping Cockpit Tour must hide popup cleanly")
 
@@ -448,8 +448,8 @@ func _process(_delta: float) -> bool:
 
 	game._on_title_action("run:bulldozer:0:tour")
 	assert(eng.mode == CombatEngine.MODE_COMBAT and not eng.tutorial_active and eng.run_map_nodes.size() > 1, "Guided tour must run inside a real 11-tier normal run")
-	assert(game.tutorial_ctrl.is_active() and game.tutorial_ctrl.steps.size() == 7, "Cockpit Tour must have 7 instrument callouts")
-	var expected_keys: Array[String] = ["cards", "shifter", "gauges", "enemies", "overhead", "screens", "slam"]
+	assert(game.tutorial_ctrl.is_active() and game.tutorial_ctrl.steps.size() == 3, "Cockpit Tour must have 3 instrument callouts")
+	var expected_keys: Array[String] = ["cards", "shifter", "gauges"]
 	var space_ev: InputEventKey = InputEventKey.new()
 	space_ev.keycode = KEY_SPACE
 	space_ev.pressed = true

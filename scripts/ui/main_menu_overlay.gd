@@ -453,12 +453,7 @@ func _build_chassis_view() -> void:
 		var pdesc: String = str(pr.get("description", ""))
 		var max_hp: int = int(pr.get("max_hp", 70))
 		var start_g: int = int(pr.get("starting_gear", 1))
-		var start_rpm: int = int(pr.get("starting_rpm_units", 2))
-		var start_scrap: int = int(pr.get("starting_scrap", 45))
-		var relic_id: String = str(pr.get("starting_relic", ""))
-		var relic_name: String = str(repo.get_relic(relic_id).get("name", relic_id)).to_upper()
-		var cons_id: String = str(pr.get("starting_consumable", ""))
-		var cons_name: String = str(repo.get_consumable(cons_id).get("short", cons_id)).to_upper()
+		var role_txt: String = str(pr.get("menu_role", ""))
 
 		var g_short: String = engine.transmission.gear_short_name(start_g)
 		var st: Dictionary = chassis_stats.get(pid, {}) as Dictionary
@@ -466,17 +461,9 @@ func _build_chassis_view() -> void:
 		var wins_c: int = int(st.get("wins", 0))
 		var rec_str: String = (repo.get_ui_text("main_menu", "chassis_record_wins_fmt") % [wins_c, runs_c]) if wins_c > 0 else ((repo.get_ui_text("main_menu", "chassis_record_runs_fmt") % runs_c) if runs_c > 0 else repo.get_ui_text("main_menu", "chassis_record_new"))
 
-		var stats_line: String = "%s  •  %s  •  %s  •  %s" % [
+		var stats_line: String = "%s  •  %s" % [
 			repo.get_ui_text("main_menu", "chassis_hull_fmt") % max_hp,
-			repo.get_ui_text("main_menu", "chassis_gear_fmt") % g_short,
-			repo.get_ui_text("main_menu", "chassis_rpm_fmt") % start_rpm,
-			repo.get_ui_text("main_menu", "chassis_scrap_fmt") % start_scrap
-		]
-		var kit_line: String = "%s%s  |  %s%s" % [
-			repo.get_ui_text("main_menu", "chassis_relic_prefix"),
-			relic_name,
-			repo.get_ui_text("main_menu", "chassis_canister_prefix"),
-			cons_name
+			repo.get_ui_text("main_menu", "chassis_gear_fmt") % g_short
 		]
 		var accent: Color = col_play if ci == 0 else (col_sel if ci == 1 else col_shield)
 		var is_selected: bool = (pid == selected_chassis_id)
@@ -485,10 +472,9 @@ func _build_chassis_view() -> void:
 			str(ci + 1),
 			pid,
 			pname,
+			role_txt,
 			rec_str,
 			stats_line,
-			kit_line,
-			pdesc,
 			accent,
 			is_selected,
 			start_g
@@ -498,8 +484,9 @@ func _build_chassis_view() -> void:
 	launch_row.add_theme_constant_override("separation", 10)
 	body_host.add_child(launch_row)
 
+	var sel_name: String = str(engine.get_chassis_preset(selected_chassis_id).get("name", selected_chassis_id))
 	var launch_title: String = repo.get_ui_text("main_menu", "btn_launch_guided" if guided_tour_requested else "btn_launch_chassis")
-	var launch_sub: String = repo.get_ui_text("main_menu", "btn_launch_guided_sub" if guided_tour_requested else "btn_launch_chassis_sub")
+	var launch_sub: String = repo.get_ui_text("main_menu", "btn_launch_guided_sub" if guided_tour_requested else "btn_launch_chassis_sub") % sel_name
 	_add_action_plate(
 		"ENTER",
 		launch_title,
@@ -789,10 +776,9 @@ func _add_chassis_plate(
 	shortcut_txt: String,
 	cid: String,
 	title_txt: String,
+	role_txt: String,
 	record_txt: String,
 	stats_txt: String,
-	kit_txt: String,
-	desc_txt: String,
 	accent: Color,
 	is_selected: bool,
 	start_gear: int
@@ -800,7 +786,7 @@ func _add_chassis_plate(
 	var btn: Button = Button.new()
 	btn.focus_mode = Control.FOCUS_NONE
 	btn.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	btn.custom_minimum_size = Vector2(0.0, 108.0)
+	btn.custom_minimum_size = Vector2(0.0, 76.0)
 	btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 
 	var col_bg: Color = repo.get_palette_color("mfd_panel_bg")
@@ -870,27 +856,73 @@ func _add_chassis_plate(
 		repo,
 		"display"
 	)
-	name_lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	name_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	top_row.add_child(name_lbl)
 
-	var rec_lbl: Label = DiegeticScreenFactory.make_crisp_label(
-		record_txt,
-		13,
-		accent.lightened(0.24),
-		HORIZONTAL_ALIGNMENT_RIGHT,
-		false,
-		2,
-		repo,
-		"mono"
-	)
-	rec_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	top_row.add_child(rec_lbl)
+	if not role_txt.is_empty():
+		var role_badge: PanelContainer = PanelContainer.new()
+		role_badge.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		role_badge.add_theme_stylebox_override(
+			"panel",
+			DiegeticScreenFactory.make_panel_style(Color(accent.r * 0.22, accent.g * 0.22, accent.b * 0.22, 0.92), accent * 0.85, 1, 3, 8.0, 2.0)
+		)
+		top_row.add_child(role_badge)
+		var role_lbl: Label = DiegeticScreenFactory.make_crisp_label(
+			role_txt,
+			13,
+			accent.lightened(0.32),
+			HORIZONTAL_ALIGNMENT_CENTER,
+			false,
+			2,
+			repo,
+			"mono"
+		)
+		role_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		role_badge.add_child(role_lbl)
+
+	var spacer_r: Control = Control.new()
+	spacer_r.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	spacer_r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	top_row.add_child(spacer_r)
+
+	if is_selected:
+		var sel_badge: PanelContainer = PanelContainer.new()
+		sel_badge.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		sel_badge.add_theme_stylebox_override(
+			"panel",
+			DiegeticScreenFactory.make_panel_style(Color(accent.r * 0.28, accent.g * 0.28, accent.b * 0.28, 0.95), accent.lightened(0.32), 1, 3, 8.0, 2.0)
+		)
+		top_row.add_child(sel_badge)
+		var sel_lbl: Label = DiegeticScreenFactory.make_crisp_label(
+			repo.get_ui_text("main_menu", "chassis_selected_badge"),
+			12,
+			Color.WHITE,
+			HORIZONTAL_ALIGNMENT_CENTER,
+			false,
+			2,
+			repo,
+			"mono"
+		)
+		sel_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		sel_badge.add_child(sel_lbl)
+	else:
+		var rec_lbl: Label = DiegeticScreenFactory.make_crisp_label(
+			record_txt,
+			13,
+			accent.lightened(0.24),
+			HORIZONTAL_ALIGNMENT_RIGHT,
+			false,
+			2,
+			repo,
+			"mono"
+		)
+		rec_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		top_row.add_child(rec_lbl)
 
 	var st_lbl: Label = DiegeticScreenFactory.make_crisp_label(
 		stats_txt,
 		14,
-		accent.lightened(0.20),
+		repo.get_palette_color("mfd_text") * 0.88,
 		HORIZONTAL_ALIGNMENT_LEFT,
 		false,
 		2,
@@ -899,33 +931,6 @@ func _add_chassis_plate(
 	)
 	st_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	vbox.add_child(st_lbl)
-
-	var kit_lbl: Label = DiegeticScreenFactory.make_crisp_label(
-		kit_txt,
-		13,
-		repo.get_palette_color("mfd_text") * 0.92,
-		HORIZONTAL_ALIGNMENT_LEFT,
-		false,
-		2,
-		repo,
-		"body_bold"
-	)
-	kit_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	vbox.add_child(kit_lbl)
-
-	var desc_lbl: Label = DiegeticScreenFactory.make_crisp_label(
-		desc_txt,
-		13,
-		repo.get_palette_color("mfd_muted").lightened(0.12),
-		HORIZONTAL_ALIGNMENT_LEFT,
-		false,
-		2,
-		repo,
-		"body"
-	)
-	desc_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	desc_lbl.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-	vbox.add_child(desc_lbl)
 
 	var idx: int = action_buttons.size()
 	var select_cb: Callable = func() -> void:
